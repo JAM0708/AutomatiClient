@@ -1,0 +1,51 @@
+<div class = "w3-container w3-blue">
+  <h2>Register for a Automati Account</h2>
+</div>
+
+<!-- Add register form -->
+
+<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
+
+  <p>
+    <label>First Name: </label>
+    <input name = "firstName" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>Last Name: </label>
+    <input name = "lastName" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+   <p>
+    <label>Email: </label>
+    <input name = "email" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>Address: </label>
+    <input name = "address" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>City: </label>
+    <input name = "city" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>State: </label>
+    <input name = "state" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>Zip Code: </label>
+    <input name = "zipcode" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>Password: </label>
+    <input name = "password" type = "password" class = "w3-input" ngModel/>
+  </p>
+
+  <button type = "submit">Add User</button>
+
+</form>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import { UserService } from "../user.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+   @ViewChild('f') slForm: NgForm;
 
-  constructor() { }
+
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
+  onSubmit(form: NgForm) {
+   const values = form.value;
+   const email = values.email;
+   const password = values.password;
+    var user = this.userService.login(email, password);
+    if(user != null) {
+          this.router.navigate(['../profile'], {relativeTo: this.route});
+    }
+    else {
+        this.router.navigate(['/login'], {relativeTo: this.route});
+    }
+      
+  }
 }

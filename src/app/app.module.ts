@@ -8,7 +8,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { FaqComponent } from './faq/faq.component';
 import { OnlineChatComponent } from './online-chat/online-chat.component';
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
-import { RegisterComponent } from './login/register/register.component';
 import { UserCarsComponent } from './profile/user-cars/user-cars.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { AddReviewComponent } from './profile/user-cars/add-review/add-review.component';
@@ -22,6 +21,18 @@ import { ShippingComponent } from './landing-page/start-used/list-cars/car-detai
 import { StartNewComponent } from './landing-page/start-new/start-new.component';
 import { CustomizationStartComponent } from './landing-page/start-new/customization-start/customization-start.component';
 import { CustomizeComponent } from './landing-page/start-new/customization-start/customize/customize.component';
+import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './register/register.component';
+import { Routes, RouterModule } from '@angular/router';
+import { UserService } from "./user.service";
+import { FormsModule } from "@angular/forms";
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
+    {path: 'profile', component: ProfileComponent}
+  ];
 
 @NgModule({
   declarations: [
@@ -32,7 +43,6 @@ import { CustomizeComponent } from './landing-page/start-new/customization-start
     FaqComponent,
     OnlineChatComponent,
     PasswordResetComponent,
-    RegisterComponent,
     UserCarsComponent,
     EditProfileComponent,
     AddReviewComponent,
@@ -45,12 +55,16 @@ import { CustomizeComponent } from './landing-page/start-new/customization-start
     ShippingComponent,
     StartNewComponent,
     CustomizationStartComponent,
-    CustomizeComponent
+    CustomizeComponent,
+    RegisterComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
