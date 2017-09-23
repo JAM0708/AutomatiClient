@@ -1,3 +1,4 @@
+import { UtilsService } from './services/utils.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -61,7 +62,7 @@ import { HttpModule, JsonpModule } from "@angular/http";
     HttpModule,
     JsonpModule 
   ],
-  providers: [UserService],
+  providers: [UserService, UtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

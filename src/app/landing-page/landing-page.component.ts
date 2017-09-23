@@ -1,3 +1,4 @@
+import { UtilsService } from './../services/utils.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
   
-  constructor() { }
+  constructor(private utilsService: UtilsService) { }
 
   ngOnInit() {
+    this.utilsService.setHomeState();
   }
 
 }

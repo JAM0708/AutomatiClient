@@ -1,3 +1,4 @@
+import { FaqComponent } from './faq/faq.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'profile', component: ProfileComponent},
+      {path: 'faq', component: FaqComponent},
       {path: 'new', component: StartNewComponent},
       {path: 'used', component: StartUsedComponent}
     ];
