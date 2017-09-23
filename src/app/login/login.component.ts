@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
-import { UserService } from "../user.service";
+import { UserService } from "../services/user.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
    const values = form.value;
    const email = values.email;
    const password = values.password;
-    var user = this.userService.login(email, password);
+    let user = this.userService.login(email, password);
+    console.log(user);
     if(user != null) {
           this.router.navigate(['../profile'], {relativeTo: this.route});
     }

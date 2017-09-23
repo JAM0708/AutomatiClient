@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -24,15 +25,9 @@ import { CustomizeComponent } from './landing-page/start-new/customization-start
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
-import { UserService } from "./user.service";
-import { FormsModule } from "@angular/forms";
-
-const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
-    {path: 'profile', component: ProfileComponent}
-  ];
+import { UserService } from "./services/user.service";
+import { FormsModule } from "@angular/forms"; 
+import { HttpModule, JsonpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -61,8 +56,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    FormsModule
+    AppRoutingModule,
+    FormsModule,
+    HttpModule,
+    JsonpModule 
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
