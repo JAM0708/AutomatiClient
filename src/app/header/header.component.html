@@ -4,3 +4,9 @@
     <li routerLinkActive="active"><a href = "" routerLink ="/register" >Register</a></li>
   </ul>
 </nav>
+<ng-container *ngIf = "home; else notHome">
+  Hello World!
+</ng-container>
+<ng-template #notFirst>
+  Or Not!
+</ng-template>
