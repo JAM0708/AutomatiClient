@@ -29,6 +29,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserService } from "./services/user.service";
 import { FormsModule } from "@angular/forms"; 
 import { HttpModule, JsonpModule } from "@angular/http";
+import { CarService } from './services/car.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { HttpModule, JsonpModule } from "@angular/http";
     HttpModule,
     JsonpModule 
   ],
-  providers: [UserService, UtilsService],
+  providers: [UserService, UtilsService, CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
