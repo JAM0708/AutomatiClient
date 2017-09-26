@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CarService } from '../../../services/car.service';
 import { Car } from '../../../model/car.model';
 
@@ -7,18 +7,21 @@ import { Car } from '../../../model/car.model';
   templateUrl: './list-cars.component.html',
   styleUrls: ['./list-cars.component.css']
 })
-export class ListCarsComponent implements OnInit {
-
+export class ListCarsComponent implements OnInit, OnChanges{
+  @Input('modelName') modelName: string;
   
   constructor(private carService: CarService) { }
 
   cars: Car[];
-
   
-
   ngOnInit() {
-    this.carService.getCars().then(res => {
+    
+  }
+
+  ngOnChanges() {
+    this.carService.getCarsByModel(this.modelName).then(res => {
       this.cars = res.json();
+      //console.log(this.modelName);
       console.log(this.cars);
     })
   }

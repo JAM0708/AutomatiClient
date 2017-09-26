@@ -1,4 +1,9 @@
 <p>
-  start-used works!
+  Pick By Model
 </p>
-<app-list-cars></app-list-cars>
+<ul>
+  <li><button (click) = "getModel('A3')">A3</button></li>
+  <li><button (click) = "getModel('A4')">A4</button></li>
+  <li><button (click) = "getModel('A5')">A5</button></li>
+</ul>
+<app-list-cars [modelName] = "model"></app-list-cars>
