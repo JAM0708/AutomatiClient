@@ -40,13 +40,17 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8060/AutomaiServer/user/login', {
+    return this.http.post('http://localhost:8060/AutomatiServer/user/login', {
       "email": email,
       "password": password,
     }, options).toPromise().then(res => {
       console.log(res);
       return res;
     })
+  }
+
+  getStates() {
+    return this.http.get('http://localhost:8060/AutomatiServer/user/state').toPromise();
   }
 
   logout() {

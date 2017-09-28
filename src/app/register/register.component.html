@@ -33,7 +33,9 @@
 
   <p>
     <label>State: </label>
-    <input name = "state" type = "text" class = "w3-input" ngModel/>
+    <select name="state" ngModel>
+      <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+    </select>
   </p>
 
   <p>
