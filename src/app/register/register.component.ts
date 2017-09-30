@@ -1,3 +1,4 @@
+import { ZipCode } from './../model/zipcode.model';
 
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../services/user.service';
@@ -16,6 +17,7 @@ import { State } from "../model/state.model";
 export class RegisterComponent implements OnInit {
   @ViewChild('f') slForm: NgForm;
   states: State[];
+  zipcodes: ZipCode[];
   // inject the user service
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
@@ -23,6 +25,14 @@ export class RegisterComponent implements OnInit {
     this.userService.getStates().then(res => {
       this.states = res.json();
     })
+  }
+
+  stateSelect(state) {
+    if(state.name !== undefined) {
+      this.userService.getZipCodes(state.name).then(res => {
+        this.zipcodes = res.json();
+      });
+    } 
   }
 
   onSubmit(form: NgForm) {

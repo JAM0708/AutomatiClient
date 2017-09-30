@@ -7,7 +7,6 @@ import { ZipCode } from "../model/zipcode.model";
 import { Http, Response, RequestOptions, Headers, Jsonp } from '@angular/http';
 
 
-
 @Injectable()
 export class UserService {
 
@@ -44,7 +43,7 @@ export class UserService {
       "email": email,
       "password": password,
     }, options).toPromise().then(res => {
-      console.log(res);
+      localStorage.setItem("token", res.toString());
       return res;
     })
   }
@@ -52,6 +51,10 @@ export class UserService {
   getStates() {
     return this.http.get('http://localhost:8060/AutomatiServer/user/state').toPromise();
   }
+
+   getZipCodes(stateName: string) {
+     return this.http.get('http://localhost:8060/AutomatiServer/user/zipcode?state=').toPromise();
+    }
 
   logout() {
     localStorage.removeItem("user");

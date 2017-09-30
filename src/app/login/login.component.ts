@@ -21,9 +21,8 @@ export class LoginComponent implements OnInit {
    const values = form.value;
    const email = values.email;
    const password = values.password;
-    let user = this.userService.login(email, password);
-    console.log(user);
-    if(user != null) {
+    let token = this.userService.login(email, password);
+    if(token != null) {
           this.router.navigate(['../profile'], {relativeTo: this.route});
     }
     else {
