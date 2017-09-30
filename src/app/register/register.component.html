@@ -2,7 +2,7 @@
   <h2>Register for a Automati Account</h2>
 </div>
 
-<!-- Add register form -->
+<div class="register-form-background">
 
 <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
 
@@ -23,7 +23,7 @@
 
   <p>
     <label>Address: </label>
-    <input name = "address" type = "text" class = "w3-input" ngModel/>
+    <input name = "street" type = "text" class = "w3-input" ngModel/>
   </p>
 
   <p>
@@ -33,19 +33,26 @@
 
   <p>
     <label>State: </label>
-    <input name = "state" type = "text" class = "w3-input" ngModel/>
+    <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
+      <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+    </select>
   </p>
-
+  <div *ngIf="zipcodes !== undefined; else ChoseState">
   <p>
     <label>Zip Code: </label>
-    <input name = "zipcode" type = "text" class = "w3-input" ngModel/>
+    <select name="zipcode" ngModel>
+      <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
+    </select>
   </p>
-
+  </div>
+  <ng-template #ChoseState>Please chose a state</ng-template>
   <p>
     <label>Password: </label>
     <input name = "password" type = "password" class = "w3-input" ngModel/>
   </p>
 
-  <button type = "submit">Add User</button>
+  <button type = "submit">Register</button>
 
 </form>
+
+</div>

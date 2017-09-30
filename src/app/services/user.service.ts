@@ -7,7 +7,6 @@ import { ZipCode } from "../model/zipcode.model";
 import { Http, Response, RequestOptions, Headers, Jsonp } from '@angular/http';
 
 
-
 @Injectable()
 export class UserService {
 
@@ -22,9 +21,9 @@ export class UserService {
     let options = new RequestOptions({ headers: headers });
    // this.users.push(user);
    // console.log(user);
-
+   console.log(user);
     //add user
-    this.http.post('http://localhost:8060/AutomatiServer/user/register', {
+  return  this.http.post('http://localhost:8060/AutomatiServer/user/register', {
     "firstName": user.firstName,
     "lastName": user.lastName, 
     "email": user.email, 
@@ -32,22 +31,30 @@ export class UserService {
     "city": user.city,
     "password": user.password,
     "state": {"name": user.state.name},
-    "role": {"role": user.role.name}, 
-    }, options).subscribe((response: Response) => {console.log(response)})
+    "role": {"name": user.role.name}, 
+    }, options).toPromise();
   }
 
   login(email: string, password: string) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8060/AutomaiServer/user/login', {
+    return this.http.post('http://localhost:8060/AutomatiServer/user/login', {
       "email": email,
       "password": password,
     }, options).toPromise().then(res => {
-      console.log(res);
+      localStorage.setItem("token", res.toString());
       return res;
     })
   }
+
+  getStates() {
+    return this.http.get('http://localhost:8060/AutomatiServer/user/state').toPromise();
+  }
+
+   getZipCodes(stateName: string) {
+     return this.http.get('http://localhost:8060/AutomatiServer/user/zipcode?state=' + stateName).toPromise();
+    }
 
   logout() {
     localStorage.removeItem("user");
