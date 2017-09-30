@@ -23,7 +23,7 @@
 
   <p>
     <label>Address: </label>
-    <input name = "address" type = "text" class = "w3-input" ngModel/>
+    <input name = "street" type = "text" class = "w3-input" ngModel/>
   </p>
 
   <p>
@@ -33,7 +33,7 @@
 
   <p>
     <label>State: </label>
-    <select name="state" (change)="stateSelect($event.target.value)" ngModel>
+    <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
       <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
     </select>
   </p>

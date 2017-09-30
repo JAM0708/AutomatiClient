@@ -21,9 +21,9 @@ export class UserService {
     let options = new RequestOptions({ headers: headers });
    // this.users.push(user);
    // console.log(user);
-
+   console.log(user);
     //add user
-    this.http.post('http://localhost:8060/AutomatiServer/user/register', {
+  return  this.http.post('http://localhost:8060/AutomatiServer/user/register', {
     "firstName": user.firstName,
     "lastName": user.lastName, 
     "email": user.email, 
@@ -31,8 +31,8 @@ export class UserService {
     "city": user.city,
     "password": user.password,
     "state": {"name": user.state.name},
-    "role": {"role": user.role.name}, 
-    }, options).subscribe((response: Response) => {console.log(response)})
+    "role": {"name": user.role.name}, 
+    }, options).toPromise();
   }
 
   login(email: string, password: string) {
@@ -53,7 +53,7 @@ export class UserService {
   }
 
    getZipCodes(stateName: string) {
-     return this.http.get('http://localhost:8060/AutomatiServer/user/zipcode?state=').toPromise();
+     return this.http.get('http://localhost:8060/AutomatiServer/user/zipcode?state=' + stateName).toPromise();
     }
 
   logout() {

@@ -30,6 +30,10 @@ import { UserService } from "./services/user.service";
 import { FormsModule } from "@angular/forms"; 
 import { HttpModule, JsonpModule } from "@angular/http";
 import { CarService } from './services/car.service';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import	{MdDialogModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -54,16 +58,22 @@ import { CarService } from './services/car.service';
     CustomizationStartComponent,
     CustomizeComponent,
     RegisterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmDialogComponent
+  ],
+  entryComponents: [
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    JsonpModule 
+    JsonpModule,
+    BrowserAnimationsModule,
+    MdDialogModule
   ],
-  providers: [UserService, UtilsService, CarService],
+  providers: [UserService, UtilsService, CarService, MdDialogModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
