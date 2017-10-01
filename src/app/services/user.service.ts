@@ -1,3 +1,4 @@
+import { TokenService } from './token.service';
 import 'rxjs/Rx';
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
@@ -41,11 +42,8 @@ export class UserService {
 
     return this.http.post('http://localhost:8060/AutomatiServer/user/login', {
       "email": email,
-      "password": password,
-    }, options).toPromise().then(res => {
-      localStorage.setItem("token", res.toString());
-      return res;
-    })
+      "password": password
+    }, options).toPromise();
   }
 
   getStates() {
