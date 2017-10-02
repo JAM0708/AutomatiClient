@@ -1,3 +1,8 @@
-<p>
-  profile works!
-</p>
+<h3 align = "right">Email: {{user.email}}</h3>
+<h2> Welcome: {{user.firstName}} {{user.lastName}}</h2>
+<ul>
+  User's Information:
+  <li>Address: {{user.street}}</li>
+  <li>State: {{user.state.name}}</li> 
+</ul>
+<a style = "float: right" href = "" routerLink = "/editProfile" >Edit Profile</a>

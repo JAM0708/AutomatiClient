@@ -11,7 +11,8 @@ import { TokenService } from "../services/token.service";
 })
 export class LoginComponent implements OnInit {
    @ViewChild('f') slForm: NgForm;
-
+   decide: string;
+   
 
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService) { }
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
    const values = form.value;
    const email = values.email;
    const password = values.password;
+
    this.userService.login(email, password).then(res => {
     this.tokenService.setJwtInfo(res.json().jwt);
     console.log(this.tokenService.getJwt());
@@ -30,7 +32,6 @@ export class LoginComponent implements OnInit {
     } else {
 
     }
-   });
-      
+   });     
   }
 }

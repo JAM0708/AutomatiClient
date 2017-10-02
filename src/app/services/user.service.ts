@@ -42,8 +42,13 @@ export class UserService {
 
     return this.http.post('http://localhost:8060/AutomatiServer/user/login', {
       "email": email,
-      "password": password
+       "password": password
     }, options).toPromise();
+  }
+
+  getUser(email: string) {
+    console.log(email);
+    return this.http.get('http://localhost:8060/AutomatiServer/user/userEmail?email=' + email).toPromise();
   }
 
   getStates() {
