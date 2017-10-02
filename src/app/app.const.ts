@@ -1,4 +1,4 @@
 
 export const ConstVariables = Object.freeze({
-    DEFAULT_ROLE: 'customer'
+    DEFAULT_ROLE: 'user'
 });

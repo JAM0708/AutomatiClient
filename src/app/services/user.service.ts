@@ -44,8 +44,15 @@ export class UserService {
       "password": password,
     }, options).toPromise().then(res => {
       localStorage.setItem("token", res.toString());
+      localStorage.setItem("decide", res.text());
+      console.log(res.text());
       return res;
     })
+  } 
+
+  getUser(email: string) {
+    console.log(email);
+    return this.http.get('http://localhost:8060/AutomatiServer/user/userEmail?email=' + email).toPromise();
   }
 
   getStates() {

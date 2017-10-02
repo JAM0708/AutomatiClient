@@ -10,7 +10,8 @@ import { NgForm } from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
    @ViewChild('f') slForm: NgForm;
-
+   decide: string;
+   
 
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
@@ -22,12 +23,22 @@ export class LoginComponent implements OnInit {
    const email = values.email;
    const password = values.password;
     let token = this.userService.login(email, password);
+    this.decide = localStorage.getItem('decide');
+   // console.log(this.decide);
+    if(this.decide === 'No User Found') {
+      this.router.navigate(['/login'], {relativeTo: this.route});
+    }
+    else {
+      this.router.navigate(['../profile'], {relativeTo: this.route});      
+    }
+    /*
     if(token != null) {
           this.router.navigate(['../profile'], {relativeTo: this.route});
     }
     else {
         this.router.navigate(['/login'], {relativeTo: this.route});
     }
+    */
       
   }
 }
