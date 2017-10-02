@@ -1,3 +1,4 @@
+import { TokenAuthGuard } from './token-auth.guard';
 import { FaqComponent } from './faq/faq.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,11 +12,11 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    {path: 'home', component: LandingPageComponent},
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    {path: 'home', canActivate: [TokenAuthGuard], component: LandingPageComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'profile', component: ProfileComponent},
+      {path: 'profile',canActivate: [TokenAuthGuard], component: ProfileComponent},
       {path: 'faq', component: FaqComponent},
       {path: 'new', component: StartNewComponent},
       {path: 'used', component: StartUsedComponent},

@@ -1,3 +1,6 @@
+import { TokenAuthGuard } from './token-auth.guard';
+import { JwtHelper } from 'angular2-jwt';
+import { TokenService } from './services/token.service';
 import { UtilsService } from './services/utils.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +36,6 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import	{MdDialogModule} from '@angular/material';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,7 @@ import	{MdDialogModule} from '@angular/material';
     BrowserAnimationsModule,
     MdDialogModule
   ],
-  providers: [UserService, UtilsService, CarService, MdDialogModule],
+  providers: [UserService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

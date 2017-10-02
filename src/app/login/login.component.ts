@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { UserService } from "../services/user.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
+import { TokenService } from "../services/token.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
    decide: string;
    
 
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService) { }
 
   ngOnInit() {
   }
@@ -22,23 +23,15 @@ export class LoginComponent implements OnInit {
    const values = form.value;
    const email = values.email;
    const password = values.password;
-    let token = this.userService.login(email, password);
-    this.decide = localStorage.getItem('decide');
-   // console.log(this.decide);
-    if(this.decide === 'No User Found') {
-      this.router.navigate(['/login'], {relativeTo: this.route});
+
+   this.userService.login(email, password).then(res => {
+    this.tokenService.setJwtInfo(res.json().jwt);
+    console.log(this.tokenService.getJwt());
+    if(this.tokenService.getJwt() != "No User Found") {
+      this.router.navigate(['../home']);
+    } else {
+
     }
-    else {
-      this.router.navigate(['../profile'], {relativeTo: this.route});      
-    }
-    /*
-    if(token != null) {
-          this.router.navigate(['../profile'], {relativeTo: this.route});
-    }
-    else {
-        this.router.navigate(['/login'], {relativeTo: this.route});
-    }
-    */
-      
+   });     
   }
 }
