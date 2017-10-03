@@ -36,6 +36,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import	{MdDialogModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,

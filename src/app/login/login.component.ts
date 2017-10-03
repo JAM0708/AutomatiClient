@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.tokenService.setJwtInfo(res.json().jwt);
     console.log(this.tokenService.getJwt());
     if(this.tokenService.getJwt() != "No User Found") {
-      this.router.navigate(['../home']);
+      this.router.navigate(['../home'], {relativeTo: this.route});
     } else {
 
     }
