@@ -1,13 +1,13 @@
 <nav id = "head">
   <ul>
 <div *ngIf = "home; else notHome">
-        <li routerLinkActive="active"><a href = "" routerLink = "/home" >Home</a></li> |
-    <li routerLinkActive="active"><a href = "" routerLink = "/profile" >Profile</a></li> |
-    <li routerLinkActive="active"><a href = "" routerLink ="/faq" >FAQ</a></li>
+        <li routerLinkActive="active"><a routerLink = "/home" >Home</a></li> |
+    <li routerLinkActive="active"><a routerLink = "/profile" >Profile</a></li> |
+    <li routerLinkActive="active"><a routerLink ="/faq" >FAQ</a></li>
 </div>
 <ng-template #notHome>
-    <li routerLinkActive="active"><a href = "" routerLink = "/login" >Login</a></li> |
-    <li routerLinkActive="active"><a href = "" routerLink ="/register" >Register</a></li>
+    <li routerLinkActive="active"><a routerLink = "/login" >Login</a></li> |
+    <li routerLinkActive="active"><a routerLink ="/register" >Register</a></li>
 </ng-template>
 </ul>
 </nav>

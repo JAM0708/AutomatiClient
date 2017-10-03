@@ -26,4 +26,8 @@ export class TokenService {
   getExpDate() {
     return this.expDate;
   }
+
+  getSubject() {
+    return this.decodedToken.sub;
+  }
 }

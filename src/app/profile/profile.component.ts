@@ -1,3 +1,4 @@
+import { TokenService } from './../services/token.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user.model';
 import { UserService } from '../services/user.service';
@@ -11,9 +12,7 @@ export class ProfileComponent implements OnInit {
   //public email: string; 
   public user: User;
 
-  constructor(private userService: UserService) { 
-    //this.email = "moralesjoe12@hotmail.com";
-    //this.getUser();
+  constructor(private userService: UserService, private tokenService:TokenService) { 
   }
 
   getUser(email: string) {
@@ -24,7 +23,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUser("moralesjoe12@hotmail.com");
+    this.getUser(this.tokenService.getSubject());
   }
 
 }

@@ -13,7 +13,7 @@ export class User {
   public role: Role;
 
   constructor(firstName: string, lastName: string, email: string, street: string, city: string,
-              password: string, state: State, role: Role) {
+              password: string, state?: State, role?: Role) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
