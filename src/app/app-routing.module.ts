@@ -1,3 +1,5 @@
+import { CarDetailComponent } from './landing-page/start-used/list-cars/car-detail/car-detail.component';
+import { ListCarsComponent } from './landing-page/start-used/list-cars/list-cars.component';
 import { TokenAuthGuard } from './token-auth.guard';
 import { FaqComponent } from './faq/faq.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -19,7 +21,8 @@ const appRoutes: Routes = [
       {path: 'profile',canActivate: [TokenAuthGuard], component: ProfileComponent},
       {path: 'faq', component: FaqComponent},
       {path: 'new', component: StartNewComponent},
-      {path: 'used', component: StartUsedComponent},
+      {path: 'used', component: StartUsedComponent, 
+      children: [{path: 'list', component: ListCarsComponent }, {path: 'details', component: CarDetailComponent}]},
       {path: 'editProfile', component: EditProfileComponent}
     ];
 

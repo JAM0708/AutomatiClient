@@ -1,3 +1,5 @@
+import { Model } from './../../model/model.model';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CarService } from '../../services/car.service';
@@ -11,12 +13,17 @@ import { Car } from '../../model/car.model';
 export class StartUsedComponent implements OnInit {
 
   public model: string;
-  constructor(private carService: CarService) { }
+  public models: Model[];
+  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.carService.getModels().then(res => {
+      this.models = res.json();
+    })
   }
 
   getModel(model: string) {
     this.model = model;
+    this.router.navigate(["list", {name: model}], {relativeTo: this.route});
   }
 }

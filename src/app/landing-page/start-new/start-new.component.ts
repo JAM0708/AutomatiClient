@@ -1,4 +1,7 @@
+import { Model } from './../../model/model.model';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { CarService } from "../../services/car.service";
 
 @Component({
   selector: 'app-start-new',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartNewComponent implements OnInit {
 
-  constructor() { }
+  private models: Model[];
+  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.carService.getModels().then(res => {
+      this.models = res.json();
+    })
   }
 
 }
