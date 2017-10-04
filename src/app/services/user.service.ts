@@ -24,16 +24,34 @@ export class UserService {
    // console.log(user);
    console.log(user);
     //add user
-  return  this.http.post('http://localhost:8060/AutomatiServer/user/register', {
-    "firstName": user.firstName,
-    "lastName": user.lastName, 
-    "email": user.email, 
-    "street": user.street, 
-    "city": user.city,
-    "password": user.password,
-    "state": {"name": user.state.name},
-    "role": {"name": user.role.name}, 
-    }, options).toPromise();
+  
+      return  this.http.post('http://localhost:8060/AutomatiServer/user/register', {
+      "firstName": user.firstName,
+      "lastName": user.lastName, 
+      "email": user.email, 
+      "street": user.street, 
+      "city": user.city,
+      "password": user.password,
+      "state": {"name": user.state.name},
+      "role": {"name": user.role.name}, 
+      }, options).toPromise(); 
+  }
+
+  updateUser(user: User) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return  this.http.post('http://localhost:8060/AutomatiServer/user/update', {
+      "id": user.id,
+      "firstName": user.firstName,
+      "lastName": user.lastName, 
+      "email": user.email, 
+      "street": user.street, 
+      "city": user.city,
+      "password": user.password,
+      "state": {"name": user.state.name},
+      "role": {"name": user.role.name}, 
+      }, options).toPromise();
   }
 
   login(email: string, password: string) {

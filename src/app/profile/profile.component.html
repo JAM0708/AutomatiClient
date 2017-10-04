@@ -5,4 +5,4 @@
   <li>Address: {{user?.street}}</li>
   <li>State: {{user?.state.name}}</li> 
 </ul>
-<a style = "float: right" href = "" routerLink = "/editProfile" >Edit Profile</a>
+<a style = "float: right" href = "" [routerLink] = "['/editProfile']" [queryParams] = "{email: user?.email}" >Edit Profile</a>

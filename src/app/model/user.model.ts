@@ -11,9 +11,10 @@ export class User {
   public password: string;
   public state: State;
   public role: Role;
+  public id: number;
 
   constructor(firstName: string, lastName: string, email: string, street: string, city: string,
-              password: string, state?: State, role?: Role) {
+              password: string, state?: State, role?: Role, id?: number) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -22,5 +23,6 @@ export class User {
     this.state = state;
     this.role = role;
     this.password = password;
+    this.id = id;
   }
 }
