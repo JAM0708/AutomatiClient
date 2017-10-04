@@ -1,9 +1,7 @@
 <p>
   Pick By Model
 </p>
-<ul>
-  <li><button (click) = "getModel('A3')">A3</button></li>
-  <li><button (click) = "getModel('A4')">A4</button></li>
-  <li><button (click) = "getModel('A5')">A5</button></li>
+<ul *ngFor = "let model of models">
+  <li><button ng-click="getModel(model?.name)">{{ model?.name }}</button></li>
 </ul>
-<router-outlet></router-outlet
+<router-outlet></router-outlet>

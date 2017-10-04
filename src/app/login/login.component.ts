@@ -27,13 +27,14 @@ export class LoginComponent implements OnInit {
    const password = values.password;
 
    this.userService.login(email, password).then(res => {
-    this.tokenService.setJwtInfo(res.json().jwt);
-    if(this.tokenService.getJwt() != "No User Found") {
+    if(res.json().isJWT == true) {
+      this.tokenService.setJwtInfo(res.json().jwt);
       this.router.navigate(['../home'], {relativeTo: this.route});
     } else {
       let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-          width: '40%',
-          height: '40%',
+        width: '40%',
+        height: '20%',
+        position: { top: '10%', left: '25%', right: '25%', bottom: '50%' },
           data: { name: email,  action: "login" }
         });
     }
