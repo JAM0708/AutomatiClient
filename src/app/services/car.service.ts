@@ -22,6 +22,10 @@ export class CarService {
     return this.http.get('http://localhost:8060/AutomatiServer/cars').toPromise();
   }
 
+  getModels() {
+    return this.http.get('http://localhost:8060/AutomatiServer/models').toPromise();
+  }
+
   getCarsByModel(model: string) {
     let token = localStorage.getItem("token");
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
@@ -29,5 +33,9 @@ export class CarService {
     console.log("model name: " + model);
 
     return this.http.get('http://localhost:8060/AutomatiServer/cars/model?model=' + model).toPromise();
+  }
+
+  getCar(id: string) {
+    return this.http.get('http://localhost:8060/AutomatiServer/car?id='+ id).toPromise();
   }
 }
