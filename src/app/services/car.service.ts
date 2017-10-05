@@ -1,3 +1,4 @@
+import { TokenService } from './token.service';
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { User } from "../model/user.model";
@@ -6,7 +7,7 @@ import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 @Injectable()
 export class CarService {
 
-  constructor(private router: Router, private http: Http, private jsonp: Jsonp) {}
+  constructor(private router: Router, private http: Http, private jsonp: Jsonp, private tokenService: TokenService) {}
 
   saveCar() {
 
@@ -28,14 +29,14 @@ export class CarService {
 
   getCarsByModel(model: string) {
     let token = localStorage.getItem("token");
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.tokenService.getJwt() });
     let options = new RequestOptions({ headers: headers });
     console.log("model name: " + model);
 
     return this.http.get('http://localhost:8060/AutomatiServer/cars/model?model=' + model).toPromise();
   }
 
-  getCar(id: string) {
+  getCar(id: number) {
     return this.http.get('http://localhost:8060/AutomatiServer/car?id='+ id).toPromise();
   }
 }
