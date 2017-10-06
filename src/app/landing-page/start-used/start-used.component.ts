@@ -24,6 +24,7 @@ export class StartUsedComponent implements OnInit {
 
   getModel(model: string) {
     this.model = model;
+    console.log(model);
     this.router.navigate(["list", {name: model}], {relativeTo: this.route});
   }
 }

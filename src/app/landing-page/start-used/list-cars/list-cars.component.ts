@@ -28,8 +28,8 @@ export class ListCarsComponent implements OnInit {
       );
   }
 
-  viewDetails(car: string) {
-    this.router.navigate(['details', { id: car }])
+  viewDetails(car: number) {
+    this.router.navigate(['../details', { id: car }], {relativeTo: this.route});
   }
 
 }

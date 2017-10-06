@@ -1,4 +1,4 @@
- <ul *ngFor = "let car of cars" ng-click="viewDetails(car?.id)">
+ <ul *ngFor = "let car of cars">
     <li>Year: {{car?.year}}</li>
     <li>Model: {{car?.model.name}}</li>
     <li>Transmission Type: {{car?.transmission.name}}</li>
@@ -6,4 +6,5 @@
     <li>Title: {{car?.condition.title}}</li>
     <li>Mileage: {{car?.condition.mileage}} </li>
     <li>Color: {{car?.color.name}}</li>
+    <button (click)="viewDetails(car?.id)">View Details</button>
 </ul>

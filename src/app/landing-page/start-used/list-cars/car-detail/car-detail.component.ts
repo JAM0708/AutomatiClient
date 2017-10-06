@@ -10,7 +10,7 @@ import { Car } from "../../../../model/car.model";
 })
 export class CarDetailComponent implements OnInit {
 
-  private carId: string;
+  private carId: number;
   private car: Car;
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
 
