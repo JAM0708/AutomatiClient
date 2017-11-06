@@ -10,6 +10,7 @@ import { MdDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 import { ConstVariables } from '../../app.const';
 import { Role } from '../../model/role.model';
+import { TokenService } from '../../services/token.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class EditProfileComponent implements OnInit {
 
   states: State[];
   zipcodes: ZipCode[];
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService) { }
 
   
   getUser(email: string) {
@@ -47,13 +48,10 @@ export class EditProfileComponent implements OnInit {
   }
     
   ngOnInit() {
-    this.sub = this.route.queryParams.subscribe(params => {
-      this.email = params['email'];
-    });
+    this.getUser(this.tokenService.getSubject());
     this.userService.getStates().then(res => {
       this.states = res.json();
     })
-    this.getUser(this.email);
   }
 
   onSubmit(form: NgForm) {

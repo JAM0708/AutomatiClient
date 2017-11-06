@@ -2,12 +2,9 @@
 export class Condition {
     
     public type:string;
-    public title:string;
-    public mileage:number;
 
-    constructor(type: string, title: string, mileage: number) {
+    constructor(type: string) {
         this.type = type;
-        this.title = title;
-        this.mileage = mileage;
+ 
     }
 }

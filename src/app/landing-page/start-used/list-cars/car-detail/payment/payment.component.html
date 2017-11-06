@@ -1,3 +1,28 @@
-<p>
-  payment works!
-</p>
+<div class = "w3-container w3-blue">
+  <h2>Pay your used car</h2>
+</div>
+
+<div class="register-form-background">
+
+<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
+
+  <p>
+    <label>Number: </label>
+    <input name = "number" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>Expiration Date: </label>
+    <input name = "expDate" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <p>
+    <label>CSC: </label>
+    <input name = "csc" type = "text" class = "w3-input" ngModel/>
+  </p>
+
+  <button type = "submit">To Shipping</button>
+
+</form>
+
+</div>

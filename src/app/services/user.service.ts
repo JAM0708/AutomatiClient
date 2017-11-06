@@ -6,6 +6,7 @@ import { User } from "../model/user.model";
 import { State } from "../model/state.model";
 import { ZipCode } from "../model/zipcode.model";
 import { Http, Response, RequestOptions, Headers, Jsonp } from '@angular/http';
+import { CreditCard } from '../model/creditcard.model';
 
 
 @Injectable()
@@ -54,6 +55,10 @@ export class UserService {
       }, options).toPromise();
   }
 
+  getCars(email: string) {
+    return this.http.get('http://localhost:8060/AutomatiServer/cars?email=' + email).toPromise();
+  }
+
   login(email: string, password: string) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -72,6 +77,7 @@ export class UserService {
   getStates() {
     return this.http.get('http://localhost:8060/AutomatiServer/user/state').toPromise();
   }
+  
 
    getZipCodes(stateName: string) {
      return this.http.get('http://localhost:8060/AutomatiServer/user/zipcode?state=' + stateName).toPromise();

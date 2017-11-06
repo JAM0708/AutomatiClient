@@ -1,3 +1,47 @@
-<p>
-  shipping works!
-</p>
+<h2>Enter Shipping Information</h2>
+
+<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
+  
+    <p>
+      <label>First Name: </label>
+      <input name = "firstName" type = "text" class = "w3-input" ngModel = "{{user?.firstName}}"/>
+    </p>
+  
+    <p>
+      <label>Last Name: </label>
+      <input name = "lastName" type = "text" class = "w3-input" ngModel = "{{user?.lastName}}"/>
+    </p>
+  
+    <p>
+      <label>Address: </label>
+      <input name = "street" type = "text" class = "w3-input" ngModel = "{{user?.street}}"/>
+    </p>
+  
+    <p>
+      <label>City: </label>
+      <input name = "city" type = "text" class = "w3-input" ngModel = "{{user?.city}}" />
+    </p>
+  
+    <p>
+      <label>State: </label>
+      <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
+        <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+      </select>
+    </p>
+    <div *ngIf="zipcodes !== undefined; else ChoseState">
+    <p>
+      <label>Zip Code: </label>
+      <select name="zipcode" ngModel>
+        <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
+      </select>
+    </p>
+    </div>
+    <ng-template #ChoseState>Please chose a state</ng-template>
+    <p>
+        <label>Password: </label>
+        <input name = "password" type = "password" class = "w3-input" ngModel = "{{user?.password}}"/>
+    </p>
+
+    <button type = "submit">Add Shipping Address</button>
+  
+  </form>
