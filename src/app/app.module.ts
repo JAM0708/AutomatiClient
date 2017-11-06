@@ -36,6 +36,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import	{MdDialogModule} from '@angular/material';
+import { PaymentService } from './services/payment.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,7 @@ import	{MdDialogModule} from '@angular/material';
     BrowserAnimationsModule,
     MdDialogModule
   ],
-  providers: [UserService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard],
+  providers: [UserService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard, PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

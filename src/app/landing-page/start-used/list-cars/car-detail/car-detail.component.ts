@@ -21,9 +21,14 @@ export class CarDetailComponent implements OnInit {
           this.carId = params['id'];
           this.carService.getCar(this.carId).then(res => {
             this.car = res.json();
+            console.log(res.json());
           });
         }
       );
+    }
+  
+  buyCar() {
+    this.router.navigate(['/payment', { carId: this.carId }], {relativeTo: this.route});    
   }
 
 }

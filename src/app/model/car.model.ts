@@ -11,7 +11,9 @@ import { Transmission } from "./transmission.model";
 
 export class Car {
   public price: number;
-  public carYear: number;
+  public title: string;
+  public mileage: number;
+  public year: number;
   public color: Color;  
   public condition: Condition;
   public epa: Epa;
@@ -19,13 +21,21 @@ export class Car {
   public model: Model;
   public person: User;
   public transmission: Transmission;
+  public id: number;
 
   constructor (price: number, 
     year: number,
      color: Color,
-     cond: Condition, epa: Epa, lease: Lease, model: Model, person: User, transmission: Transmission) {
+     cond: Condition, 
+     epa: Epa, 
+     lease: Lease,
+    model: Model,
+     person: User, transmission: Transmission,
+    title: string,
+    mileage:number,
+    id?: number) {
         this.price = price;
-        this.carYear = year;
+        this.year = year;
         this.color = color;
         this.condition = cond;
         this.epa = epa;
@@ -33,6 +43,9 @@ export class Car {
         this.model = model;
         this.person = person;
         this.transmission = transmission;
+        this.title = title;
+        this.mileage = mileage;
+        this.id = id;
   }
 
   

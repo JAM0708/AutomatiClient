@@ -11,6 +11,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { StartNewComponent } from './landing-page/start-new/start-new.component';
 import { StartUsedComponent } from './landing-page/start-used/start-used.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { PaymentComponent } from './landing-page/start-used/list-cars/car-detail/payment/payment.component';
+import { ShippingComponent } from './landing-page/start-used/list-cars/car-detail/shipping/shipping.component';
+import { BuyCarComponent } from './landing-page/start-used/list-cars/car-detail/buy-car/buy-car.component';
 
 
 const appRoutes: Routes = [
@@ -23,7 +26,10 @@ const appRoutes: Routes = [
       {path: 'new', component: StartNewComponent},
       {path: 'used', component: StartUsedComponent, 
       children: [{path: 'list', component: ListCarsComponent }, {path: 'details', component: CarDetailComponent}]},
-      {path: 'editProfile', component: EditProfileComponent}
+      {path: 'editProfile', component: EditProfileComponent},
+      {path: 'payment', component: PaymentComponent},
+      {path: 'shipping', component: ShippingComponent},
+      {path: 'buyCar', component: BuyCarComponent}
     ];
 
 
