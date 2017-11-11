@@ -7,6 +7,7 @@ import { State } from "../model/state.model";
 import { ZipCode } from "../model/zipcode.model";
 import { Http, Response, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { CreditCard } from '../model/creditcard.model';
+import { Shipping } from '../model/shipping.model';
 
 
 @Injectable()
@@ -52,6 +53,20 @@ export class UserService {
       "password": user.password,
       "state": {"name": user.state.name},
       "role": {"name": user.role.name}, 
+      }, options).toPromise();
+  }
+
+  saveShipping(shipping: Shipping) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return  this.http.post('http://localhost:8060/AutomatiServer/user/updateShipping', {
+      "firstName": shipping.firstName,
+      "lastName": shipping.lastName, 
+      "street": shipping.street, 
+      "city": shipping.city,
+      "state": {"name": shipping.state.name},
+      "person": {"email": shipping.user.email}
       }, options).toPromise();
   }
 

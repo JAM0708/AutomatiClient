@@ -15,7 +15,7 @@ export class PaymentService {
     let options = new RequestOptions({ headers: headers });
 
     console.log(creditCard.user.email);
-    return  this.http.post('http://localhost:8060/AutomatiServer/user/creditCard', {
+    return  this.http.post('http://localhost:8060/AutomatiServer/creditCard', {
       "number": creditCard.number,
       "expDate": creditCard.expDate,
       "csc": creditCard.csc, 

@@ -4,22 +4,22 @@
   
     <p>
       <label>First Name: </label>
-      <input name = "firstName" type = "text" class = "w3-input" ngModel = "{{user?.firstName}}"/>
+      <input name = "firstName" type = "text" class = "w3-input" ngModel/>
     </p>
   
     <p>
       <label>Last Name: </label>
-      <input name = "lastName" type = "text" class = "w3-input" ngModel = "{{user?.lastName}}"/>
+      <input name = "lastName" type = "text" class = "w3-input" ngModel/>
     </p>
   
     <p>
-      <label>Address: </label>
-      <input name = "street" type = "text" class = "w3-input" ngModel = "{{user?.street}}"/>
+      <label>Street: </label>
+      <input name = "street" type = "text" class = "w3-input" ngModel/>
     </p>
   
     <p>
       <label>City: </label>
-      <input name = "city" type = "text" class = "w3-input" ngModel = "{{user?.city}}" />
+      <input name = "city" type = "text" class = "w3-input" ngModel/>
     </p>
   
     <p>
@@ -37,10 +37,6 @@
     </p>
     </div>
     <ng-template #ChoseState>Please chose a state</ng-template>
-    <p>
-        <label>Password: </label>
-        <input name = "password" type = "password" class = "w3-input" ngModel = "{{user?.password}}"/>
-    </p>
 
     <button type = "submit">Add Shipping Address</button>
   

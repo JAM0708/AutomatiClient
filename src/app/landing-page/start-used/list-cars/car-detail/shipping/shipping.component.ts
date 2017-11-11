@@ -12,6 +12,7 @@ import { Role } from '../../../../../model/role.model';
 import { ConstVariables } from '../../../../../app.const';
 import { CarService } from '../../../../../services/car.service';
 import { Car } from '../../../../../model/car.model';
+import { Shipping } from '../../../../../model/shipping.model';
 
 @Component({
   selector: 'app-shipping',
@@ -69,11 +70,10 @@ export class ShippingComponent implements OnInit {
   onSubmit(form: NgForm) {
     const value = form.value;
 
-    console.log(value.state);
-    console.log(value.zipcode);
-    const newUser = new User(value.firstName, value.lastName,this.user.email, value.street, value.city, value.password, new State(value.state.id, value.state.name), new Role(1, ConstVariables.DEFAULT_ROLE), this.user.id);
-    console.log(this.user);
-    this.userService.updateUser(newUser).then(res => {
+   
+    const newShippingAddr = new Shipping(value.firstName, value.lastName, value.street, value.city, 
+      new State(value.state.id, value.state.name), this.user);
+    this.userService.saveShipping(newShippingAddr).then(res => {
      // if(res.json().passed) {
       this.router.navigate(['/buyCar', { carId: this.carId }], {relativeTo: this.route});                    
       //} 
