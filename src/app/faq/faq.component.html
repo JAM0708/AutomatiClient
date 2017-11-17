@@ -1,3 +1,9 @@
-<p>
-  faq works!
-</p>
+<h2>Frequently Asked Questions: </h2>
+
+<ul *ngFor = "let faq of faqs">
+  <li>Question: {{faq?.question}}
+    <ul>
+      <li>Answer: {{faq?.answer}}</li>
+    </ul>
+  </li>
+</ul>
