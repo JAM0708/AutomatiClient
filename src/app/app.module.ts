@@ -37,6 +37,7 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import	{MdDialogModule} from '@angular/material';
 import { PaymentService } from './services/payment.service';
+import { FaqService } from './services/faq.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,7 @@ import { PaymentService } from './services/payment.service';
     BrowserAnimationsModule,
     MdDialogModule
   ],
-  providers: [UserService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard, PaymentService],
+  providers: [UserService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard, PaymentService, FaqService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
