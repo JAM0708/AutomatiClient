@@ -8,7 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.comp.css",
+    "compress:css": "node-sass src/css/style.comp.css src/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass compress:css"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +47,8 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.7.1",
+    "npm-run-all": "^4.1.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",

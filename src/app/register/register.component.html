@@ -1,58 +1,55 @@
-<div class = "w3-container w3-blue">
-  <h2>Register for a Automati Account</h2>
-</div>
-
-<div class="register-form-background">
-
-<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
-
-  <p>
-    <label>First Name: </label>
-    <input name = "firstName" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-  <p>
-    <label>Last Name: </label>
-    <input name = "lastName" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-   <p>
-    <label>Email: </label>
-    <input name = "email" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-  <p>
-    <label>Address: </label>
-    <input name = "street" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-  <p>
-    <label>City: </label>
-    <input name = "city" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-  <p>
-    <label>State: </label>
-    <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
+<div class="register" id="register--main">
+<div class="register__form-box">
+    <div class="register__header-box">
+    <h2 class="register__header-text">Register for a Automati Account</h2>
+    </div>
+<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class="register__form">
+    <div class="register__element">
+    <label class="register__label">First Name: </label>
+    <input name = "firstName" type = "text" class = "register__input" ngModel/>
+    </div>
+    <div class="register__element"> 
+    <label class="register__label">Last Name: </label>
+    <input name = "lastName" type = "text" class = "register__input" ngModel/>
+    </div>
+    <div class="register__element">
+    <label class="register__label">Email: </label>
+    <input name = "email" type = "text" class = "register__input" ngModel/>
+    </div>
+    <div class="register__element">
+    <label class="register__label">Address: </label>
+    <input name = "street" type = "text" class = "register__input" ngModel/>
+    </div>
+    <div class="register__element">
+    <label class="register__label">City: </label>
+    <input name = "city" type = "text" class = "register__input" ngModel/>
+    </div>
+    <div class="register__element">
+    <label class="register__label">State: </label>
+    <select name="state" (ngModelChange)="stateSelect($event)" ngModel class="register__select">
       <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
     </select>
-  </p>
-  <div *ngIf="zipcodes !== undefined; else ChoseState">
-  <p>
-    <label>Zip Code: </label>
-    <select name="zipcode" ngModel>
+    </div>
+  <div *ngIf="zipcodes !== undefined; else ChoseState" class="register__element">
+    <label class="register__label">Zip Code: </label>
+    <select name="zipcode" ngModel class="register__select">
       <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
     </select>
-  </p>
   </div>
-  <ng-template #ChoseState>Please chose a state</ng-template>
-  <p>
-    <label>Password: </label>
-    <input name = "password" type = "password" class = "w3-input" ngModel/>
-  </p>
-
-  <button type = "submit">Register</button>
-
+  <ng-template #ChoseState > 
+    <div class="register__element">
+      <label class="register__label">
+    Please chose a state
+      </label>
+    </div>
+  </ng-template>
+  <div class="register__element">
+    <label class="register__label">Password: </label>
+    <input name = "password" type = "password" class = "register__input" ngModel/>
+  </div>
+  <div class="register__element">
+  <button type = "submit" class="register__button register__button--green">Register</button>
+  </div>
 </form>
-
+</div>
 </div>

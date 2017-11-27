@@ -1,0 +1,59 @@
+.header {
+    display: block;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 4rem;
+
+    &__nav {
+    text-align: right;
+    padding: 20px;
+    }
+
+    &__elements {
+        background-color: $color-primary-light;
+        text-align: right;
+        display: inline;
+        position: absolute;
+        right: 0;
+        padding: 1rem;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $color-white;
+
+        &:link, &:visited {
+            transition: all .2s;
+
+        }
+
+        &:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba($color-black,.2);
+        }
+    }
+
+    &__items {
+        display: inline-block;
+        font-size: 1rem;
+        background-color: $color-tertiary-light;
+        padding: .5rem 3rem;
+        color: $color-white;
+        border-radius: 1rem;
+
+        &:not(::last-of-type) {
+            margin-right: .5rem;
+        }
+
+        &:link, &:visited {
+            transition: all .2s;
+            
+        }
+
+        &:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba($color-black,.2);
+        }
+    }
+}
