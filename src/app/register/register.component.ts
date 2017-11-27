@@ -14,7 +14,7 @@ import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.compone
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['../../css/style.css'],
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('f') slForm: NgForm;
