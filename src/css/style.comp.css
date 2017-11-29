@@ -123,3 +123,72 @@ html {
     .header__items:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.login {
+  position: relative; }
+  .login#login--main {
+    margin: 0 auto;
+    width: 50rem; }
+  .login__header-text {
+    font-size: 2rem; }
+  .login__header-box {
+    text-align: center;
+    height: 5rem;
+    margin-top: 1rem;
+    color: #fff; }
+  .login__form {
+    height: 40rem;
+    background-color: #2998ff;
+    border: 1rem solid #28b485;
+    width: 70%;
+    margin-left: 4rem;
+    border-radius: 1rem; }
+    .login__form:first-child {
+      margin-top: 1rem; }
+  .login__form-box {
+    background-color: #7ed56f;
+    border: 0.3rem solid #2998ff;
+    margin-top: 1rem;
+    height: 50rem;
+    position: relative; }
+  .login__element {
+    height: 3.5rem; }
+    .login__element:first-of-type {
+      margin-top: 1rem; }
+  .login__label {
+    width: 2rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: #fff; }
+  .login__input {
+    height: 1.5rem;
+    display: block;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin: 0 auto;
+    width: 95%; }
+    .login__input:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid #55c57a; }
+  .login__button {
+    text-transform: uppercase;
+    margin-top: 1rem;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    display: block;
+    border-radius: 10rem;
+    font-size: .8rem;
+    margin: 0 auto;
+    width: 15%; }
+    .login__button--green {
+      background-color: #55c57a;
+      color: #fff; }
+      .login__button--green::after {
+        background-color: #55c57a; }
+    .login__button:link, .login__button:visited {
+      transition: all .2s; }
+    .login__button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }

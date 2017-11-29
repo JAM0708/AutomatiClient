@@ -9,7 +9,7 @@ import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.compone
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['../../css/style.css']
 })
 export class LoginComponent implements OnInit {
    @ViewChild('f') slForm: NgForm;

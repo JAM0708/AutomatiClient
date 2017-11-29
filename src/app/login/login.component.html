@@ -1,21 +1,23 @@
-<div class = "w3-container w3-blue">
-  <h2>Login to your Automati Account</h2>
+<div class = "login" id = "login--main">
+  <div class = "login__form-box">
+      <div class = "login__header-box">
+          <h2 class = "login__header-text">Login to your Automati Account</h2>          
+      </div>
+            
+      <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
+        <div class = "login__element">
+            <label class = "login__label">Email: </label>
+            <input name = "email" type = "text" class = "login__input" ngModel/>
+        </div>
+      
+        <div class = "login__element">
+            <label class = "login__label">Password: </label>
+            <input name = "password" type = "password" class = "login__input" ngModel/>
+        </div>
+        
+        <div class = "login__element">
+            <button class = "login__button login__button--green" type = "submit">Login</button>            
+        </div>
+      </form>
+  </div>
 </div>
-
-<!-- Add login form -->
-
-<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
-
-  <p>
-    <label>Email: </label>
-    <input name = "email" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-  <p>
-    <label>Password: </label>
-    <input name = "password" type = "password" class = "w3-input" ngModel/>
-  </p>
-
-  <button type = "submit">Login</button>
-
-</form>
