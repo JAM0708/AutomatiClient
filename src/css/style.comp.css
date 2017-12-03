@@ -192,3 +192,57 @@ html {
     .login__button:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.lp {
+  position: relative; }
+  .lp#lp--main {
+    margin: 0 auto;
+    width: 50rem; }
+  .lp__header-text {
+    font-size: 2rem; }
+  .lp__header-box {
+    text-align: center;
+    height: 5rem;
+    margin-top: 1rem;
+    color: #5643fa; }
+  .lp__new-box {
+    background-image: url("https://tinyurl.com/ya8zqf4m");
+    border: 0.3rem solid #2998ff;
+    margin-top: 1rem;
+    height: 50rem;
+    float: left;
+    width: 24rem; }
+  .lp__used-box {
+    background-image: url("https://tinyurl.com/y6wxvmeu");
+    background-color: #28b485;
+    border: 0.3rem solid #2998ff;
+    margin-top: 1rem;
+    height: 50rem;
+    float: right;
+    width: 24rem; }
+  .lp__element {
+    height: 3.5rem;
+    text-align: center;
+    vertical-align: middle; }
+    .lp__element:first-of-type {
+      margin-top: 1rem; }
+  .lp__link {
+    text-transform: uppercase;
+    margin-top: 1rem;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    display: block;
+    border-radius: 10rem;
+    font-size: .8rem;
+    margin: 0 auto;
+    width: 15%; }
+    .lp__link--green {
+      background-color: #55c57a;
+      color: #fff; }
+      .lp__link--green::after {
+        background-color: #55c57a; }
+    .lp__link:link, .lp__link:visited {
+      transition: all .2s; }
+    .lp__link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
