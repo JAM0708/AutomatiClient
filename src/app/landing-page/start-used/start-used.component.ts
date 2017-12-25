@@ -8,7 +8,7 @@ import { Car } from '../../model/car.model';
 @Component({
   selector: 'app-start-used',
   templateUrl: './start-used.component.html',
-  styleUrls: ['./start-used.component.css']
+  styleUrls: ['../../../css/style.css']
 })
 export class StartUsedComponent implements OnInit {
 
