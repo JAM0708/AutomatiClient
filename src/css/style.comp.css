@@ -249,10 +249,6 @@ html {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
-.models#lp--main {
-  margin: 0 auto;
-  width: 50rem; }
-
 .models__header-text {
   font-size: 2rem; }
 
@@ -261,12 +257,3 @@ html {
   height: 5rem;
   margin-top: 1rem;
   color: #5643fa; }
-
-.models__list li {
-  display: inline-block;
-  width: 29%;
-  padding: 2%; }
-
-.models__list span {
-  display: block;
-  text-align: center; }

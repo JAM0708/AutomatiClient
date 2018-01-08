@@ -1,6 +1,6 @@
 .models {
     &#lp--main {
-        @include centerBoxElement(50rem);
+       
     }
 
     &__header-text {
@@ -18,18 +18,12 @@
 
     &__list {
         ul {
+            li {
 
-        }
+                img {
+                }
 
-        li {
-            display: inline-block;
-            width: 29%;
-            padding: 2%;
-        }
-
-        span {
-            display: block;
-            text-align: center;
+            }
         }
 
     }

@@ -1,22 +1,57 @@
-<h1>Confirm your order!</h1>
+<h1 align = "center"> CheckOut </h1>
 
-<h2>Car's Info</h2>
-<ul>
-  <li>Year: {{car?.year}}</li>
-  <li>Model: {{car?.model.name}}</li>
-  <li>Transmission Type: {{car?.transmission.name}}</li>
-  <li>Condition: {{car?.condition.type}}</li>
-  <li>Title: {{car?.title}}</li>
-  <li>Mileage: {{car?.mileage}} </li>
-  <li>Color: {{car?.color.name}}</li>
-</ul>
 
-<h1>Shipping Information</h1>
-<ul>
-  <li> Name: {{user?.firstName}} {{user?.lastName}}</li>
-  <li>Address: {{user?.street}}</li>
-  <li>State: {{user?.state?.name}}</li> 
-</ul>
+<table>
+  <tr>
+    <td>
+        <h1>Payment</h1>
+        <app-payment (selectCard) = "cardSelected($event)"></app-payment>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <h1>Shipping</h1>
+        <app-shipping (shpData) = "ship($event)"></app-shipping>
+    </td>
+  </tr>
+  
+</table>
 
+
+
+    <h1>Confirm Order</h1>
+
+    <h3>Payment Info</h3>
+      <ul>
+        <li>Number: {{creditCard?.number}}</li>
+        <li>Exp Date: {{creditCard?.expDate}}</li>
+        <li>CSC: {{creditCard?.csc}}</li>
+      </ul>
+
+      <h3>Shipping's Info</h3>
+      <ul>
+        <li>
+          Name: {{shipping?.firstName}} {{shipping?.lastName}}
+        </li>
+        <li>
+          Address: {{shipping?.street}} {{shipping?.city}} {{shipping?.state.name}}
+        </li>
+
+        
+      </ul>
+
+      <br>
+      Shipping's Id: {{shipping?.id}}
+      
+      <h3>Car's Info</h3>
+      <ul>
+        <li>Year: {{car?.year}}</li>
+        <li>Model: {{car?.model.name}}</li>
+        <li>Transmission Type: {{car?.transmission.name}}</li>
+        <li>Condition: {{car?.condition.type}}</li>
+        <li>Title: {{car?.title}}</li>
+        <li>Mileage: {{car?.mileage}} </li>
+        <li>Color: {{car?.color.name}}</li>
+      </ul>
 
 <button (click)="confirmOrder()">Confirm Order!</button>

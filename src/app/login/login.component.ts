@@ -1,10 +1,10 @@
 import { MdDialog } from '@angular/material';
 import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
-import { UserService } from "../services/user.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { TokenService } from "../services/token.service";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
+import { PersonService } from '../services/person.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
    decide: string;
    
 
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService, public dialog: MdDialog) { }
+  constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService, public dialog: MdDialog) { }
 
   ngOnInit() {
   }
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
    const email = values.email;
    const password = values.password;
 
-   this.userService.login(email, password).then(res => {
+   this.personService.login(email, password).then(res => {
     if(res.json().isJWT == true) {
       this.tokenService.setJwtInfo(res.json().jwt);
       this.router.navigate(['../home'], {relativeTo: this.route});

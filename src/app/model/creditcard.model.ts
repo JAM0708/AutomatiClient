@@ -1,15 +1,18 @@
-import { User } from "./user.model";
+import { Person } from "./person.model";
+
 
 export class CreditCard {
     public number: number;
     public expDate: string;
     public csc: number;
-    public user: User;
+    public person: Person;
+    public id: number;
 
-    constructor(number: number, expDate: string, csc: number, user: User) {
+    constructor(number: number, expDate: string, csc: number, person: Person, id?: number) {
         this.number = number;
         this.expDate = expDate;
         this.csc = csc;
-        this.user = user;
+        this.person = person;
+        this.id = id;
     }
 }

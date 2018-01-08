@@ -28,7 +28,6 @@ import { CustomizeComponent } from './landing-page/start-new/customization-start
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
-import { UserService } from "./services/user.service";
 import { FormsModule } from "@angular/forms"; 
 import { HttpModule, JsonpModule } from "@angular/http";
 import { CarService } from './services/car.service';
@@ -38,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import	{MdDialogModule} from '@angular/material';
 import { PaymentService } from './services/payment.service';
 import { FaqService } from './services/faq.service';
+import { PersonService } from './services/person.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,7 @@ import { FaqService } from './services/faq.service';
     BrowserAnimationsModule,
     MdDialogModule
   ],
-  providers: [UserService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard, PaymentService, FaqService],
+  providers: [PersonService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard, PaymentService, FaqService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

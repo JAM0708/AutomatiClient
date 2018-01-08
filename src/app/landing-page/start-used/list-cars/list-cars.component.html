@@ -1,11 +1,16 @@
- <ul *ngFor = "let car of cars">
-    <li>Year: {{car?.year}}</li>
-    <li>Model: {{car?.model.name}}</li>
-    <li>Transmission Type: {{car?.transmission.name}}</li>
-    <li>Condition: {{car?.condition.type}}</li>
-    <li>Title: {{car?.title}}</li>
-    <li>Mileage: {{car?.mileage}} </li>
-    <li>Color: {{car?.color.name}}</li>
-    <li>Price: ${{car?.price}}</li>
-    <button (click)="viewDetails(car?.id)">View Details</button>
-</ul>
+<h2>List of Models
+</h2>
+<table>
+    <tr *ngFor = "let car of cars">
+        <td>
+            <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" style = "width:400px;height:400px;" />
+        </td>
+        <td>
+            <h2>{{car?.year}} Automati {{car?.model.name | lowercase}}</h2>
+            <p>This will be the car details!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+            
+            <p><button (click)="viewDetails(car?.id)">View Details</button></p>
+        </td>
+    </tr>
+</table>
+

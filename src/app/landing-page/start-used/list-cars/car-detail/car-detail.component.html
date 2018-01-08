@@ -1,11 +1,105 @@
-<ul>
-    <li>Year: {{car?.year}}</li>
-    <li>Model: {{car?.model.name}}</li>
-    <li>Transmission Type: {{car?.transmission.name}}</li>
-    <li>Condition: {{car?.condition.type}}</li>
-    <li>Title: {{car?.title}}</li>
-    <li>Mileage: {{car?.mileage}} </li>
-    <li>Color: {{car?.color.name}}</li>
-    <li>Price: ${{car?.price}}</li>    
-</ul>
-<button (click) = "buyCar()">Buy Car!</button>
+
+<h1 align = "center">Car Details</h1>
+    <img src = "https://tinyurl.com/yde9xag9" alt = "honda civic" />
+        
+            <button (click) = "buyCar()">Buy Car!</button>
+ <table style = "width:100%">
+    <tr>
+        <td>
+            <h3>Year</h3>
+        </td>
+        <td>
+            <h3>{{car?.year}}</h3>
+        </td>
+        <td>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h3>Model</h3>
+        </td>
+        <td>
+            <h3>{{car?.model.name}}</h3>
+        </td>
+        <td>
+            <h3>{{car?.model.description}}</h3>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h3>Transmission</h3>
+        </td>
+        <td>
+            <h3>{{car?.transmission.name}}</h3>
+        </td>
+        <td>
+            <img src = "{{car?.transmission.imgSrc}}" alt = "{{car?.transmission.imgAlt}}" />
+            <p>{{car?.transmission.description}}</p>
+        </td>
+    </tr>
+
+    <tr>
+            <td>
+                <h3>Condition</h3>
+            </td>
+            <td>
+                <h3>{{car?.condition.type}}</h3>
+            </td>
+            <td>
+                <h3>{{car?.condition.description}}</h3>
+            </td>
+    </tr>
+
+    <tr>
+            <td>
+                <h3>Title</h3>
+            </td>
+            <td>
+                <h3>{{car?.title}}</h3>
+            </td>
+            <td>
+                
+            </td>
+    </tr>
+
+    <tr>
+            <td>
+                <h3>Mileage</h3>
+            </td>
+            <td>
+                <h3>{{car?.mileage}}</h3>
+            </td>
+            <td>
+
+            </td>
+    </tr>
+
+    <tr>
+            <td>
+                <h3>Color</h3>
+            </td>
+            <td>
+                <h3>{{car?.color.name}}</h3>
+            </td>
+            <td>
+                <img src = "{{car?.color.imgSrc}}" alt = "{{car?.color.imgAlt}}"/>
+                <p>{{car?.color.description}}</p>
+            </td>
+    </tr>
+
+    <tr>
+            <td>
+                <h3>Price</h3>
+            </td>
+            <td>
+                <h3>${{car?.price}} USD</h3>
+            </td>
+            <td>
+                
+            </td>
+    </tr>
+
+ </table>

@@ -5,8 +5,8 @@ import { Condition } from "./condition.model";
 import { Epa } from "./epa.model";
 import { Lease } from "./lease.model";
 import { Model } from "./model.model";
-import { User } from "./user.model";
 import { Transmission } from "./transmission.model";
+import { Person } from "./person.model";
 
 
 export class Car {
@@ -14,39 +14,40 @@ export class Car {
   public title: string;
   public mileage: number;
   public year: number;
-  public color: Color;  
+  public color: Color;
   public condition: Condition;
   public epa: Epa;
   public lease: Lease;
   public model: Model;
-  public person: User;
+  public person: Person;
   public transmission: Transmission;
   public id: number;
 
-  constructor (price: number, 
+  constructor(price: number,
     year: number,
-     color: Color,
-     cond: Condition, 
-     epa: Epa, 
-     lease: Lease,
+    color: Color,
+    cond: Condition,
+    epa: Epa,
+    lease: Lease,
     model: Model,
-     person: User, transmission: Transmission,
+    person: Person, 
+    transmission: Transmission,
     title: string,
-    mileage:number,
+    mileage: number,
     id?: number) {
-        this.price = price;
-        this.year = year;
-        this.color = color;
-        this.condition = cond;
-        this.epa = epa;
-        this.lease = lease;
-        this.model = model;
-        this.person = person;
-        this.transmission = transmission;
-        this.title = title;
-        this.mileage = mileage;
-        this.id = id;
+    this.price = price;
+    this.year = year;
+    this.color = color;
+    this.condition = cond;
+    this.epa = epa;
+    this.lease = lease;
+    this.model = model;
+    this.person = person;
+    this.transmission = transmission;
+    this.title = title;
+    this.mileage = mileage;
+    this.id = id;
   }
 
-  
+
 }

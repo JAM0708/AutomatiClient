@@ -1,7 +1,6 @@
 import { TokenService } from './token.service';
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { User } from "../model/user.model";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { Car } from '../model/car.model';
 
