@@ -1,7 +1,8 @@
 import { TokenService } from './../services/token.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../model/user.model';
-import { UserService } from '../services/user.service';
+import { Person } from '../model/person.model';
+import { PersonService } from '../services/person.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,14 +11,14 @@ import { UserService } from '../services/user.service';
 })
 export class ProfileComponent implements OnInit {
   //public email: string; 
-  public user: User;
+  public person: Person;
 
-  constructor(private userService: UserService, private tokenService:TokenService) { 
+  constructor(private personService: PersonService, private tokenService:TokenService) { 
   }
 
   getUser(email: string) {
-    this.userService.getUser(email).then(res => {
-      this.user = res.json();
+    this.personService.getPerson(email).then(res => {
+      this.person = res.json();
     });
     
   }

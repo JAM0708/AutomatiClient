@@ -1,7 +1,27 @@
-<p>
-  Pick By Model
-</p>
-<ul *ngFor = "let model of models">
-  <li><button (click)="getModel(model?.name)">{{ model?.name }}</button></li>
-</ul>
-<router-outlet></router-outlet>
+<div class = "models" id = "models--main">
+  <div class = "models__header-box">
+    <h1 class = "models__header-text">Pick By Model</h1>
+  </div>
+  <div class= "models__list">
+
+
+    <table>
+      <tr *ngFor = "let model of models">
+        
+        <td>
+            <img src = "{{model.imgSrc}}" alt = "{{model.imgAlt}}" style = "width:400px;height:400px;"/>  
+        </td>
+        <td>
+          <h3>The {{model?.name | lowercase}}</h3>
+          <p>{{model?.description}}</p>
+        </td>
+        <td>
+            <button (click) = "getModel(model?.name)" style = "width:70px; height:30px;">{{model?.name | lowercase}}</button>
+        </td>
+      </tr>
+    </table>
+    
+  </div>
+</div>
+
+

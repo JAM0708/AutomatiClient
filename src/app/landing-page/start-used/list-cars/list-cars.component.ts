@@ -29,7 +29,7 @@ export class ListCarsComponent implements OnInit {
   }
 
   viewDetails(car: number) {
-    this.router.navigate(['../details', { id: car }], {relativeTo: this.route});
+    this.router.navigate(['/carDetails', { id: car }], {relativeTo: this.route});
   }
 
 }

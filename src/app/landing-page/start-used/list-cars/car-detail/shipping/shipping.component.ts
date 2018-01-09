@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from '../../../../../model/user.model';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { State } from '../../../../../model/state.model';
 import { ZipCode } from '../../../../../model/zipcode.model';
-import { UserService } from '../../../../../services/user.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MdDialog } from '@angular/material';
 import { TokenService } from '../../../../../services/token.service';
@@ -13,6 +11,8 @@ import { ConstVariables } from '../../../../../app.const';
 import { CarService } from '../../../../../services/car.service';
 import { Car } from '../../../../../model/car.model';
 import { Shipping } from '../../../../../model/shipping.model';
+import { Person } from '../../../../../model/person.model';
+import { PersonService } from '../../../../../services/person.service';
 
 @Component({
   selector: 'app-shipping',
@@ -22,27 +22,34 @@ import { Shipping } from '../../../../../model/shipping.model';
 export class ShippingComponent implements OnInit {
 
   @ViewChild('f') slForm: NgForm;
+  @ViewChild('f2') sl2Form: NgForm;
+  @Output() 
+  shpData = new EventEmitter<Shipping>();
   private carId:number;
   private car: Car;
-  public user: User;
+  public person: Person;
   public email: string;
   public sub: Subscription;
+  public shippings: Shipping[];
+  public shipping: Shipping;
 
   states: State[];
   zipcodes: ZipCode[];
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService, private carService: CarService) { }
+  constructor(private personService: PersonService, private route: ActivatedRoute, 
+    private router: Router, public dialog: MdDialog, private tokenService:TokenService, 
+    private carService: CarService) { }
 
   
   getUser(email: string) {
-    this.userService.getUser(email).then(res => {
-      this.user = res.json();
+    this.personService.getPerson(email).then(res => {
+      this.person = res.json();
     });
   }
 
   stateSelect(state) {
     console.log(state);
     if(state.name !== undefined) {
-      this.userService.getZipCodes(state.name).then(res => {
+      this.personService.getZipCodes(state.name).then(res => {
         this.zipcodes = res.json();
         console.log(this.zipcodes);
       });
@@ -51,28 +58,24 @@ export class ShippingComponent implements OnInit {
   }
     
   ngOnInit() {
-    this.route.params
-    .subscribe(
-      (params: Params) => { 
-        this.carId = params['carId'];
-        this.carService.getCar(this.carId).then(res => {
-          this.car = res.json();
-          console.log(res.json());
-        });
-      }
-    );
     this.getUser(this.tokenService.getSubject());
-    this.userService.getStates().then(res => {
+    this.personService.getStates().then(res => {
       this.states = res.json();
+    })
+    
+    this.personService.getShippings(this.tokenService.getSubject()).then(res => {
+      this.shippings = res.json();
     })
   }
 
   onSubmit(form: NgForm) {
     const value = form.value;
-
-   
     const newShippingAddr = new Shipping(value.firstName, value.lastName, value.street, value.city, 
-      new State(value.state.id, value.state.name), this.user);
+      new State(value.state.id, value.state.name), this.person);
+      console.log(newShippingAddr.id);
+    this.shpData.emit(newShippingAddr);
+
+      /*
     this.userService.saveShipping(newShippingAddr).then(res => {
      // if(res.json().passed) {
       this.router.navigate(['/buyCar', { carId: this.carId }], {relativeTo: this.route});                    
@@ -87,9 +90,18 @@ export class ShippingComponent implements OnInit {
         }
       );
      }
-    */
-    console.log(res);
+    
     });
+        */
+
+  }
+
+  onSubmit2(form: NgForm) {
+    const value = form.value;
+    this.personService.getShipping(value.id).then(res => {
+      this.shipping = res.json();
+    })
+    this.shpData.emit(this.shipping);
   }
 
 }

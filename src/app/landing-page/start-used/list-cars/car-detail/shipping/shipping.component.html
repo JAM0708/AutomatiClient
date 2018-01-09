@@ -1,3 +1,43 @@
+<h2>Select Previous Shipping Addresses</h2>
+
+
+<form (ngSubmit) = "onSubmit2(f2)" #f2 = "ngForm">
+  <table>
+    <tr>
+      <th>Select</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+    <tr *ngFor = "let shipping of shippings">
+      
+      <td>
+        <input type = "radio" name = "id" value = "{{shipping?.id}}" ngModel/>
+      </td>
+
+      <td>
+        {{shipping?.firstName}} {{shipping?.lastName}}
+      </td>
+
+      <td>
+        {{shipping?.street}}
+      </td>
+
+      <td>
+        {{shipping?.city}}
+      </td>
+
+      <td>
+        {{shipping?.state.name}}
+      </td>
+    </tr>
+  </table>
+
+  <button type = "submit">Confirm</button>
+
+</form>
+
 <h2>Enter Shipping Information</h2>
 
 <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">

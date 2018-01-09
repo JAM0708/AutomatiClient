@@ -28,7 +28,7 @@ export class CarDetailComponent implements OnInit {
     }
   
   buyCar() {
-    this.router.navigate(['/payment', { carId: this.carId }], {relativeTo: this.route});    
+    this.router.navigate(['/buyCar', { carId: this.carId }], {relativeTo: this.route});    
   }
 
 }

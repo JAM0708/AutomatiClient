@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { UserService } from '../../../../../services/user.service';
 import { MdDialog } from '@angular/material';
 import { TokenService } from '../../../../../services/token.service';
 import { CarService } from '../../../../../services/car.service';
 import { Car } from '../../../../../model/car.model';
-import { User } from '../../../../../model/user.model';
+import { CreditCard } from '../../../../../model/creditcard.model';
+import { Shipping } from '../../../../../model/shipping.model';
+import { PaymentService } from '../../../../../services/payment.service';
+import { PersonService } from '../../../../../services/person.service';
+import { Person } from '../../../../../model/person.model';
 
 @Component({
   selector: 'app-buy-car',
@@ -15,12 +18,15 @@ import { User } from '../../../../../model/user.model';
 export class BuyCarComponent implements OnInit {
   private carId:number;
   private car:Car;
-  private user: User;
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService, private carService: CarService) { }
+  private person: Person;
+  private shipping: Shipping;
+  private creditCard: CreditCard;
+  constructor(private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService, private carService: CarService,
+  private paymentService: PaymentService) { }
   
   getUser(email: string) {
-    this.userService.getUser(email).then(res => {
-      this.user = res.json();
+    this.personService.getPerson(email).then(res => {
+      this.person = res.json();
     });
   }
   ngOnInit() {
@@ -37,9 +43,33 @@ export class BuyCarComponent implements OnInit {
     this.getUser(this.tokenService.getSubject());    
   }
 
-  confirmOrder() {
-    //const newUser = new User(this.user.firstName, this.user.lastName,this.user.email, this.user.street, this.user.city, this.user.password, new State(value.state.id, value.state.name), new Role(1, ConstVariables.DEFAULT_ROLE), this.user.id); 
-    const updateCar = new Car(this.car.price, this.car.year, this.car.color, this.car.condition, this.car.epa, this.car.lease, this.car.model, this.user, this.car.transmission, this.car.title, this.car.mileage); 
+  cardSelected($event) {
+    this.creditCard = $event;
+  }
+
+  ship($event) {
+    this.shipping = $event;
+  }
+
+  confirmOrder() { 
+
+    console.log(this.shipping.id);
+    if(this.shipping.id == undefined) {
+      this.personService.saveShipping(this.shipping);
+    }
+
+    // update or add payment
+    console.log(this.creditCard.id);
+    if(this.creditCard.id == undefined) {
+      this.paymentService.addCard(this.creditCard);
+    }
+    
+    //update car
+    const updateCar = new Car(this.car.price, this.car.year, this.car.color, this.car.condition,
+       this.car.epa, this.car.lease, this.car.model, this.person, this.car.transmission, this.car.title, 
+       this.car.mileage, this.car.id); 
+
+    
     this.carService.updateCar(updateCar).then(res => {
       // if(res.json().passed) {
        this.router.navigate(['/profile']);                    
@@ -58,5 +88,7 @@ export class BuyCarComponent implements OnInit {
      console.log(res);
      });  
   }
+
+  
 
 }

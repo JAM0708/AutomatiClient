@@ -1,0 +1,31 @@
+.models {
+    &#lp--main {
+       
+    }
+
+    &__header-text {
+        font-size: 2rem;
+    }
+
+   
+
+    &__header-box {
+        text-align: center;
+        height: 5rem;
+        margin-top: 1rem;
+        color: $color-tertiary-dark;
+    }
+
+    &__list {
+        ul {
+            li {
+
+                img {
+                }
+
+            }
+        }
+
+    }
+
+}

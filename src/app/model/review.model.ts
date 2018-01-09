@@ -1,15 +1,16 @@
-import { User } from "./user.model";
+import { Person } from "./person.model";
+
 
 export class Review {
     public rating: number;
     public time: Date;
     public description: string;
-    public user: User;
+    public person: Person;
 
-    constructor(rating: number, time: Date, description: string, user: User) {
+    constructor(rating: number, time: Date, description: string, person: Person) {
         this.rating = rating;
         this.time = time;
         this.description = description;
-        this.user = user;
+        this.person = person;
     }
 }

@@ -1,5 +1,5 @@
 import { State } from "./state.model";
-import { User } from "./user.model";
+import { Person } from "./person.model";
 
 export class Shipping  {
     public id: number;
@@ -8,15 +8,15 @@ export class Shipping  {
     public street: String;
     public city: String;
     public state: State;
-    public user: User;
+    public person: Person;
 
-    constructor(firstName: string, lastName: string, street: string, city: string, state?: State, user?: User, id?: number) {
+    constructor(firstName: string, lastName: string, street: string, city: string, state?: State, person?: Person, id?: number) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
         this.city = city;
         this.state = state;
-        this.user = user;
+        this.person = person;
         this.id = id;
     }
 }

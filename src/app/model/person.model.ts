@@ -2,7 +2,7 @@ import { State } from "./state.model";
 import { Role } from "./role.model";
 
 
-export class User {
+export class Person {
   public firstName: string;
   public lastName: string;
   public email: string;  
@@ -12,9 +12,10 @@ export class User {
   public state: State;
   public role: Role;
   public id: number;
+  public balance: number;
 
   constructor(firstName: string, lastName: string, email: string, street: string, city: string,
-              password: string, state?: State, role?: Role, id?: number) {
+              password: string, state?: State, role?: Role, id?: number, balance?: number) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -24,5 +25,6 @@ export class User {
     this.role = role;
     this.password = password;
     this.id = id;
+    this.balance = balance;
   }
 }
