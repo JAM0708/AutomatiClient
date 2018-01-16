@@ -17,7 +17,7 @@ import { PersonService } from '../../../../../services/person.service';
 @Component({
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
-  styleUrls: ['./shipping.component.css']
+  styleUrls: ['../../../../../../css/style.css']
 })
 export class ShippingComponent implements OnInit {
 
@@ -32,13 +32,17 @@ export class ShippingComponent implements OnInit {
   public sub: Subscription;
   public shippings: Shipping[];
   public shipping: Shipping;
-
   states: State[];
   zipcodes: ZipCode[];
+  public show: boolean;
+
   constructor(private personService: PersonService, private route: ActivatedRoute, 
     private router: Router, public dialog: MdDialog, private tokenService:TokenService, 
     private carService: CarService) { }
-
+  
+  showOrHide() {
+    this.show = !this.show;
+  }
   
   getUser(email: string) {
     this.personService.getPerson(email).then(res => {

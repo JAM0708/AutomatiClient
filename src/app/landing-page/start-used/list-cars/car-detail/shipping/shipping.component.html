@@ -1,83 +1,88 @@
-<h2>Select Previous Shipping Addresses</h2>
+<div class = "shipping">
+  <div class = "shipping__header-box">
+    <h2 class = "shipping__header-text">Select Previous Shipping Addresses</h2>
+  </div>
 
-
-<form (ngSubmit) = "onSubmit2(f2)" #f2 = "ngForm">
-  <table>
-    <tr>
-      <th>Select</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-    </tr>
-    <tr *ngFor = "let shipping of shippings">
-      
-      <td>
-        <input type = "radio" name = "id" value = "{{shipping?.id}}" ngModel/>
-      </td>
-
-      <td>
-        {{shipping?.firstName}} {{shipping?.lastName}}
-      </td>
-
-      <td>
-        {{shipping?.street}}
-      </td>
-
-      <td>
-        {{shipping?.city}}
-      </td>
-
-      <td>
-        {{shipping?.state.name}}
-      </td>
-    </tr>
-  </table>
-
-  <button type = "submit">Confirm</button>
-
-</form>
-
-<h2>Enter Shipping Information</h2>
-
-<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
+  <form (ngSubmit) = "onSubmit2(f2)" #f2 = "ngForm" ngNativeValidate>
+    <table>
+      <tr>
+        <th>Select</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+      <tr *ngFor = "let shipping of shippings">
+        
+        <td>
+          <input type = "radio" name = "id" value = "{{shipping?.id}}" ngModel required/>
+        </td>
   
-    <p>
-      <label>First Name: </label>
-      <input name = "firstName" type = "text" class = "w3-input" ngModel/>
-    </p>
+        <td>
+          {{shipping?.firstName}} {{shipping?.lastName}}
+        </td>
   
-    <p>
-      <label>Last Name: </label>
-      <input name = "lastName" type = "text" class = "w3-input" ngModel/>
-    </p>
+        <td>
+          {{shipping?.street}}
+        </td>
   
-    <p>
-      <label>Street: </label>
-      <input name = "street" type = "text" class = "w3-input" ngModel/>
-    </p>
+        <td>
+          {{shipping?.city}}
+        </td>
   
-    <p>
-      <label>City: </label>
-      <input name = "city" type = "text" class = "w3-input" ngModel/>
-    </p>
+        <td>
+          {{shipping?.state.name}}
+        </td>
+      </tr>
+    </table>
   
-    <p>
-      <label>State: </label>
-      <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
-        <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
-      </select>
-    </p>
-    <div *ngIf="zipcodes !== undefined; else ChoseState">
-    <p>
-      <label>Zip Code: </label>
-      <select name="zipcode" ngModel>
-        <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
-      </select>
-    </p>
-    </div>
-    <ng-template #ChoseState>Please chose a state</ng-template>
-
-    <button type = "submit">Add Shipping Address</button>
+    <button type = "submit">Confirm</button>
   
   </form>
+  
+  <br>
+  <br>
+  <br>
+  
+  <button (click) = "showOrHide()">Add Or Hide New Shipping Address</button>
+  
+  
+  <div *ngIf = "show">
+      <h2>Enter Shipping Information</h2>
+  
+      <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" ngNativeValidate>
+           
+        <label>First Name: </label>
+        <input name = "firstName" type = "text" ngModel required/>
+        
+        <label>Last Name: </label>
+        <input name = "lastName" type = "text" ngModel required/>
+          
+        <label>Street: </label>
+        <input name = "street" type = "text" ngModel required/>
+   
+        <label>City: </label>
+        <input name = "city" type = "text"  ngModel required/>
+        
+          
+        <label>State: </label>
+        <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
+          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+        </select>
+          
+        <div *ngIf="zipcodes !== undefined; else ChoseState">
+            <label>Zip Code: </label>
+            <select name="zipcode" ngModel>
+              <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
+            </select>
+          </div>
+          <ng-template #ChoseState>Please chose a state</ng-template>
+          <button type = "submit">Add Shipping Address</button>
+        </form>
+  </div>
+
+</div>
+
+
+
+

@@ -30,6 +30,7 @@ export class CarService {
       "condition": {"type": car.condition.type},
      // "epa": {"mileage": car.epa.mileage},
       "price": car.price,
+      "vin": car.vin,
       "person": {"email": car.person.email}
       }, options).toPromise();
   }

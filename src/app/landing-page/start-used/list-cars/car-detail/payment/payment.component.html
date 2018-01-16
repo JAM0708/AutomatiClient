@@ -1,66 +1,73 @@
-<h2>Saved Cards</h2>
+<div class = "payment">
+    <div class = "payment__header-box">
+        <h2 class = "payment__header-text">Saved Cards</h2>
+    </div>
 
-
-<form (ngSubmit) = "onSubmit2(f2)" #f2 = "ngForm">
-  <table>
-    <tr>
-      <th>Select</th>
-      <th>Credit Card Number</th>
-      <th>Expiration Date</th>
-      <th>CSC</th>
-    </tr>
-    <tr *ngFor = "let creditCard of creditCards">
+    <form (ngSubmit) = "onSubmit2(f2)" #f2 = "ngForm">
+        <table>
+          <tr>
+            <th>Select</th>
+            <th>Credit Card Number</th>
+            <th>Expiration Date</th>
+            <th>CSC</th>
+          </tr>
+          <tr *ngFor = "let creditCard of creditCards">
+            
+            <td>
+              <input type = "radio" name = "card" value = "{{creditCard?.id}}" ngModel/>
+            </td>
       
-      <td>
-        <input type = "radio" name = "card" value = "{{creditCard?.id}}" ngModel/>
-      </td>
-
-      <td>
-        {{creditCard?.number}}
-      </td>
-
-      <td>
-        {{creditCard?.expDate}}
-      </td>
-
-      <td>
-        {{creditCard?.csc}}
-      </td>
-    </tr>
-  </table>
-
-  <button type = "submit">Confirm</button>
-
-</form>
-
-
-
-
-<div class = "w3-container w3-blue">
-  <h2>Enter New Card</h2>
+            <td>
+              {{creditCard?.number}}
+            </td>
+      
+            <td>
+              {{creditCard?.expDate}}
+            </td>
+      
+            <td>
+              {{creditCard?.csc}}
+            </td>
+          </tr>
+        </table>
+      
+        <button type = "submit">Confirm</button>
+      
+      </form>
+      
+      <br>
+      <br>
+      
+      <button (click) = "showOrHide()">Add Or Hide New Card</button>
+      
+      
+        <div *ngIf = "show">
+      
+          <h3>Add New Card</h3>
+            <form (ngSubmit) = "onSubmit(f)" #f = "ngForm">
+      
+                <p>
+                  <label>Number: </label>
+                  <input name = "number" type = "text" ngModel/>
+                </p>
+              
+                <p>
+                  <label>Expiration Date: </label>
+                  <input name = "expDate" type = "text" ngModel/>
+                </p>
+              
+                <p>
+                  <label>CSC: </label>
+                  <input name = "csc" type = "text" ngModel/>
+                </p>
+                
+                <button type = "submit">Add Card</button>
+              
+              </form>
+        </div>
+      
 </div>
 
-<div class="register-form-background">
 
-<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
 
-  <p>
-    <label>Number: </label>
-    <input name = "number" type = "text" class = "w3-input" ngModel/>
-  </p>
 
-  <p>
-    <label>Expiration Date: </label>
-    <input name = "expDate" type = "text" class = "w3-input" ngModel/>
-  </p>
-
-  <p>
-    <label>CSC: </label>
-    <input name = "csc" type = "text" class = "w3-input" ngModel/>
-  </p>
-  
-  <button type = "submit">To Shipping</button>
-
-</form>
-
-</div>

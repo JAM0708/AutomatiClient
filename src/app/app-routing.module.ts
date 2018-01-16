@@ -30,7 +30,7 @@ const appRoutes: Routes = [
       {path: 'editProfile', component: EditProfileComponent},
       {path: 'payment', component: PaymentComponent},
       {path: 'shipping', component: ShippingComponent},
-      {path: 'buyCar', component: BuyCarComponent}
+      {path: 'buyCar', component: BuyCarComponent, canActivate: [TokenAuthGuard]}
     ];
 
 

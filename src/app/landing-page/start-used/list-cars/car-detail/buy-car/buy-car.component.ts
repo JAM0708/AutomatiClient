@@ -13,7 +13,7 @@ import { Person } from '../../../../../model/person.model';
 @Component({
   selector: 'app-buy-car',
   templateUrl: './buy-car.component.html',
-  styleUrls: ['./buy-car.component.css']
+  styleUrls: ['../../../../../../css/style.css']
 })
 export class BuyCarComponent implements OnInit {
   private carId:number;
@@ -67,7 +67,7 @@ export class BuyCarComponent implements OnInit {
     //update car
     const updateCar = new Car(this.car.price, this.car.year, this.car.color, this.car.condition,
        this.car.epa, this.car.lease, this.car.model, this.person, this.car.transmission, this.car.title, 
-       this.car.mileage, this.car.id); 
+       this.car.mileage, this.car.id, this.car.vin); 
 
     
     this.carService.updateCar(updateCar).then(res => {

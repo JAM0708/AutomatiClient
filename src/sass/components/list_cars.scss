@@ -1,0 +1,36 @@
+.list {
+    background-color: $color-grey-dark-2;
+
+    &__header-text {
+        font-size: 2rem;
+    }
+
+    &__header-box {
+        text-align: center;
+        height: 5rem;
+        margin-top: 1rem;
+        color: $color-secondary-dark;
+    }
+
+    table {
+        margin: auto;
+        border-collapse: collapse;
+
+        tr {
+            td {
+                vertical-align: top;
+                border-bottom: 1px solid #ddd;
+                img {
+                    width: 400px;
+                    height: 400px;
+                }
+
+                button {
+                        width: 10rem;
+                        height: 2rem;
+                    }
+                
+            }
+        }
+    }
+}

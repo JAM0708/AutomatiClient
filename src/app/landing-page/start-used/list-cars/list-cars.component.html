@@ -1,16 +1,28 @@
-<h2>List of Models
-</h2>
-<table>
-    <tr *ngFor = "let car of cars">
-        <td>
-            <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" style = "width:400px;height:400px;" />
-        </td>
-        <td>
-            <h2>{{car?.year}} Automati {{car?.model.name | lowercase}}</h2>
-            <p>This will be the car details!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-            
-            <p><button (click)="viewDetails(car?.id)">View Details</button></p>
-        </td>
-    </tr>
-</table>
+<div class = "list">
+
+    <div class = "list__header-box">
+        <h1 class = "list__header-text">List of Models</h1>
+    </div>
+
+    <table>
+        <tr *ngFor = "let car of cars">
+            <td>
+                <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" />
+            </td>
+            <td>
+                <h2>{{car?.year}} Automati {{car?.model.name | lowercase}}</h2>
+                
+                <br>
+                <p>{{car?.model.description}}</p>
+                <br>
+                <br>
+                <button (click)="viewDetails(car?.id)">View Details</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
 

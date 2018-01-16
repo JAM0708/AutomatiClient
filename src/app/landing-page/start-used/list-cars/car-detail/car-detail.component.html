@@ -1,105 +1,47 @@
+<div class = "car-detail">
+    <div class = "car-detail__header-box">
+        <h1 class = "car-detail__header-text">Car Details</h1>
+    </div>
 
-<h1 align = "center">Car Details</h1>
-    <img src = "https://tinyurl.com/yde9xag9" alt = "honda civic" />
+    <h2>{{car?.condition.type}} {{car?.year}} Automati {{car?.model.name}}</h2>
+
+    <h3>Price: ${{car?.price}} USD</h3>
+
+    <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" />
+
+    <table>
+        <tr>
+            <td>
+                <p>Basics</p>
+            </td>
+    
+            <td>
+                <p>Mileage: {{car?.mileage}}</p>
+                <p>Transmission: {{car?.transmission.name}}</p>
+                <p>Title {{car?.title}}</p>
+                <p>Color: {{car?.color.name}}</p>
+            </td>
+    
+            <td>
+                <p>Vin: {{car?.vin}}</p>
+                <p>MPG: EPA</p>
+            </td>
+        </tr>
+     </table>
+
+     <br>
+     <br>
+     
+      <button (click) = "buyCar()">Buy Car!</button>
+
+      <br>
+      <br>
+     
+     
+      <h3>Users' Reviews</h3>
+</div>
+
+
+
         
-            <button (click) = "buyCar()">Buy Car!</button>
- <table style = "width:100%">
-    <tr>
-        <td>
-            <h3>Year</h3>
-        </td>
-        <td>
-            <h3>{{car?.year}}</h3>
-        </td>
-        <td>
-
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <h3>Model</h3>
-        </td>
-        <td>
-            <h3>{{car?.model.name}}</h3>
-        </td>
-        <td>
-            <h3>{{car?.model.description}}</h3>
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <h3>Transmission</h3>
-        </td>
-        <td>
-            <h3>{{car?.transmission.name}}</h3>
-        </td>
-        <td>
-            <img src = "{{car?.transmission.imgSrc}}" alt = "{{car?.transmission.imgAlt}}" />
-            <p>{{car?.transmission.description}}</p>
-        </td>
-    </tr>
-
-    <tr>
-            <td>
-                <h3>Condition</h3>
-            </td>
-            <td>
-                <h3>{{car?.condition.type}}</h3>
-            </td>
-            <td>
-                <h3>{{car?.condition.description}}</h3>
-            </td>
-    </tr>
-
-    <tr>
-            <td>
-                <h3>Title</h3>
-            </td>
-            <td>
-                <h3>{{car?.title}}</h3>
-            </td>
-            <td>
-                
-            </td>
-    </tr>
-
-    <tr>
-            <td>
-                <h3>Mileage</h3>
-            </td>
-            <td>
-                <h3>{{car?.mileage}}</h3>
-            </td>
-            <td>
-
-            </td>
-    </tr>
-
-    <tr>
-            <td>
-                <h3>Color</h3>
-            </td>
-            <td>
-                <h3>{{car?.color.name}}</h3>
-            </td>
-            <td>
-                <img src = "{{car?.color.imgSrc}}" alt = "{{car?.color.imgAlt}}"/>
-                <p>{{car?.color.description}}</p>
-            </td>
-    </tr>
-
-    <tr>
-            <td>
-                <h3>Price</h3>
-            </td>
-            <td>
-                <h3>${{car?.price}} USD</h3>
-            </td>
-            <td>
-                
-            </td>
-    </tr>
-
- </table>
+ 

@@ -22,6 +22,7 @@ export class Car {
   public person: Person;
   public transmission: Transmission;
   public id: number;
+  public vin: string;
 
   constructor(price: number,
     year: number,
@@ -34,7 +35,7 @@ export class Car {
     transmission: Transmission,
     title: string,
     mileage: number,
-    id?: number) {
+    id?: number, vin?: string) {
     this.price = price;
     this.year = year;
     this.color = color;
@@ -47,6 +48,7 @@ export class Car {
     this.title = title;
     this.mileage = mileage;
     this.id = id;
+    this.vin = vin;
   }
 
 
