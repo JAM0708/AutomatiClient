@@ -1,4 +1,7 @@
 .models {
+
+    background-color: $color-grey-dark-2;
+
     &#lp--main {
        
     }
@@ -7,8 +10,6 @@
         font-size: 2rem;
     }
 
-   
-
     &__header-box {
         text-align: center;
         height: 5rem;
@@ -16,16 +17,26 @@
         color: $color-tertiary-dark;
     }
 
-    &__list {
-        ul {
-            li {
+    table {
+        border-collapse: collapse;
+        margin: auto;
 
-                img {
-                }
-
-            }
+        td {
+            vertical-align: top;
+            border-bottom: 1px solid #ddd;
         }
-
     }
 
+
+    &__img {
+        width: 400px;
+        height: 400px;
+    }
+
+    &__but {
+        width: 4.375rem;
+        height: 1.875rem;
+    }
+
+   
 }

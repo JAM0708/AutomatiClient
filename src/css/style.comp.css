@@ -193,67 +193,239 @@ html {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
-.lp {
-  position: relative; }
-  .lp#lp--main {
-    margin: 0 auto;
-    width: 50rem; }
-  .lp__header-text {
+.lp .container {
+  width: 100%;
+  height: 100%;
+  background: #333; }
+
+.lp h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap; }
+
+.lp .button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  height: 2.5rem;
+  padding-top: 1.3rem;
+  width: 15rem;
+  text-align: center;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%); }
+
+.lp .split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden; }
+  .lp .split.left .button:hover {
+    background-color: rgba(161, 11, 11, 0.3);
+    border-color: rgba(161, 11, 11, 0.3); }
+  .lp .split.right .button:hover {
+    background-color: rgba(92, 92, 92, 0.3);
+    border-color: rgba(92, 92, 92, 0.3); }
+  .lp .split.left {
+    left: 0;
+    background: url("https://images.pexels.com/photos/70912/pexels-photo-70912.jpeg?w=1920&h=1080&auto=compress&cs=tinysrgb") center center no-repeat;
+    background-size: cover; }
+    .lp .split.left:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: rgba(223, 39, 39, 0.7); }
+  .lp .split.right {
+    right: 0;
+    background: url("https://images.pexels.com/photos/305223/pexels-photo-305223.jpeg?w=1920&h=1080&auto=compress&cs=tinysrgb") center center no-repeat;
+    background-size: cover; }
+    .lp .split.right:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: rgba(43, 43, 43, 0.8); }
+  .lp .split.left {
+    transition: 1000ms all ease-in-out; }
+  .lp .split.right {
+    transition: 1000ms all ease-in-out; }
+    .lp .split.right:before {
+      transition: 1000ms all ease-in-out; }
+  .lp .split.left:before {
+    transition: 1000ms all ease-in-out; }
+
+.lp .hover-left .left {
+  width: 75%; }
+
+.lp .hover-left .right {
+  width: 25%; }
+  .lp .hover-left .right:before {
+    z-index: 2; }
+
+.lp .hover-right .right {
+  width: 75%; }
+
+.lp .hover-right .left {
+  width: 25%; }
+  .lp .hover-right .left:before {
+    z-index: 2; }
+
+@media (max-width: 800px) {
+  .lp h1 {
     font-size: 2rem; }
-  .lp__container {
-    width: 50rem; }
-  .lp__header-box {
+  .lp .button {
+    width: 12rem; } }
+
+@media (max-height: 700px) {
+  .lp .button {
+    top: 70%; } }
+
+.models {
+  background-color: #999; }
+  .models__header-text {
+    font-size: 2rem; }
+  .models__header-box {
     text-align: center;
     height: 5rem;
     margin-top: 1rem;
     color: #5643fa; }
-  .lp__new-box {
-    background-image: url("https://tinyurl.com/ya8zqf4m");
-    border: 0.3rem solid #2998ff;
-    margin-top: 1rem;
-    height: 50rem;
-    float: left;
-    width: 24rem; }
-  .lp__used-box {
-    background-image: url("https://tinyurl.com/y6wxvmeu");
-    background-color: #28b485;
-    border: 0.3rem solid #2998ff;
-    margin-top: 1rem;
-    height: 50rem;
-    float: right;
-    width: 24rem; }
-  .lp__element {
-    height: 3.5rem;
-    text-align: center;
-    vertical-align: middle; }
-    .lp__element:first-of-type {
-      margin-top: 1rem; }
-  .lp__link {
-    text-transform: uppercase;
-    margin-top: 1rem;
-    text-decoration: none;
-    padding: 1rem 1.5rem;
-    display: block;
-    border-radius: 10rem;
-    font-size: .8rem;
-    margin: 0 auto;
-    width: 15%; }
-    .lp__link--green {
-      background-color: #55c57a;
-      color: #fff; }
-      .lp__link--green::after {
-        background-color: #55c57a; }
-    .lp__link:link, .lp__link:visited {
-      transition: all .2s; }
-    .lp__link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .models table {
+    border-collapse: collapse;
+    margin: auto; }
+    .models table td {
+      vertical-align: top;
+      border-bottom: 1px solid #ddd; }
+  .models__img {
+    width: 400px;
+    height: 400px; }
+  .models__but {
+    width: 4.375rem;
+    height: 1.875rem; }
 
-.models__header-text {
+.payment__header-text {
   font-size: 2rem; }
 
-.models__header-box {
+.payment__header-box {
   text-align: center;
   height: 5rem;
   margin-top: 1rem;
-  color: #5643fa; }
+  color: #fff; }
+
+.payment table {
+  border-collapse: collapse; }
+  .payment table tr th {
+    padding: 15px; }
+  .payment table tr td {
+    padding: 15px;
+    border: 1px solid #ddd; }
+
+.payment label {
+  width: 2rem;
+  font-size: 1rem; }
+
+.payment input {
+  height: 1.5rem;
+  display: block;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 20rem; }
+
+.shipping__header-text {
+  font-size: 2rem; }
+
+.shipping__header-box {
+  text-align: center;
+  height: 5rem;
+  margin-top: 1rem;
+  color: #fff; }
+
+.shipping table {
+  border-collapse: collapse; }
+  .shipping table tr th {
+    padding: 15px; }
+  .shipping table tr td {
+    padding: 15px;
+    border: 1px solid #ddd; }
+
+.shipping label {
+  width: 2rem;
+  font-size: 1rem; }
+
+.shipping input {
+  height: 1.5rem;
+  display: block;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 20rem; }
+
+.shipping select {
+  display: block;
+  width: 20rem;
+  height: 1.5rem; }
+
+.list {
+  background-color: #999; }
+  .list__header-text {
+    font-size: 2rem; }
+  .list__header-box {
+    text-align: center;
+    height: 5rem;
+    margin-top: 1rem;
+    color: #ff7730; }
+  .list table {
+    margin: auto;
+    border-collapse: collapse; }
+    .list table tr td {
+      vertical-align: top;
+      border-bottom: 1px solid #ddd; }
+      .list table tr td img {
+        width: 400px;
+        height: 400px; }
+      .list table tr td button {
+        width: 10rem;
+        height: 2rem; }
+
+.car-detail {
+  background-color: #999; }
+  .car-detail__header-text {
+    font-size: 2rem; }
+  .car-detail__header-box {
+    text-align: center;
+    height: 5rem;
+    margin-top: 1rem;
+    color: #ff7730; }
+  .car-detail table {
+    border-collapse: collapse; }
+    .car-detail table td {
+      border: 1px solid #ddd;
+      text-align: left;
+      padding: 15px; }
+
+.buy-used {
+  background-color: #999; }
+  .buy-used__header-text {
+    font-size: 2rem; }
+  .buy-used__header-box {
+    text-align: center;
+    height: 5rem;
+    margin-top: 1rem;
+    color: #ff7730; }
+  .buy-used table {
+    border-collapse: collapse;
+    margin: auto; }
+    .buy-used table tr td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd; }

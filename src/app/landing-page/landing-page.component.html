@@ -1,18 +1,17 @@
-<div class = "lp" id = "lp--main">
-  <div class = "lp__header-box">
-    <h1 class = "lp__header-text">Welcome to Automati!</h1>    
-  </div>
+<div class = "lp">
 
-  <div class = "container">
-    <div class = "lp__new-box">
-      <div class = "lp__element">
-        <a href = "" routerLink = "/new" routerLinkActive = "active" class = "lp__link lp__link--green">New Inventory</a>
-      </div>
+  <div class = "container" #con>
+
+    <div class = "split left" (mouseenter)="onEnter('left')" (mouseleave)="onLeave('left')">
+        <h1>New Cars</h1>
+        <a href = "" routerLink = "/new" routerLinkActive = "active" class = "button">New Inventory</a>
     </div>
-    <div class = "lp__used-box">
-      <div class = "lp__element">
-        <a href = "" routerLink = "/used" routerLinkActive = "active" class = "lp__link lp__link--green">Used Inventory</a>
-      </div> 
+  
+    <div class = "split right" (mouseenter) = "onEnter('right')" (mouseleave)="onLeave('right')">
+        <h1>Used Cars</h1>
+        <a href = "" routerLink = "/used" routerLinkActive = "active" class = "button">Used Inventory</a>
     </div>
+
   </div>
 </div>
+

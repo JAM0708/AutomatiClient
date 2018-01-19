@@ -1,0 +1,26 @@
+.buy-used {
+    background-color: $color-grey-dark-2;
+
+    &__header-text {
+        font-size: 2rem;
+    }
+
+    &__header-box {
+        text-align: center;
+        height: 5rem;
+        margin-top: 1rem;
+        color: $color-secondary-dark;
+    }
+    table {
+        border-collapse: collapse;
+        margin: auto;
+
+        tr {
+            td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    }
+}

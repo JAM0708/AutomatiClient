@@ -1,0 +1,47 @@
+.shipping {
+    &__header-text {
+        font-size: 2rem;
+    }
+
+    &__header-box {
+        text-align: center;
+        height: 5rem;
+        margin-top: 1rem;
+        color: $color-white;
+    }
+
+    table {
+        border-collapse: collapse;
+
+        tr{
+            th{
+                padding: 15px;
+            }
+            td {
+                padding: 15px;
+                border: 1px solid #ddd;
+            }
+        }
+    }
+
+    label {
+        width: 2rem;
+        font-size: 1rem;
+    }
+    
+    input {
+        height: 1.5rem;
+        display: block;
+        font-size: 1rem;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 20rem;
+    }
+    
+    select {
+        display: block;
+        width: 20rem;
+        height: 1.5rem;
+    }
+
+}

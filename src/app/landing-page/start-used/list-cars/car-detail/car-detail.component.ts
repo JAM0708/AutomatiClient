@@ -6,7 +6,7 @@ import { Car } from "../../../../model/car.model";
 @Component({
   selector: 'app-car-detail',
   templateUrl: './car-detail.component.html',
-  styleUrls: ['./car-detail.component.css']
+  styleUrls: ['../../../../../css/style.css']
 })
 export class CarDetailComponent implements OnInit {
 
