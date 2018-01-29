@@ -10,6 +10,7 @@ import { CarService } from "../../services/car.service";
 })
 export class StartNewComponent implements OnInit {
 
+  
   private models: Model[];
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
 
@@ -17,6 +18,10 @@ export class StartNewComponent implements OnInit {
     this.carService.getModels().then(res => {
       this.models = res.json();
     })
+  }
+
+  getModel(model: string) {
+    this.router.navigate(["/customize", {name: model}], {relativeTo: this.route});
   }
 
 }

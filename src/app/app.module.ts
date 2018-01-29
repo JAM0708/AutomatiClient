@@ -23,8 +23,7 @@ import { BuyCarComponent } from './landing-page/start-used/list-cars/car-detail/
 import { PaymentComponent } from './landing-page/start-used/list-cars/car-detail/payment/payment.component';
 import { ShippingComponent } from './landing-page/start-used/list-cars/car-detail/shipping/shipping.component';
 import { StartNewComponent } from './landing-page/start-new/start-new.component';
-import { CustomizationStartComponent } from './landing-page/start-new/customization-start/customization-start.component';
-import { CustomizeComponent } from './landing-page/start-new/customization-start/customize/customize.component';
+
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -38,6 +37,8 @@ import	{MdDialogModule} from '@angular/material';
 import { PaymentService } from './services/payment.service';
 import { FaqService } from './services/faq.service';
 import { PersonService } from './services/person.service';
+import { CustomizeComponent } from './landing-page/start-new/customize/customize.component';
+import { CheckoutComponent } from './landing-page/start-new/customize/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -59,11 +60,11 @@ import { PersonService } from './services/person.service';
     PaymentComponent,
     ShippingComponent,
     StartNewComponent,
-    CustomizationStartComponent,
-    CustomizeComponent,
     RegisterComponent,
     HeaderComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    CustomizeComponent,
+    CheckoutComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

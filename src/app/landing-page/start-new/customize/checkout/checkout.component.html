@@ -1,0 +1,64 @@
+<div class = "buy-used">
+
+    <div class = "buy-used__header-box">
+      <h1 class = "buy-used__header-text">Checkout</h1>
+    </div>
+  
+    <table>
+        <tr>
+          <td>
+              <h1>Payment</h1>
+              <app-payment (selectCard) = "cardSelected($event)"></app-payment>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <h1>Shipping</h1>
+              <app-shipping (shpData) = "ship($event)"></app-shipping>
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            <h1>Confirm Order</h1>
+      
+            <h3>Payment Info</h3>
+              <ul>
+                <li>Number: {{creditCard?.number}}</li>
+                <li>Exp Date: {{creditCard?.expDate}}</li>
+                <li>CSC: {{creditCard?.csc}}</li>
+              </ul>
+          
+              <h3>Shipping's Info</h3>
+              <ul>
+                <li>
+                  Name: {{shipping?.firstName}} {{shipping?.lastName}}
+                </li>
+                <li>
+                  Address: {{shipping?.street}} {{shipping?.city}} {{shipping?.state.name}}
+                </li>
+              </ul>
+              
+              <h3>Car's Info</h3>
+              <ul>
+                <li>Year: 2018</li>
+                <li>Model: {{modelName}}</li>
+                <li>Transmission Type: {{transmission?.name}}</li>
+                <li>Condition: NEW</li>
+                <li>Title: CLEAN</li>
+                <li>Mileage: 0</li>
+                <li>Color: {{color?.name}}</li>
+                <li>Engine: {{engine?.cylinders}} Cylinders {{engine?.litres}} L</li>
+              </ul>
+          
+  
+              <br>
+          <button (click)="confirmOrder()">Confirm Order!</button>
+          </td>
+        </tr>
+        
+      </table>
+  </div>
+  
+<table></table>
+

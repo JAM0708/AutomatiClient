@@ -59,16 +59,7 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params) => { 
-          this.carId = params['carId'];
-          this.carService.getCar(this.carId).then(res => {
-            this.car = res.json();
-            console.log(res.json());
-          });
-        }
-      );
+
       this.getPerson(this.tokenService.getSubject());
       console.log(this.person);
 
