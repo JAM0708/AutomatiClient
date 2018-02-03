@@ -1,0 +1,59 @@
+
+<h1 style = "text-align: center">Customize Your Automati {{modelName}}</h1>
+<div class = "container">
+  <div class = "left">
+    <h3 style = "text-align: center">Select Color, Engine And Transmission</h3>
+    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "cForm">
+
+      <div class = "row">
+        <div class = "col-25">
+          <label>Color: </label>
+        </div>
+        <div class = "col-75">
+          <select name = "color" ngModel>
+            <option *ngFor = "let color of colors" [ngValue] = "color">
+              {{color?.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+     
+      <div class = "row">
+        <div class = "col-25">
+          <label>Transmission: </label>
+        </div>
+        <div class = "col-75">
+          <select name = "transmission" ngModel>
+            <option *ngFor = "let transmission of transmissions" [ngValue] = "transmission">
+              {{transmission?.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "col-25">
+          <label>Engine: </label>
+        </div>
+        <div class = "col-75">
+          <select name = "engine" ngModel>
+            <option *ngFor = "let engine of engines" [ngValue] = "engine">
+             {{engine?.litres}}L {{engine?.cylinders}}cylinder engine
+            </option>
+          </select>
+        </div>
+      </div>  
+      
+      <div class = "row">
+        <input type = "submit" value = "Submit">
+      </div>
+  
+    </form>
+  </div>
+
+  <div class = "right">
+    <img src = "{{model?.imgSrc}}" alt = "{{model?.imgAlt}}" />
+  </div>
+</div>
+  
+

@@ -7,6 +7,7 @@ import { Lease } from "./lease.model";
 import { Model } from "./model.model";
 import { Transmission } from "./transmission.model";
 import { Person } from "./person.model";
+import { Engine } from "./engine.model";
 
 
 export class Car {
@@ -23,6 +24,7 @@ export class Car {
   public transmission: Transmission;
   public id: number;
   public vin: string;
+  public engine: Engine;
 
   constructor(price: number,
     year: number,
@@ -35,7 +37,8 @@ export class Car {
     transmission: Transmission,
     title: string,
     mileage: number,
-    id?: number, vin?: string) {
+    vin?: string, engine?: Engine,
+    id?: number) {
     this.price = price;
     this.year = year;
     this.color = color;
@@ -49,6 +52,7 @@ export class Car {
     this.mileage = mileage;
     this.id = id;
     this.vin = vin;
+    this.engine = engine;
   }
 
 

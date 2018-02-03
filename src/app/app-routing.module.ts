@@ -14,6 +14,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { PaymentComponent } from './landing-page/start-used/list-cars/car-detail/payment/payment.component';
 import { ShippingComponent } from './landing-page/start-used/list-cars/car-detail/shipping/shipping.component';
 import { BuyCarComponent } from './landing-page/start-used/list-cars/car-detail/buy-car/buy-car.component';
+import { CustomizeComponent } from './landing-page/start-new/customize/customize.component';
+import { CheckoutComponent } from './landing-page/start-new/customize/checkout/checkout.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
       {path: 'editProfile', component: EditProfileComponent},
       {path: 'payment', component: PaymentComponent},
       {path: 'shipping', component: ShippingComponent},
-      {path: 'buyCar', component: BuyCarComponent, canActivate: [TokenAuthGuard]}
+      {path: 'buyCar', component: BuyCarComponent, canActivate: [TokenAuthGuard]},
+      {path: 'customize', component: CustomizeComponent},
+      {path: 'checkout', component: CheckoutComponent}
     ];
 
 
