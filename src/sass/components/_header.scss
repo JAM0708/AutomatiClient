@@ -34,6 +34,18 @@
         }
     }
 
+    &__button {
+        text-decoration: none;
+        color: $color-white;
+        border: none;
+        background-color: $color-tertiary-light;
+
+        &:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba($color-black,.2);
+        }
+    }
+
     &__items {
         display: inline-block;
         font-size: 1rem;

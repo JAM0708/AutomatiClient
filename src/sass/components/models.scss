@@ -1,10 +1,6 @@
 .models {
 
-    background-color: $color-grey-dark-2;
 
-    &#lp--main {
-       
-    }
 
     &__header-text {
         font-size: 2rem;
@@ -22,20 +18,18 @@
         margin: auto;
 
         td {
-            vertical-align: top;
+            vertical-align: middle;
             border-bottom: 1px solid #ddd;
         }
     }
 
 
-    &__img {
-        width: 400px;
-        height: 400px;
-    }
-
     &__but {
-        width: 4.375rem;
-        height: 1.875rem;
+        padding: 1rem 3rem;
+        background-color: $color-tertiary-light;
+        border-radius: 1rem;
+        vertical-align: middle;
+        margin-left: 1cm;
     }
 
    

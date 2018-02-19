@@ -5,6 +5,7 @@ import { NgForm } from "@angular/forms";
 import { TokenService } from "../services/token.service";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 import { PersonService } from '../services/person.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
    decide: string;
    
 
-  constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService, public dialog: MdDialog) { }
+  constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService, public dialog: MdDialog, private cookieService: CookieService) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
    this.personService.login(email, password).then(res => {
     if(res.json().isJWT == true) {
       this.tokenService.setJwtInfo(res.json().jwt);
+      this.cookieService.set('homeState', 'true');
       this.router.navigate(['../home'], {relativeTo: this.route});
     } else {
       let dialogRef = this.dialog.open(ConfirmDialogComponent, {

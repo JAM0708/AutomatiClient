@@ -1,7 +1,7 @@
-<div class = "buy-used">
+<div class = "buy">
 
-  <div class = "buy-used__header-box">
-    <h1 class = "buy-used__header-text">Checkout</h1>
+  <div class = "buy__header-box">
+    <h1 class = "buy__header-text">Checkout</h1>
   </div>
 
   <table>
@@ -11,52 +11,52 @@
             <app-payment (selectCard) = "cardSelected($event)"></app-payment>
         </td>
       </tr>
+
       <tr>
         <td>
-            <h1>Shipping</h1>
-            <app-shipping (shpData) = "ship($event)"></app-shipping>
+          <h1>Shipping</h1>
+          <app-shipping (shpData) = "ship($event)"></app-shipping>
         </td>
       </tr>
-    
+
       <tr>
         <td>
           <h1>Confirm Order</h1>
     
           <h3>Payment Info</h3>
-            <ul>
-              <li>Number: {{creditCard?.number}}</li>
-              <li>Exp Date: {{creditCard?.expDate}}</li>
-              <li>CSC: {{creditCard?.csc}}</li>
-            </ul>
+          <ul>
+            <li>Number: {{creditCard?.number}}</li>
+            <li>Exp Date: {{creditCard?.expDate}}</li>
+            <li>CSC: {{creditCard?.csc}}</li>
+          </ul>
+    
+          <h3>Shipping's Info</h3>
+          <ul>
+            <li>
+              Name: {{shipping?.firstName}} {{shipping?.lastName}}
+            </li>
+            <li>
+              Address: {{shipping?.street}} {{shipping?.city}} {{shipping?.state.name}}
+            </li>
+          </ul>
         
-            <h3>Shipping's Info</h3>
-            <ul>
-              <li>
-                Name: {{shipping?.firstName}} {{shipping?.lastName}}
-              </li>
-              <li>
-                Address: {{shipping?.street}} {{shipping?.city}} {{shipping?.state.name}}
-              </li>
-            </ul>
-            
-            <h3>Car's Info</h3>
-            <ul>
-              <li>Year: {{car?.year}}</li>
-              <li>Model: {{car?.model.name}}</li>
-              <li>Transmission Type: {{car?.transmission.name}}</li>
-              <li>Condition: {{car?.condition.type}}</li>
-              <li>Title: {{car?.title}}</li>
-              <li>Mileage: {{car?.mileage}} </li>
-              <li>Color: {{car?.color.name}}</li>
-            </ul>
-        
+          <h3>Car's Info</h3>
+          <ul>
+            <li>Year: {{car?.year}}</li>
+            <li>Model: {{car?.model.name}}</li>
+            <li>Transmission Type: {{car?.transmission.name}}</li>
+            <li>Condition: {{car?.condition.type}}</li>
+            <li>Title: {{car?.title}}</li>
+            <li>Mileage: {{car?.mileage}} </li>
+            <li>Color: {{car?.color.name}}</li>
+          </ul>
+    
 
-            <br>
-        <button (click)="confirmOrder()">Confirm Order!</button>
+        <br>
+        <button class = "button_confirm" (click)="confirmOrder()">Confirm Order!</button>
         </td>
       </tr>
-      
-    </table>
+  </table>
 </div>
 
 

@@ -5,18 +5,58 @@
 
     &__header-box {
         text-align: center;
-        height: 5rem;
-        margin-top: 1rem;
         color: $color-white;
+    }
+
+    .new-card {
+        background-color: #eee;
+        height: 100%;
+    } 
+
+    .input_text{
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+    
+    .input_label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+    
+    .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+    
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        margin-bottom:1cm;
     }
 
     table {
         border-collapse: collapse;
+        width: 100%;
 
         tr{
             th{
                 padding: 15px;
+                border: 1px solid #ddd;
             }
+
             td {
                 padding: 15px;
                 border: 1px solid #ddd;
@@ -24,17 +64,27 @@
         }
     }
 
+    
+
     label {
         width: 2rem;
         font-size: 1rem;
     }
-    
-    input {
-        height: 1.5rem;
-        display: block;
-        font-size: 1rem;
-        border: none;
-        border-bottom: 3px solid transparent;
-        width: 20rem;
+
+    .button_confirm {
+        padding: .5rem 3rem;
+        background-color: $color-tertiary-dark;
+        border-radius: 1rem;
+        margin-top: .5rem;
+        float: right;
     }
+
+    .button_add {
+        padding: .5rem 3rem;
+        background-color: $color-primary-dark;
+        border-radius: 1rem;
+        margin-top: .5rem;
+        margin-bottom: 1.5rem;
+    }
+
 }

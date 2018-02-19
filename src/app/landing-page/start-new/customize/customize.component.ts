@@ -7,6 +7,7 @@ import { Transmission } from '../../../model/transmission.model';
 import { Engine } from '../../../model/engine.model';
 import { NgForm } from '@angular/forms';
 import { Model } from '../../../model/model.model';
+import { UtilsService } from '../../../services/utils.service';
 
 @Component({
   selector: 'app-customize',
@@ -20,11 +21,12 @@ export class CustomizeComponent implements OnInit {
   private colors: Color[];
   private transmissions: Transmission[];
   private engines: Engine[];
-  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   
 
   ngOnInit() {
+    this.utilsService.setHomeState();
     this.route.params
       .subscribe(
       (params: Params) => {

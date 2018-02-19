@@ -2,6 +2,7 @@ import { TokenService } from './../services/token.service';
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../model/person.model';
 import { PersonService } from '../services/person.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
   //public email: string; 
   public person: Person;
 
-  constructor(private personService: PersonService, private tokenService:TokenService) { 
+  constructor(private route: ActivatedRoute, private personService: PersonService, private router: Router, private tokenService:TokenService) { 
   }
 
   getUser(email: string) {
@@ -23,6 +24,13 @@ export class ProfileComponent implements OnInit {
     
   }
 
+  editProfile() {
+    this.router.navigate(["/editProfile", {email: this.person.email}], {relativeTo: this.route});
+  }
+  
+  goToReviews() {
+    this.router.navigate(["/addReview", {email: this.person.email}], {relativeTo: this.route});
+  }
   ngOnInit() {
     this.getUser(this.tokenService.getSubject());
   }

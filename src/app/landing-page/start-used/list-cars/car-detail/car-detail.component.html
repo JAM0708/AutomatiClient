@@ -3,42 +3,77 @@
         <h1 class = "car-detail__header-text">Car Details</h1>
     </div>
 
-    <h2>{{car?.condition.type}} {{car?.year}} Automati {{car?.model.name}}</h2>
+    <div class="pre-detail">
+            <h2>{{car?.condition.type}} {{car?.year}} Automati {{car?.model.name}}</h2>
 
-    <h3>Price: ${{car?.price}} USD</h3>
+            <h3>Price: ${{car?.price}} USD</h3>
+    </div>
+    
 
-    <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" />
+    <div class="car-img">
+        <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" />
+    </div>
 
+    <h2 style="text-align:center;">Info</h2>
     <table>
         <tr>
             <td>
-                <p>Basics</p>
+                Mileage: {{car?.mileage}}
             </td>
-    
             <td>
-                <p>Mileage: {{car?.mileage}}</p>
-                <p>Transmission: {{car?.transmission.name}}</p>
-                <p>Title {{car?.title}}</p>
-                <p>Color: {{car?.color.name}}</p>
-            </td>
-    
-            <td>
-                <p>Vin: {{car?.vin}}</p>
-                <p>MPG: EPA</p>
+                Transmission: {{car?.transmission.name}}
             </td>
         </tr>
-     </table>
 
-     <br>
-     <br>
+        <tr>
+            <td>
+                Title: {{car?.title}}
+            </td>
+            <td>
+                Color: {{car?.color.name}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Vin: {{car?.vin}}
+            </td>
+            <td>
+                MPG: EPA
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Engine: {{car?.engine.litres}} L {{car?.engine.cylinders}} cylinders
+            </td>
+        </tr>
+    </table>
+     
      
       <button (click) = "buyCar()">Buy Car!</button>
 
-      <br>
-      <br>
+      
+     <div class="reviews">
+            <h1>User's Reviews</h1>
+
+            
+            <ul>
+                <li *ngFor = "let review of reviews">
+                      <h2>Title: {{review?.title}}</h2>
+                      <h4>{{review?.car.year}} Automati {{review?.model.name}}</h4>
+                      <span class = "stars-container stars stars-{{review?.rating}}">★★★★★</span>
+                      <p>{{review?.description}}</p>
+                      <p>{{review?.person.firstName}} wrote on {{review?.time}}</p>
+                </li>
+                
+                <br>
+                <br>
+                
+            </ul>
+     </div>
      
-     
-      <h3>Users' Reviews</h3>
+
 </div>
 
 
