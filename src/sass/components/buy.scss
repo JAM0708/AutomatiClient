@@ -1,6 +1,5 @@
-.buy-used {
-    background-color: $color-grey-dark-2;
-
+.buy{
+    
     &__header-text {
         font-size: 2rem;
     }
@@ -23,4 +22,13 @@
             }
         }
     }
+
+    .button_confirm {
+        padding: .5rem 3rem;
+        background-color: $color-tertiary-dark;
+        border-radius: 1rem;
+        margin-top: .5rem;
+        float: right;
+    }
+
 }

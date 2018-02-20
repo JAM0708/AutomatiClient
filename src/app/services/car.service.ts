@@ -54,9 +54,11 @@ export class CarService {
   }
 
   getCars() {
+    /*
     let token = localStorage.getItem("token");
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
+    */
 
     return this.http.get('http://localhost:8060/AutomatiServer/cars').toPromise();
   }
@@ -129,5 +131,9 @@ export class CarService {
     let options = new RequestOptions({ headers: headers });
 
     return this.http.get('http://localhost:8060/AutomatiServer/engines').toPromise();
+  }
+
+  getCarsByPerson(email: string) {
+    return this.http.get('http://localhost:8060/AutomatiServer/carsByPerson?email='+ email).toPromise();
   }
 }

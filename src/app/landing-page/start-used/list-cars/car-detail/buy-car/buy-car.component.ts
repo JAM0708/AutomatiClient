@@ -9,6 +9,7 @@ import { Shipping } from '../../../../../model/shipping.model';
 import { PaymentService } from '../../../../../services/payment.service';
 import { PersonService } from '../../../../../services/person.service';
 import { Person } from '../../../../../model/person.model';
+import { UtilsService } from '../../../../../services/utils.service';
 
 @Component({
   selector: 'app-buy-car',
@@ -22,7 +23,7 @@ export class BuyCarComponent implements OnInit {
   private shipping: Shipping;
   private creditCard: CreditCard;
   constructor(private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService, private carService: CarService,
-  private paymentService: PaymentService) { }
+  private paymentService: PaymentService, private utilsService: UtilsService) { }
   
   getUser(email: string) {
     this.personService.getPerson(email).then(res => {
@@ -30,6 +31,7 @@ export class BuyCarComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.utilsService.setHomeState();
     this.route.params
     .subscribe(
       (params: Params) => { 

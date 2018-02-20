@@ -31,37 +31,46 @@
           </tr>
         </table>
       
-        <button type = "submit">Confirm</button>
-      
+      <button class = "button_confirm" type = "submit">Confirm</button>
       </form>
       
-      <br>
-      <br>
+      <button class = "button_add" (click) = "showOrHide()">Add Or Hide New Card</button>
       
-      <button (click) = "showOrHide()">Add Or Hide New Card</button>
-      
-      
-        <div *ngIf = "show">
+        <div *ngIf = "show" class = "new_card">
       
           <h3>Add New Card</h3>
-            <form (ngSubmit) = "onSubmit(f)" #f = "ngForm">
+            <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" ngNativeValidate>
       
-                <p>
-                  <label>Number: </label>
-                  <input name = "number" type = "text" ngModel/>
-                </p>
+              <div class="row">
+                <div class="col-25">
+                  <label class = "input_label">Number: </label>
+                </div>
+
+                <div class="col-75">
+                  <input class = "input_text" name = "number" type = "text" ngModel required/>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label class = "input_label">Expiration Date: </label>
+                </div>
+
+                <div class="col-75">
+                  <input name = "expDate" type = "text" class = "input_text" ngModel required/>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label class="input_label">CSC: </label>
+                </div>
+                <div class="col-75">
+                  <input name = "csc" type = "text" class = "input_text" ngModel required/>
+                </div>
+              </div>
               
-                <p>
-                  <label>Expiration Date: </label>
-                  <input name = "expDate" type = "text" ngModel/>
-                </p>
-              
-                <p>
-                  <label>CSC: </label>
-                  <input name = "csc" type = "text" ngModel/>
-                </p>
-                
-                <button type = "submit">Add Card</button>
+              <button class = "button_confirm" type = "submit">Add Card</button>
               
               </form>
         </div>

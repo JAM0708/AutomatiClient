@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::after,
 *::before {
@@ -107,6 +108,14 @@ html {
     .header__link:link, .header__link:visited {
       transition: all .2s; }
     .header__link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .header__button {
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    background-color: #2998ff; }
+    .header__button:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
   .header__items {
@@ -290,142 +299,275 @@ html {
   .lp .button {
     top: 70%; } }
 
-.models {
-  background-color: #999; }
-  .models__header-text {
+.models__header-text {
+  font-size: 2rem; }
+
+.models__header-box {
+  text-align: center;
+  height: 5rem;
+  margin-top: 1rem;
+  color: #5643fa; }
+
+.models table {
+  border-collapse: collapse;
+  margin: auto; }
+  .models table td {
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd; }
+
+.models__but {
+  padding: 1rem 3rem;
+  background-color: #2998ff;
+  border-radius: 1rem;
+  vertical-align: middle;
+  margin-left: 1cm; }
+
+.payment {
+  /* Clear floats after the columns */ }
+  .payment__header-text {
     font-size: 2rem; }
-  .models__header-box {
+  .payment__header-box {
     text-align: center;
-    height: 5rem;
-    margin-top: 1rem;
-    color: #5643fa; }
-  .models table {
+    color: #fff; }
+  .payment .new-card {
+    background-color: #eee;
+    height: 100%; }
+  .payment .input_text {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; }
+  .payment .input_label {
+    padding: 12px 12px 12px 0;
+    display: inline-block; }
+  .payment .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px; }
+  .payment .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px; }
+  .payment .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-bottom: 1cm; }
+  .payment table {
     border-collapse: collapse;
-    margin: auto; }
-    .models table td {
-      vertical-align: top;
-      border-bottom: 1px solid #ddd; }
-  .models__img {
-    width: 400px;
-    height: 400px; }
-  .models__but {
-    width: 4.375rem;
-    height: 1.875rem; }
+    width: 100%; }
+    .payment table tr th {
+      padding: 15px;
+      border: 1px solid #ddd; }
+    .payment table tr td {
+      padding: 15px;
+      border: 1px solid #ddd; }
+  .payment label {
+    width: 2rem;
+    font-size: 1rem; }
+  .payment .button_confirm {
+    padding: .5rem 3rem;
+    background-color: #5643fa;
+    border-radius: 1rem;
+    margin-top: .5rem;
+    float: right; }
+  .payment .button_add {
+    padding: .5rem 3rem;
+    background-color: #28b485;
+    border-radius: 1rem;
+    margin-top: .5rem;
+    margin-bottom: 1.5rem; }
 
-.payment__header-text {
-  font-size: 2rem; }
-
-.payment__header-box {
-  text-align: center;
-  height: 5rem;
-  margin-top: 1rem;
-  color: #fff; }
-
-.payment table {
-  border-collapse: collapse; }
-  .payment table tr th {
-    padding: 15px; }
-  .payment table tr td {
-    padding: 15px;
-    border: 1px solid #ddd; }
-
-.payment label {
-  width: 2rem;
-  font-size: 1rem; }
-
-.payment input {
-  height: 1.5rem;
-  display: block;
-  font-size: 1rem;
-  border: none;
-  border-bottom: 3px solid transparent;
-  width: 20rem; }
-
-.shipping__header-text {
-  font-size: 2rem; }
-
-.shipping__header-box {
-  text-align: center;
-  height: 5rem;
-  margin-top: 1rem;
-  color: #fff; }
-
-.shipping table {
-  border-collapse: collapse; }
-  .shipping table tr th {
-    padding: 15px; }
-  .shipping table tr td {
-    padding: 15px;
-    border: 1px solid #ddd; }
-
-.shipping label {
-  width: 2rem;
-  font-size: 1rem; }
-
-.shipping input {
-  height: 1.5rem;
-  display: block;
-  font-size: 1rem;
-  border: none;
-  border-bottom: 3px solid transparent;
-  width: 20rem; }
-
-.shipping select {
-  display: block;
-  width: 20rem;
-  height: 1.5rem; }
-
-.list {
-  background-color: #999; }
-  .list__header-text {
+.shipping {
+  /* Clear floats after the columns */ }
+  .shipping__header-text {
     font-size: 2rem; }
-  .list__header-box {
+  .shipping__header-box {
     text-align: center;
-    height: 5rem;
-    margin-top: 1rem;
-    color: #ff7730; }
-  .list table {
-    margin: auto;
-    border-collapse: collapse; }
-    .list table tr td {
-      vertical-align: top;
-      border-bottom: 1px solid #ddd; }
-      .list table tr td img {
-        width: 400px;
-        height: 400px; }
-      .list table tr td button {
-        width: 10rem;
-        height: 2rem; }
+    color: #fff; }
+  .shipping table {
+    border-collapse: collapse;
+    width: 100%; }
+    .shipping table tr th {
+      padding: 15px;
+      border: 1px solid #ddd; }
+    .shipping table tr td {
+      padding: 15px;
+      border: 1px solid #ddd; }
+  .shipping label {
+    width: 2rem;
+    font-size: 1rem; }
+  .shipping .button_confirm {
+    padding: .5rem 3rem;
+    background-color: #5643fa;
+    border-radius: 1rem;
+    margin-top: .5rem;
+    float: right; }
+  .shipping .button_add {
+    padding: .5rem 3rem;
+    background-color: #28b485;
+    border-radius: 1rem;
+    margin-top: .5rem;
+    margin-bottom: 1.5rem; }
+  .shipping .new-shipping {
+    background-color: #eee;
+    height: 100%; }
+  .shipping .input_text {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; }
+  .shipping .input_select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; }
+  .shipping .input_label {
+    padding: 12px 12px 12px 0;
+    display: inline-block; }
+  .shipping .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px; }
+  .shipping .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px; }
+  .shipping .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-bottom: 1cm; }
+
+.list__header-text {
+  font-size: 2rem; }
+
+.list__header-box {
+  text-align: center;
+  height: 5rem;
+  margin-top: 1rem;
+  color: #ff7730; }
+
+.list table {
+  border-collapse: collapse;
+  margin: auto; }
+  .list table td {
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd; }
+
+.list button {
+  padding: 1rem 3rem;
+  background-color: #2998ff;
+  border-radius: 1rem;
+  vertical-align: middle;
+  margin-left: 1cm; }
 
 .car-detail {
-  background-color: #999; }
+  margin: 2cm 4cm 0cm 4cm; }
   .car-detail__header-text {
     font-size: 2rem; }
   .car-detail__header-box {
     text-align: center;
     height: 5rem;
     margin-top: 1rem;
-    color: #ff7730; }
+    color: #28b485; }
+  .car-detail .car-img {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem; }
+  .car-detail ul {
+    list-style-type: none; }
+    .car-detail ul li {
+      margin-top: 2.5rem; }
   .car-detail table {
-    border-collapse: collapse; }
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 1cm; }
     .car-detail table td {
       border: 1px solid #ddd;
       text-align: left;
       padding: 15px; }
+  .car-detail .reviews {
+    margin-top: 3cm; }
+  .car-detail .pre-detail h2 {
+    text-align: center; }
+  .car-detail .pre-detail h3 {
+    text-align: center; }
+  .car-detail button {
+    float: right;
+    padding: 1rem 3rem;
+    background-color: #2998ff;
+    border-radius: 1rem;
+    margin-top: 1cm;
+    margin-bottom: 1cm; }
+  .car-detail .stars-container {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    font-size: 30px; }
+    .car-detail .stars-container:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '★★★★★';
+      color: lightgray; }
+    .car-detail .stars-container:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '★★★★★';
+      color: gold;
+      overflow: hidden; }
+  .car-detail .stars-0:after {
+    width: 0%; }
+  .car-detail .stars-10:after {
+    width: 10%; }
+  .car-detail .stars-20:after {
+    width: 20%; }
+  .car-detail .stars-30:after {
+    width: 30%; }
+  .car-detail .stars-40:after {
+    width: 40%; }
+  .car-detail .stars-50:after {
+    width: 50%; }
+  .car-detail .stars-60:after {
+    width: 60%; }
+  .car-detail .stars-70:after {
+    width: 70%; }
+  .car-detail .stars-80:after {
+    width: 80%; }
+  .car-detail .stars-90:after {
+    width: 90%; }
+  .car-detail .stars-100:after {
+    width: 100%; }
 
-.buy-used {
-  background-color: #999; }
-  .buy-used__header-text {
-    font-size: 2rem; }
-  .buy-used__header-box {
-    text-align: center;
-    height: 5rem;
-    margin-top: 1rem;
-    color: #ff7730; }
-  .buy-used table {
-    border-collapse: collapse;
-    margin: auto; }
-    .buy-used table tr td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd; }
+.buy__header-text {
+  font-size: 2rem; }
+
+.buy__header-box {
+  text-align: center;
+  height: 5rem;
+  margin-top: 1rem;
+  color: #ff7730; }
+
+.buy table {
+  border-collapse: collapse;
+  margin: auto; }
+  .buy table tr td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; }
+
+.buy .button_confirm {
+  padding: .5rem 3rem;
+  background-color: #5643fa;
+  border-radius: 1rem;
+  margin-top: .5rem;
+  float: right; }

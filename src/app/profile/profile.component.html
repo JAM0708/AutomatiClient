@@ -1,13 +1,24 @@
-<h3 align = "right">Email: {{person?.email}}</h3>
-<h3 align = "right">Balance Due: $200</h3>
-<h2> Welcome: {{person?.firstName}} {{person?.lastName}}</h2>
-<ul>
-  User's Information:
-  <li>Address: {{person?.street}}</li>
-  <li>State: {{person?.state?.name}}</li> 
-</ul>
 
-<a style = "float: right" href = "" [routerLink] = "['/editProfile']" [queryParams] = "{email: person?.email}" >Edit Profile</a>
+<div class="container">
+  <div class="left">
+    <img src = "https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_beard_male_person_user-512.png">
+    
+    <div class="details">
+        <h2>User's Info</h2>
+        <p>Email: {{person?.email}}</p>
+        <p>Name: {{person?.firstName}} {{person?.lastName}}</p>
+        <p>Address: {{person?.street}} {{person?.city}} {{person?.state?.name}}</p>
+        <p>Balance: {{person?.balance}}</p>
+    
+        <button (click) = "editProfile()">Edit Profile</button>
+        <button (click) = "goToReviews()">Add Reviews</button>
+        <button (click) = "payBalance()">Pay Balance</button>
+    </div>
+    
+  </div>
 
-<h2>List of Cars</h2>
-<app-user-cars></app-user-cars>
+  <div class="cars">
+    <h2>List of Cars</h2>
+    <app-user-cars></app-user-cars>
+  </div>
+</div>

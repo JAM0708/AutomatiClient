@@ -13,6 +13,7 @@ import { PaymentService } from '../../../../services/payment.service';
 import { Car } from '../../../../model/car.model';
 import { Condition } from '../../../../model/condition.model';
 import { Model } from '../../../../model/model.model';
+import { UtilsService } from '../../../../services/utils.service';
 
 @Component({
   selector: 'app-checkout',
@@ -36,11 +37,12 @@ export class CheckoutComponent implements OnInit {
   private person: Person;
   constructor(private personService: PersonService, private tokenService: TokenService,
      private carService: CarService, 
-     private router: Router, private route: ActivatedRoute, private paymentService: PaymentService) { }
+     private router: Router, private route: ActivatedRoute, private paymentService: PaymentService, private utilsService: UtilsService) { }
 
   
 
   ngOnInit() {
+    this.utilsService.setHomeState();
     this.route.params
       .subscribe(
       (params: Params) => {

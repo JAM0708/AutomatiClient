@@ -1,5 +1,4 @@
 .list {
-    background-color: $color-grey-dark-2;
 
     &__header-text {
         font-size: 2rem;
@@ -13,24 +12,20 @@
     }
 
     table {
-        margin: auto;
         border-collapse: collapse;
+        margin: auto;
 
-        tr {
-            td {
-                vertical-align: top;
-                border-bottom: 1px solid #ddd;
-                img {
-                    width: 400px;
-                    height: 400px;
-                }
-
-                button {
-                        width: 10rem;
-                        height: 2rem;
-                    }
-                
-            }
+        td {
+            vertical-align: middle;
+            border-bottom: 1px solid #ddd;
         }
+    }
+
+    button {
+        padding: 1rem 3rem;
+        background-color: $color-tertiary-light;
+        border-radius: 1rem;
+        vertical-align: middle;
+        margin-left: 1cm;
     }
 }

@@ -36,48 +36,83 @@
       </tr>
     </table>
   
-    <button type = "submit">Confirm</button>
+    <button class = "button_confirm" type = "submit">Confirm</button>
   
   </form>
   
-  <br>
-  <br>
-  <br>
-  
-  <button (click) = "showOrHide()">Add Or Hide New Shipping Address</button>
+  <button (click) = "showOrHide()" class = "button_add">Add Or Hide New Shipping Address</button>
   
   
-  <div *ngIf = "show">
+  <div *ngIf = "show" class = "new_shipping">
       <h2>Enter Shipping Information</h2>
   
       <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" ngNativeValidate>
-           
-        <label>First Name: </label>
-        <input name = "firstName" type = "text" ngModel required/>
+         
+        <div class="row">
+          <div class="col-25">
+            <label class="input_label">First Name: </label>
+          </div>
+
+          <div class="col-75">
+            <input name = "firstName" type = "text" class = "input_text" ngModel required/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label class = "input_label">Last Name: </label>
+          </div>
+
+          <div class="col-75">
+            <input name = "lastName" type = "text" class = "input_text" ngModel required/>
+          </div>
+        </div>
         
-        <label>Last Name: </label>
-        <input name = "lastName" type = "text" ngModel required/>
-          
-        <label>Street: </label>
-        <input name = "street" type = "text" ngModel required/>
-   
-        <label>City: </label>
-        <input name = "city" type = "text"  ngModel required/>
-        
-          
-        <label>State: </label>
-        <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
-          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
-        </select>
-          
-        <div *ngIf="zipcodes !== undefined; else ChoseState">
-            <label>Zip Code: </label>
-            <select name="zipcode" ngModel>
-              <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
+        <div class="row">
+          <div class="col-25">
+            <label class = "input_label">Street: </label>
+          </div>
+
+          <div class="col-75">
+            <input name = "street" type = "text" class = "input_text" ngModel required/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label class="input_label">City: </label>
+          </div>
+          <div class="col-75">
+            <input name = "city" type = "text" class = "input_text" ngModel required/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label class = "input_label">State: </label>
+          </div>
+          <div class="col-75">
+            <select class = "input_select" name="state" (ngModelChange)="stateSelect($event)" ngModel>
+              <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
             </select>
           </div>
+        </div>
+
+        <div class="row">
+          <div *ngIf="zipcodes !== undefined; else ChoseState">
+            <div class="col-25">
+              <label class = "input_label">Zip Code: </label>
+            </div>
+            <div class="col-75">
+                <select name="zipcode" class = "input_select" ngModel>
+                    <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
+                </select>
+            </div>
+          </div>
           <ng-template #ChoseState>Please chose a state</ng-template>
-          <button type = "submit">Add Shipping Address</button>
+        </div>
+        
+          <button type = "submit" class = "button_confirm">Add Shipping Address</button>
         </form>
   </div>
 

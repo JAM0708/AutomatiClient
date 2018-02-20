@@ -2,6 +2,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CarService } from '../../../services/car.service';
 import { Car } from '../../../model/car.model';
+import { UtilsService } from '../../../services/utils.service';
 
 @Component({
   selector: 'app-list-cars',
@@ -11,7 +12,7 @@ import { Car } from '../../../model/car.model';
 export class ListCarsComponent implements OnInit {
 
   modelName: string;
-  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   cars: Car[];
 
@@ -26,10 +27,11 @@ export class ListCarsComponent implements OnInit {
         })
       }
       );
+      this.utilsService.setHomeState();
   }
 
   viewDetails(car: number) {
-    this.router.navigate(['/carDetails', { id: car }], {relativeTo: this.route});
+    this.router.navigate(['/carDetails', { id: car, name: this.modelName}], {relativeTo: this.route});
   }
 
 }

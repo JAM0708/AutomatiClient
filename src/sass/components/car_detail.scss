@@ -1,5 +1,5 @@
 .car-detail {
-    background-color: $color-grey-dark-2;
+    margin: 2cm 4cm 0cm 4cm;
 
     &__header-text {
         font-size: 2rem;
@@ -9,19 +9,121 @@
         text-align: center;
         height: 5rem;
         margin-top: 1rem;
-        color: $color-secondary-dark;
+        color: $color-primary-dark;
+    }
+
+    .car-img {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      list-style-type: none;
+      li {
+        margin-top: 2.5rem;
+      }
     }
 
     table {
-        border-collapse: collapse;
-        
-        td {
-            border: 1px solid #ddd;
-            text-align: left;
-            padding: 15px;
-        }
+      border-collapse: collapse;
+      margin: auto;
+      margin-top: 1cm;
+      
+      td {
+          border: 1px solid #ddd;
+          text-align: left;
+          padding: 15px;
+      }
+  }
+
+  .reviews {
+    margin-top: 3cm;
+  }
+
+  .pre-detail {
+    h2 {
+      text-align: center;
     }
+    h3 {
+      text-align: center;
+    }
+  }
 
+  button {
+    float: right;
+    padding: 1rem 3rem;
+    background-color: $color-tertiary-light;
+    border-radius: 1rem;
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+  }
 
+    .stars-container {
+        position: relative;
+        display: inline-block;
+        color: transparent;
+        font-size: 30px;
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '★★★★★';
+          color: lightgray;
+        }
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '★★★★★';
+          color: gold;
+          overflow: hidden;
+        }
+      }
+      
+      .stars-0:after {
+        width: 0%;
+      }
+      
+      .stars-10:after {
+        width: 10%;
+      }
+      
+      .stars-20:after {
+        width: 20%;
+      }
+      
+      .stars-30:after {
+        width: 30%;
+      }
+      
+      .stars-40:after {
+        width: 40%;
+      }
+      
+      .stars-50:after {
+        width: 50%;
+      }
+      
+      .stars-60:after {
+        width: 60%;
+      }
+      
+      .stars-70:after {
+        width: 70%;
+      }
+      
+      .stars-80:after {
+        width: 80%;
+      }
+      
+      .stars-90:after {
+        width: 90%;
+      }
+      
+      .stars-100:after {
+        width: 100%;
+      }
 
 }

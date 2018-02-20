@@ -1,5 +1,6 @@
 import { UtilsService } from './../services/utils.service';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,10 +14,11 @@ export class LandingPageComponent implements OnInit {
 
   public hover: number;
   
-  constructor(private utilsService: UtilsService) { }
+  constructor(private utilsService: UtilsService, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.utilsService.setHomeState();
+    //this.cookieService.set('homeState', 'true');
   }
 
  

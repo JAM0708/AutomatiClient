@@ -14,7 +14,6 @@ import { OnlineChatComponent } from './online-chat/online-chat.component';
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { UserCarsComponent } from './profile/user-cars/user-cars.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
-import { AddReviewComponent } from './profile/user-cars/add-review/add-review.component';
 import { StartUsedComponent } from './landing-page/start-used/start-used.component';
 import { ListCarsComponent } from './landing-page/start-used/list-cars/list-cars.component';
 import { CarDetailComponent } from './landing-page/start-used/list-cars/car-detail/car-detail.component';
@@ -39,6 +38,9 @@ import { FaqService } from './services/faq.service';
 import { PersonService } from './services/person.service';
 import { CustomizeComponent } from './landing-page/start-new/customize/customize.component';
 import { CheckoutComponent } from './landing-page/start-new/customize/checkout/checkout.component';
+import { ReviewService } from './services/review.service';
+import { AddReviewComponent } from './profile/add-review/add-review.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,6 @@ import { CheckoutComponent } from './landing-page/start-new/customize/checkout/c
     PasswordResetComponent,
     UserCarsComponent,
     EditProfileComponent,
-    AddReviewComponent,
     StartUsedComponent,
     ListCarsComponent,
     CarDetailComponent,
@@ -64,7 +65,8 @@ import { CheckoutComponent } from './landing-page/start-new/customize/checkout/c
     HeaderComponent,
     ConfirmDialogComponent,
     CustomizeComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddReviewComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
@@ -78,7 +80,7 @@ import { CheckoutComponent } from './landing-page/start-new/customize/checkout/c
     BrowserAnimationsModule,
     MdDialogModule
   ],
-  providers: [PersonService, UtilsService, CarService, MdDialogModule, TokenService, JwtHelper, TokenAuthGuard, PaymentService, FaqService],
+  providers: [CookieService, PersonService, UtilsService, CarService, MdDialogModule, ReviewService, TokenService, JwtHelper, TokenAuthGuard, PaymentService, FaqService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

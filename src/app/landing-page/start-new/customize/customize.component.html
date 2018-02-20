@@ -2,15 +2,15 @@
 <h1 style = "text-align: center">Customize Your Automati {{modelName}}</h1>
 <div class = "container">
   <div class = "left">
-    <h3 style = "text-align: center">Select Color, Engine And Transmission</h3>
-    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "cForm">
+    <h3 style = "text-align: center">Select Color, Engine, And Transmission</h3>
+    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "cForm" ngNativeValidate>
 
       <div class = "row">
         <div class = "col-25">
           <label>Color: </label>
         </div>
         <div class = "col-75">
-          <select name = "color" ngModel>
+          <select name = "color" ngModel required>
             <option *ngFor = "let color of colors" [ngValue] = "color">
               {{color?.name}}
             </option>
@@ -23,7 +23,7 @@
           <label>Transmission: </label>
         </div>
         <div class = "col-75">
-          <select name = "transmission" ngModel>
+          <select name = "transmission" ngModel required>
             <option *ngFor = "let transmission of transmissions" [ngValue] = "transmission">
               {{transmission?.name}}
             </option>
@@ -36,7 +36,7 @@
           <label>Engine: </label>
         </div>
         <div class = "col-75">
-          <select name = "engine" ngModel>
+          <select name = "engine" ngModel required>
             <option *ngFor = "let engine of engines" [ngValue] = "engine">
              {{engine?.litres}}L {{engine?.cylinders}}cylinder engine
             </option>

@@ -16,6 +16,7 @@ import { ShippingComponent } from './landing-page/start-used/list-cars/car-detai
 import { BuyCarComponent } from './landing-page/start-used/list-cars/car-detail/buy-car/buy-car.component';
 import { CustomizeComponent } from './landing-page/start-new/customize/customize.component';
 import { CheckoutComponent } from './landing-page/start-new/customize/checkout/checkout.component';
+import { AddReviewComponent } from './profile/add-review/add-review.component';
 
 
 const appRoutes: Routes = [
@@ -25,16 +26,17 @@ const appRoutes: Routes = [
       {path: 'register', component: RegisterComponent},
       {path: 'profile',canActivate: [TokenAuthGuard], component: ProfileComponent},
       {path: 'faq', component: FaqComponent},
-      {path: 'new', component: StartNewComponent},
-      {path: 'used', component: StartUsedComponent},
-      {path: 'listOfModels', component: ListCarsComponent},
-      {path: 'carDetails', component: CarDetailComponent},
+      {path: 'new', component: StartNewComponent , canActivate: [TokenAuthGuard]},
+      {path: 'used', component: StartUsedComponent , canActivate: [TokenAuthGuard]},
+      {path: 'listOfModels', component: ListCarsComponent , canActivate: [TokenAuthGuard]},
+      {path: 'carDetails', component: CarDetailComponent , canActivate: [TokenAuthGuard]},
       {path: 'editProfile', component: EditProfileComponent},
-      {path: 'payment', component: PaymentComponent},
-      {path: 'shipping', component: ShippingComponent},
+      {path: 'payment', component: PaymentComponent , canActivate: [TokenAuthGuard]} ,
+      {path: 'shipping', component: ShippingComponent, canActivate: [TokenAuthGuard]},
       {path: 'buyCar', component: BuyCarComponent, canActivate: [TokenAuthGuard]},
       {path: 'customize', component: CustomizeComponent},
-      {path: 'checkout', component: CheckoutComponent}
+      {path: 'checkout', component: CheckoutComponent,  canActivate: [TokenAuthGuard]},
+      {path: 'addReview', component: AddReviewComponent}
     ];
 
 

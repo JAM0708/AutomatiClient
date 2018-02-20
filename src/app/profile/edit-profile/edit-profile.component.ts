@@ -23,8 +23,6 @@ export class EditProfileComponent implements OnInit {
   
   public person: Person;
   public email: string;
-  public sub: Subscription;
-
   states: State[];
   zipcodes: ZipCode[];
   constructor(private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService) { }
