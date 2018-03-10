@@ -50,6 +50,7 @@ export class PersonService {
       "password": person.password,
       "state": {"name": person.state.name},
       "role": {"name": person.role.name}, 
+      "balance": person.balance
       }, options).toPromise();
   }
 

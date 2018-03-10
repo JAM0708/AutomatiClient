@@ -21,6 +21,11 @@ export class CustomizeComponent implements OnInit {
   private colors: Color[];
   private transmissions: Transmission[];
   private engines: Engine[];
+  public price: number;
+  private engine: Engine;
+  private color: Color;
+  private transmission: Transmission;
+
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   
@@ -37,6 +42,7 @@ export class CustomizeComponent implements OnInit {
       this.getTransmissions();
       this.getEngines();
       this.getModel();
+      this.price = 0;
   }
 
   getModel() {
@@ -44,8 +50,6 @@ export class CustomizeComponent implements OnInit {
       this.model = res.json();
     })
   }
-
-
   getColors() {
     this.carService.getColors().then(res => {
       this.colors = res.json();
@@ -62,6 +66,18 @@ export class CustomizeComponent implements OnInit {
     this.carService.getEngines().then(res => {
       this.engines = res.json();
     });
+  }
+
+  colorSelected(color: Color) {
+    this.color = color;
+  }
+
+  transmissionSelected(transmission: Transmission) {
+    this.transmission = transmission;
+  }
+
+  engineSelected(engine: Engine) {
+    this.engine = engine;
   }
 
   onSubmit(form: NgForm) {

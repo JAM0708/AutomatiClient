@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Color } from '../../../../model/color.model';
 import { Engine } from '../../../../model/engine.model';
 import { Transmission } from '../../../../model/transmission.model';
@@ -14,6 +14,7 @@ import { Car } from '../../../../model/car.model';
 import { Condition } from '../../../../model/condition.model';
 import { Model } from '../../../../model/model.model';
 import { UtilsService } from '../../../../services/utils.service';
+import { Transaction } from '../../../../model/transaction.model';
 
 @Component({
   selector: 'app-checkout',
@@ -31,10 +32,15 @@ export class CheckoutComponent implements OnInit {
   private tid: number;
   private eid: number;
   private cname: string;
+  private price: number;
 
   private creditCard: CreditCard;
   private shipping: Shipping;
   private person: Person;
+  private model: Model;
+
+  @ViewChild('amount') amount: ElementRef;
+
   constructor(private personService: PersonService, private tokenService: TokenService,
      private carService: CarService, 
      private router: Router, private route: ActivatedRoute, private paymentService: PaymentService, private utilsService: UtilsService) { }
@@ -52,10 +58,12 @@ export class CheckoutComponent implements OnInit {
         this.cname = params['color'];
       }
       );
+      this.price = 0;
       this.getTransmission();
+      this.getModel(this.modelName);
       this.getEngine();
       this.getColor();
-      this.getUser(this.tokenService.getSubject());
+      this.getUser(this.tokenService.getSubject());      
   }
 
   getUser(email: string) {
@@ -64,21 +72,31 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+  getModel(name: string){
+    this.carService.getModel(name).then(res => {
+      this.model = res.json();
+      this.price = this.price + this.model.modelStockPrice;
+    })
+  }
+
   getTransmission() {
     this.carService.getTransmission(this.tid).then(res => {
       this.transmission = res.json();
+      this.price = this.price + this.transmission.transmissionPrice;
     })
   }
 
   getEngine() {
     this.carService.getEngine(this.eid).then(res => {
       this.engine = res.json();
+      this.price = this.price + this.engine.stockEnginePrice;
     })
   }
 
   getColor() {
     this.carService.getColor(this.cname).then(res => {
       this.color = res.json();
+      this.price = this.price + this.color.colorPrice;
     })
   }
 
@@ -93,6 +111,7 @@ export class CheckoutComponent implements OnInit {
   confirmOrder() { 
 
     console.log(this.shipping.id);
+    console.log(this.person);
     if(this.shipping.id == undefined) {
       this.personService.saveShipping(this.shipping);
     }
@@ -103,14 +122,22 @@ export class CheckoutComponent implements OnInit {
       this.paymentService.addCard(this.creditCard);
     }
     
+    const transaction = new Transaction(this.amount.nativeElement.value, "new car payment", this.person, this.creditCard);
     //update car
-    const newCar = new Car(23000, 2018, this.color, new Condition("NEW"), null, null,
+    const newCar = new Car(this.price, 2018, this.color, new Condition("NEW"), null, null,
      new Model(this.modelName), this.person, this.transmission, "CLEAN", 0, "4T1ZEQWSD", this.engine);
 
+    this.paymentService.addTransaction(transaction);
+
+    this.person.balance = this.person.balance + newCar.price - transaction.amount;
+
+    this.personService.updatePerson(this.person);
     
     this.carService.addCar(newCar).then(res => {
        this.router.navigate(['/profile']);                    
      console.log(res);
      });  
+
+
   }
 }

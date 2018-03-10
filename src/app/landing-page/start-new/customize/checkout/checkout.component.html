@@ -9,6 +9,7 @@
           <td>
               <h1>Payment</h1>
               <app-payment (selectCard) = "cardSelected($event)"></app-payment>
+              <input class="" type="text" #amount placeholder="enter amount">
           </td>
         </tr>
         <tr>
@@ -48,6 +49,7 @@
                 <li>Title: CLEAN</li>
                 <li>Mileage: 0</li>
                 <li>Color: {{color?.name}}</li>
+                <li>Price: ${{price}}</li>
                 <li>Engine: {{engine?.cylinders}} Cylinders {{engine?.litres}} L</li>
               </ul>
           
