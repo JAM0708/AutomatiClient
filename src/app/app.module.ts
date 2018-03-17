@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FaqComponent } from './faq/faq.component';
 import { OnlineChatComponent } from './online-chat/online-chat.component';
-import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { UserCarsComponent } from './profile/user-cars/user-cars.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { StartUsedComponent } from './landing-page/start-used/start-used.component';
@@ -41,6 +40,8 @@ import { CheckoutComponent } from './landing-page/start-new/customize/checkout/c
 import { ReviewService } from './services/review.service';
 import { AddReviewComponent } from './profile/add-review/add-review.component';
 import {CookieService} from 'ngx-cookie-service';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { PasswordResetComponent } from './login/forgot-password/password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {CookieService} from 'ngx-cookie-service';
     ConfirmDialogComponent,
     CustomizeComponent,
     CheckoutComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    ForgotPasswordComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

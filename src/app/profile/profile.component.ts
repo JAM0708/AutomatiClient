@@ -20,7 +20,10 @@ export class ProfileComponent implements OnInit {
   getUser(email: string) {
     this.personService.getPerson(email).then(res => {
       this.person = res.json();
-    });
+    }); 
+  }
+
+  payBalance() {
     
   }
 

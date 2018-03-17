@@ -17,6 +17,8 @@ import { BuyCarComponent } from './landing-page/start-used/list-cars/car-detail/
 import { CustomizeComponent } from './landing-page/start-new/customize/customize.component';
 import { CheckoutComponent } from './landing-page/start-new/customize/checkout/checkout.component';
 import { AddReviewComponent } from './profile/add-review/add-review.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { PasswordResetComponent } from './login/forgot-password/password-reset/password-reset.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +38,9 @@ const appRoutes: Routes = [
       {path: 'buyCar', component: BuyCarComponent, canActivate: [TokenAuthGuard]},
       {path: 'customize', component: CustomizeComponent},
       {path: 'checkout', component: CheckoutComponent,  canActivate: [TokenAuthGuard]},
-      {path: 'addReview', component: AddReviewComponent}
+      {path: 'addReview', component: AddReviewComponent},
+      {path: 'forgotPassword', component: ForgotPasswordComponent},
+      {path: 'passwordReset', component: PasswordResetComponent}
     ];
 
 

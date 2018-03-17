@@ -1,7 +1,10 @@
-<h1 md-dialog-title>Hi {{data.name}}</h1>
-<div md-dialog-content>
-  <p>{{ data.action }} was not successful.</p>
-</div>
-<div md-dialog-actions>
-  <button md-button (click)="onNoClick()" tabindex="2">Ok</button>
+<div class="dialog">
+    <h1 md-dialog-title>Hi {{data.name}}</h1>
+    <div class="body" md-dialog-content>
+      <p>{{ data.action }}</p>
+    </div>
+    
+    <div md-dialog-actions>
+      <button md-button (click)="onNoClick()" tabindex="2">Ok</button>
+    </div>
 </div>

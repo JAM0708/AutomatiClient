@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
           width: '40%',
           height: '40%',
           position: { top: '0px', left: '25%', right: '25%', bottom: '50%' },
-          data: { name: newPerson.firstName,  action: "register" }
+          data: { name: newPerson.firstName,  action: "Register Unsuccessfully" }
         });
       }
     });

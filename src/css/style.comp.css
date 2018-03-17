@@ -14,7 +14,13 @@ html {
   color: #fff; }
 
 .register {
-  position: relative; }
+  position: absolute;
+  width: 100%;
+  background-image: url("http://www.spyderonlines.com/images/highway_cars_city_traffic_buildings_black_white_25566.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 95.4vh; }
   .register#register--main {
     margin: 0 auto;
     width: 50rem; }
@@ -22,24 +28,20 @@ html {
     font-size: 2rem; }
   .register__header-box {
     text-align: center;
-    height: 5rem;
-    margin-top: 1rem;
-    color: #fff; }
+    height: 5rem; }
   .register__form {
     height: 40rem;
     background-color: #2998ff;
     border: 1rem solid #28b485;
-    width: 70%;
-    margin-left: 4rem;
-    border-radius: 1rem; }
+    border-radius: 1rem;
+    margin: auto; }
     .register__form:first-child {
       margin-top: 1rem; }
   .register__form-box {
-    background-color: #7ed56f;
-    border: 0.3rem solid #2998ff;
-    margin-top: 1rem;
     height: 50rem;
-    position: relative; }
+    position: relative;
+    width: 50rem;
+    margin: 0 auto; }
   .register__element {
     height: 3.5rem; }
     .register__element:first-of-type {
@@ -67,12 +69,13 @@ html {
     text-align: right; }
   .register__button {
     text-transform: uppercase;
-    margin-top: 1rem;
+    margin-top: 2rem;
     text-decoration: none;
-    padding: 1rem 1.5rem;
+    padding: 12px 20px;
     display: block;
-    border-radius: 10rem;
+    border-radius: 4px;
     font-size: .8rem;
+    border: none;
     margin: 0 auto;
     width: 15%; }
     .register__button--green {
@@ -88,15 +91,19 @@ html {
 
 .header {
   display: block;
-  position: relative;
   top: 0;
   width: 100%;
-  height: 4rem; }
+  height: 4rem;
+  background-color: #001f3f; }
   .header__nav {
     text-align: right;
     padding: 20px; }
+  .header h1 {
+    float: left;
+    margin: 1rem;
+    color: white; }
   .header__elements {
-    background-color: #7ed56f;
+    background-color: #001f3f;
     text-align: right;
     display: inline;
     position: absolute;
@@ -134,7 +141,13 @@ html {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .login {
-  position: relative; }
+  position: absolute;
+  width: 100%;
+  background-image: url("http://blog.hdwallsource.com/wp-content/uploads/2015/05/toy-car-wallpaper-39199-40102-hd-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 95.4vh; }
   .login#login--main {
     margin: 0 auto;
     width: 50rem; }
@@ -143,27 +156,25 @@ html {
   .login__header-box {
     text-align: center;
     height: 5rem;
-    margin-top: 1rem;
-    color: #fff; }
+    color: #333; }
   .login__form {
-    height: 40rem;
+    height: 30rem;
     background-color: #2998ff;
     border: 1rem solid #28b485;
-    width: 70%;
-    margin-left: 4rem;
-    border-radius: 1rem; }
+    margin: auto; }
     .login__form:first-child {
       margin-top: 1rem; }
   .login__form-box {
-    background-color: #7ed56f;
-    border: 0.3rem solid #2998ff;
-    margin-top: 1rem;
-    height: 50rem;
-    position: relative; }
+    height: 30rem;
+    position: relative;
+    width: 50rem;
+    margin: 0 auto; }
   .login__element {
     height: 3.5rem; }
     .login__element:first-of-type {
       margin-top: 1rem; }
+    .login__element-center {
+      text-align: center; }
   .login__label {
     width: 2rem;
     font-size: 1rem;
@@ -183,14 +194,13 @@ html {
       border-bottom: 3px solid #55c57a; }
   .login__button {
     text-transform: uppercase;
-    margin-top: 1rem;
+    margin-top: 2rem;
     text-decoration: none;
-    padding: 1rem 1.5rem;
-    display: block;
-    border-radius: 10rem;
+    padding: 12px 20px;
+    display: inline-block;
+    border-radius: 4px;
     font-size: .8rem;
-    margin: 0 auto;
-    width: 15%; }
+    border: none; }
     .login__button--green {
       background-color: #55c57a;
       color: #fff; }

@@ -25,19 +25,19 @@ import { Transaction } from '../../../../model/transaction.model';
 export class CheckoutComponent implements OnInit {
 
   modelName: string;
-  private color: Color;
-  private engine: Engine;
-  private transmission: Transmission;
+  color: Color;
+  engine: Engine;
+  transmission: Transmission;
 
-  private tid: number;
-  private eid: number;
-  private cname: string;
-  private price: number;
+  tid: number;
+  eid: number;
+  cname: string;
+  price: number;
 
-  private creditCard: CreditCard;
-  private shipping: Shipping;
-  private person: Person;
-  private model: Model;
+  creditCard: CreditCard;
+  shipping: Shipping;
+  person: Person;
+  model: Model;
 
   @ViewChild('amount') amount: ElementRef;
 

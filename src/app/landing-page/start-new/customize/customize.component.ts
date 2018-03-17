@@ -17,14 +17,14 @@ import { UtilsService } from '../../../services/utils.service';
 export class CustomizeComponent implements OnInit {
   @ViewChild('f') cForm: NgForm;
   modelName: string;
-  private model: Model;
-  private colors: Color[];
-  private transmissions: Transmission[];
-  private engines: Engine[];
-  public price: number;
-  private engine: Engine;
-  private color: Color;
-  private transmission: Transmission;
+  model: Model;
+  colors: Color[];
+  transmissions: Transmission[];
+  engines: Engine[];
+  price: number;
+  engine: Engine;
+  color: Color;
+  transmission: Transmission;
 
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 

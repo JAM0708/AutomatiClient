@@ -1,6 +1,12 @@
 .register {
-    position: relative;
-
+    position: absolute;
+    width: 100%;
+    background-image: url("http://www.spyderonlines.com/images/highway_cars_city_traffic_buildings_black_white_25566.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 95.4vh;
+    
     &#register--main {
         @include centerBoxElement(50rem);
     }
@@ -12,28 +18,29 @@
     &__header-box {
        text-align: center;
        height: 5rem;
-       margin-top: 1rem;
-       color: $color-white;
     }
 
     &__form {
         height: 40rem;
         background-color: $color-tertiary-light;
         border: 1rem solid $color-primary-dark;
-        width: 70%;
-        margin-left: 4rem;
+        //width: 40%;
+        //margin-left: 4rem;
         border-radius: 1rem;
+        margin: auto;
         &:first-child {
             margin-top: 1rem;
         }
     }
 
     &__form-box {
-        background-color: $color-primary-light;
-        border: .3rem solid $color-tertiary-light;
-        margin-top: 1rem;
+        //background-color: $color-primary-light;
+        //border: .3rem solid $color-tertiary-light;
+        //margin-top: 1rem;
         height: 50rem;
         position: relative;
+        width: 50rem;
+        margin: 0 auto;
 
     }
 
@@ -75,12 +82,13 @@
 
     &__button {
         text-transform: uppercase;
-        margin-top: 1rem;
+        margin-top: 2rem;
         text-decoration: none;
-        padding: 1rem 1.5rem;
+        padding: 12px 20px;
         display: block;
-        border-radius: 10rem;
+        border-radius: 4px;
         font-size: .8rem;
+        border: none;
         @include centerBoxElement(15%);
 
         &--green {

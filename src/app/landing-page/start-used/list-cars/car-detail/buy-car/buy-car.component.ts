@@ -17,11 +17,11 @@ import { UtilsService } from '../../../../../services/utils.service';
   styleUrls: ['../../../../../../css/style.css']
 })
 export class BuyCarComponent implements OnInit {
-  private carId:number;
-  private car:Car;
-  private person: Person;
-  private shipping: Shipping;
-  private creditCard: CreditCard;
+  carId:number;
+  car:Car;
+  person: Person;
+  shipping: Shipping;
+  creditCard: CreditCard;
   constructor(private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService, private carService: CarService,
   private paymentService: PaymentService, private utilsService: UtilsService) { }
   

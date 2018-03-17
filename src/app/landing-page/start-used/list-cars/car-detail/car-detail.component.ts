@@ -13,10 +13,10 @@ import { UtilsService } from '../../../../services/utils.service';
 })
 export class CarDetailComponent implements OnInit {
 
-  private carId: number;
-  private car: Car;
-  private reviews: Review[];
-  private modelName: string;
+  carId: number;
+  car: Car;
+  reviews: Review[];
+  modelName: string;
   constructor(private reviewService: ReviewService, private carService: CarService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   ngOnInit() {
