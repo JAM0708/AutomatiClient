@@ -12,7 +12,7 @@ import { UtilsService } from '../../services/utils.service';
 export class StartNewComponent implements OnInit {
 
   
-  private models: Model[];
+  models: Model[];
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute,private utilsService: UtilsService) { }
 
   ngOnInit() {

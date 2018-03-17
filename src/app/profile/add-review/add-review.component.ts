@@ -17,10 +17,10 @@ import { NgForm } from '@angular/forms';
 export class AddReviewComponent implements OnInit {
 
   @ViewChild('f') ngForm: NgForm;
-  private person: Person;
-  private cars: Car[];
-  private email: string;
-  private reviews: Review[];
+  person: Person;
+  cars: Car[];
+  email: string;
+  reviews: Review[];
   carr: Car;
 
   constructor(private personService: PersonService, 

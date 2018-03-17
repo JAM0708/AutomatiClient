@@ -1,5 +1,11 @@
 .login {
-    position: relative;    
+    position: absolute;    
+    width: 100%;
+    background-image: url('http://blog.hdwallsource.com/wp-content/uploads/2015/05/toy-car-wallpaper-39199-40102-hd-wallpapers.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 95.4vh;
 
     &#login--main {
         @include centerBoxElement(50rem);
@@ -12,28 +18,30 @@
     &__header-box {
         text-align: center;
         height: 5rem;
-        margin-top: 1rem;
-        color: $color-white;
+        //margin-top: 1rem;
+        color: $color-grey-dark-3;
     }
 
     &__form {
-        height: 40rem;
+        height: 30rem;
         background-color: $color-tertiary-light;
         border: 1rem solid $color-primary-dark;
-        width: 70%;
-        margin-left: 4rem;
-        border-radius: 1rem;
+        //width: 30%;
+        margin: auto;
+       // border-radius: 1rem;
         &:first-child {
             margin-top: 1rem;
         }
     }
 
     &__form-box {
-        background-color: $color-primary-light;
-        border: .3rem solid $color-tertiary-light;
-        margin-top: 1rem;
-        height: 50rem;
+        //background-color: $color-primary-light;
+        //border: .3rem solid $color-tertiary-light;
+        //margin-top: 1rem;
+        height: 30rem;
         position: relative;
+        width: 50rem;
+        margin: 0 auto;
     }
 
     &__element {
@@ -41,6 +49,9 @@
             margin-top: 1rem;
         }
         height: 3.5rem;
+        &-center {
+            text-align:center;
+        }
     }
     
     &__label {
@@ -67,13 +78,14 @@
 
     &__button {
         text-transform: uppercase;
-        margin-top: 1rem;
+        margin-top: 2rem;
         text-decoration: none;
-        padding: 1rem 1.5rem;
-        display: block;
-        border-radius: 10rem;
+        padding: 12px 20px;
+        display: inline-block;
+        border-radius: 4px;
         font-size: .8rem;
-        @include centerBoxElement(15%);
+        border: none;
+        //@include centerBoxElement(15%);
 
         &--green {
             background-color: $color-primary;

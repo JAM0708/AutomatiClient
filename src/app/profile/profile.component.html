@@ -8,7 +8,7 @@
         <p>Email: {{person?.email}}</p>
         <p>Name: {{person?.firstName}} {{person?.lastName}}</p>
         <p>Address: {{person?.street}} {{person?.city}} {{person?.state?.name}}</p>
-        <p>Balance: {{person?.balance}}</p>
+        <p>Balance: ${{person?.balance}}</p>
     
         <button (click) = "editProfile()">Edit Profile</button>
         <button (click) = "goToReviews()">Add Reviews</button>

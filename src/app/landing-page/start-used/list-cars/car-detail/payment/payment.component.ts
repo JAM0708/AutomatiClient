@@ -21,17 +21,17 @@ import { PersonService } from '../../../../../services/person.service';
 })
 export class PaymentComponent implements OnInit {
 
-  private carId: number;
-  private car: Car;
-  private balance: number;
-  public card: CreditCard;
+  carId: number;
+  car: Car;
+  balance: number;
+  card: CreditCard;
   @Output()
   selectCard = new EventEmitter<CreditCard>();
-  private creditCards: CreditCard[];
-  private person: Person;
+  creditCards: CreditCard[];
+  person: Person;
   @ViewChild('f') slForm: NgForm;
   @ViewChild('f2') form2: NgForm;
-  public show: boolean;
+  show: boolean;
 
   constructor(public dialog: MdDialog, private tokenService:TokenService,private paymentService: PaymentService, private personService: PersonService, private carService: CarService, private router: Router, private route: ActivatedRoute) { 
   

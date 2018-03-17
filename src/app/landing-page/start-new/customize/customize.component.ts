@@ -17,10 +17,15 @@ import { UtilsService } from '../../../services/utils.service';
 export class CustomizeComponent implements OnInit {
   @ViewChild('f') cForm: NgForm;
   modelName: string;
-  private model: Model;
-  private colors: Color[];
-  private transmissions: Transmission[];
-  private engines: Engine[];
+  model: Model;
+  colors: Color[];
+  transmissions: Transmission[];
+  engines: Engine[];
+  price: number;
+  engine: Engine;
+  color: Color;
+  transmission: Transmission;
+
   constructor(private carService: CarService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   
@@ -37,6 +42,7 @@ export class CustomizeComponent implements OnInit {
       this.getTransmissions();
       this.getEngines();
       this.getModel();
+      this.price = 0;
   }
 
   getModel() {
@@ -44,8 +50,6 @@ export class CustomizeComponent implements OnInit {
       this.model = res.json();
     })
   }
-
-
   getColors() {
     this.carService.getColors().then(res => {
       this.colors = res.json();
@@ -62,6 +66,18 @@ export class CustomizeComponent implements OnInit {
     this.carService.getEngines().then(res => {
       this.engines = res.json();
     });
+  }
+
+  colorSelected(color: Color) {
+    this.color = color;
+  }
+
+  transmissionSelected(transmission: Transmission) {
+    this.transmission = transmission;
+  }
+
+  engineSelected(engine: Engine) {
+    this.engine = engine;
   }
 
   onSubmit(form: NgForm) {

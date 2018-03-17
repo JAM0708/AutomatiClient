@@ -50,6 +50,7 @@ export class PersonService {
       "password": person.password,
       "state": {"name": person.state.name},
       "role": {"name": person.role.name}, 
+      "balance": person.balance
       }, options).toPromise();
   }
 
@@ -106,5 +107,35 @@ export class PersonService {
 
   getShipping(id: number) {
     return this.http.get('http://localhost:8060/AutomatiServer/user/shipAddr?id=' + id).toPromise();
+  }
+
+  forgotPassword(email: string) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post('http://localhost:8060/AutomatiServer/user/forgotPassword', {
+      "email": email
+    }, options).toPromise();
+  }
+
+  findToken(email: string, token: number) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post('http://localhost:8060/AutomatiServer/user/findToken', {
+      "tokenNum": token,
+      "email": email
+    }, options).toPromise();
+    
+  }
+
+  updatePassword(email: string, password: string) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post('http://localhost:8060/AutomatiServer/user/resetPassword', {
+      "email": email,
+      "password": password
+    }, options).toPromise();
   }
 }

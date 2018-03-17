@@ -15,7 +15,7 @@ export class Person {
   public balance: number;
 
   constructor(firstName: string, lastName: string, email: string, street: string, city: string,
-              password: string, state?: State, role?: Role, id?: number, balance?: number) {
+              password: string, state?: State, role?: Role, balance?: number, id?: number) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;

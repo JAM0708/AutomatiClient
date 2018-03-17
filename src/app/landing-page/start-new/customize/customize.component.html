@@ -10,9 +10,9 @@
           <label>Color: </label>
         </div>
         <div class = "col-75">
-          <select name = "color" ngModel required>
+          <select name = "color" (ngModelChange) = "colorSelected($event)" ngModel required>
             <option *ngFor = "let color of colors" [ngValue] = "color">
-              {{color?.name}}
+              {{color?.name}} Price: ${{color?.colorPrice}}
             </option>
           </select>
         </div>
@@ -23,9 +23,9 @@
           <label>Transmission: </label>
         </div>
         <div class = "col-75">
-          <select name = "transmission" ngModel required>
+          <select name = "transmission" (ngModelChange) = "transmissionSelected($event)" ngModel required>
             <option *ngFor = "let transmission of transmissions" [ngValue] = "transmission">
-              {{transmission?.name}}
+              {{transmission?.name}} Price: ${{transmission?.transmissionPrice}}
             </option>
           </select>
         </div>
@@ -36,9 +36,9 @@
           <label>Engine: </label>
         </div>
         <div class = "col-75">
-          <select name = "engine" ngModel required>
+          <select name = "engine" (ngModelChange) = "engineSelected($event)" ngModel required>
             <option *ngFor = "let engine of engines" [ngValue] = "engine">
-             {{engine?.litres}}L {{engine?.cylinders}}cylinder engine
+             {{engine?.litres}}L {{engine?.cylinders}}cylinder engine  Price: ${{engine?.stockEnginePrice}}
             </option>
           </select>
         </div>
@@ -49,6 +49,7 @@
       </div>
   
     </form>
+   Total Price: ${{0 + model?.modelStockPrice + color?.colorPrice + transmission?.transmissionPrice + engine?.stockEnginePrice}}
   </div>
 
   <div class = "right">

@@ -17,9 +17,17 @@ export class LoginComponent implements OnInit {
    decide: string;
    
 
-  constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute, private tokenService: TokenService, public dialog: MdDialog, private cookieService: CookieService) { }
+  constructor(private personService: PersonService, 
+    private router: Router, private route: ActivatedRoute, 
+    private tokenService: TokenService, 
+    public dialog: MdDialog, 
+    private cookieService: CookieService) { }
 
   ngOnInit() {
+  }
+
+  passwordReset() {
+    this.router.navigate(['/forgotPassword'], {relativeTo: this.route});
   }
 
   onSubmit(form: NgForm) {
@@ -37,7 +45,7 @@ export class LoginComponent implements OnInit {
         width: '40%',
         height: '20%',
         position: { top: '10%', left: '25%', right: '25%', bottom: '50%' },
-          data: { name: email,  action: "login" }
+          data: { name: email,  action: "login unsuccessfully" }
         });
     }
    });     

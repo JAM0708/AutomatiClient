@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     const value = form.value;
     console.log(value.state);
     console.log(value.zipcode);
-    const newPerson = new Person(value.firstName, value.lastName, value.email, value.street, value.city, value.password, new State(value.state.id, value.state.name), new Role(1, ConstVariables.DEFAULT_ROLE));
+    const newPerson = new Person(value.firstName, value.lastName, value.email, value.street, value.city, value.password, new State(value.state.id, value.state.name), new Role(1, ConstVariables.DEFAULT_ROLE),0);
     newPerson.balance = 0;
     this.personService.addPerson(newPerson).then(res => {
       if(res.json().passed) {
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
           width: '40%',
           height: '40%',
           position: { top: '0px', left: '25%', right: '25%', bottom: '50%' },
-          data: { name: newPerson.firstName,  action: "register" }
+          data: { name: newPerson.firstName,  action: "Register Unsuccessfully" }
         });
       }
     });
