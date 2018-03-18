@@ -10,11 +10,6 @@ const config = {
 
 const distFolderPath = path.join(__dirname, config.folderPath);
 
-AWS.config.update({
-  accessKeyId: 'AKIAIPK45DN6H3GVIXOA',
-  secretAccessKey: '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'
-})
-
 const s3 = new AWS.S3({
   signatureVersion: 'v4'
 });
