@@ -10,6 +10,12 @@ const config = {
 
 const distFolderPath = path.join(__dirname, config.folderPath);
 
+
+AWS.config.update({
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY
+})
+
 const s3 = new AWS.S3({
   signatureVersion: 'v4'
 });
@@ -40,7 +46,7 @@ fs.readdirSync(distFolderPath).forEach((filename) => {
     }
 
     // upload file to S3
-    s3.putObject(s3Obj, (res) => {
+    s3.putObject(s3Obj, (res, err) => {
       console.log(`Successfully uploaded '${filepath}' with MIME type '${mimeType}'`)
     })
 
