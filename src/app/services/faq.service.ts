@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { Car } from '../model/car.model';
+import {environment} from "../../environments/environment";
+
 
 @Injectable()
 export class FaqService {
@@ -15,6 +17,6 @@ export class FaqService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/getFaq').toPromise();
+    return this.http.get(environment.apiUrl + 'getFaq').toPromise();
   }
 }

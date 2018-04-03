@@ -8,6 +8,8 @@ import { Http, Response, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { CreditCard } from '../model/creditcard.model';
 import { Shipping } from '../model/shipping.model';
 import { Person } from '../model/person.model';
+import {environment} from "../../environments/environment";
+
 
 
 @Injectable()
@@ -24,7 +26,7 @@ export class PersonService {
    console.log(person);
     //add user
   
-      return  this.http.post('http://localhost:8060/AutomatiServer/user/register', {
+      return  this.http.post(environment.apiUrl + 'user/register', {
       "firstName": person.firstName,
       "lastName": person.lastName, 
       "email": person.email, 
@@ -40,7 +42,7 @@ export class PersonService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return  this.http.post('http://localhost:8060/AutomatiServer/user/update', {
+    return  this.http.post(environment.apiUrl + 'user/update', {
       "id": person.id,
       "firstName": person.firstName,
       "lastName": person.lastName, 
@@ -58,7 +60,7 @@ export class PersonService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return  this.http.post('http://localhost:8060/AutomatiServer/user/updateShipping', {
+    return  this.http.post(environment.apiUrl + 'user/updateShipping', {
       "firstName": shipping.firstName,
       "lastName": shipping.lastName, 
       "street": shipping.street, 
@@ -69,14 +71,14 @@ export class PersonService {
   }
 
   getCars(email: string) {
-    return this.http.get('http://localhost:8060/AutomatiServer/cars?email=' + email).toPromise();
+    return this.http.get(environment.apiUrl + 'cars?email=' + email).toPromise();
   }
 
   login(email: string, password: string) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8060/AutomatiServer/user/login', {
+    return this.http.post(environment.apiUrl + 'user/login', {
       "email": email,
        "password": password
     }, options).toPromise();
@@ -84,16 +86,16 @@ export class PersonService {
 
   getPerson(email: string) {
     console.log(email);
-    return this.http.get('http://localhost:8060/AutomatiServer/user/userEmail?email=' + email).toPromise();
+    return this.http.get(environment.apiUrl + 'user/userEmail?email=' + email).toPromise();
   }
 
   getStates() {
-    return this.http.get('http://localhost:8060/AutomatiServer/user/state').toPromise();
+    return this.http.get(environment.apiUrl + 'user/state').toPromise();
   }
   
 
    getZipCodes(stateName: string) {
-     return this.http.get('http://localhost:8060/AutomatiServer/user/zipcode?state=' + stateName).toPromise();
+     return this.http.get(environment.apiUrl + 'user/zipcode?state=' + stateName).toPromise();
     }
 
   logout() {
@@ -102,18 +104,18 @@ export class PersonService {
   }
 
   getShippings(email: string) {
-    return this.http.get('http://localhost:8060/AutomatiServer/user/shipsAddress?email=' + email).toPromise();
+    return this.http.get(environment.apiUrl + 'user/shipsAddress?email=' + email).toPromise();
   }
 
   getShipping(id: number) {
-    return this.http.get('http://localhost:8060/AutomatiServer/user/shipAddr?id=' + id).toPromise();
+    return this.http.get(environment.apiUrl + 'user/shipAddr?id=' + id).toPromise();
   }
 
   forgotPassword(email: string) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8060/AutomatiServer/user/forgotPassword', {
+    return this.http.post(environment.apiUrl + 'user/forgotPassword', {
       "email": email
     }, options).toPromise();
   }
@@ -122,7 +124,7 @@ export class PersonService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8060/AutomatiServer/user/findToken', {
+    return this.http.post(environment.apiUrl + 'user/findToken', {
       "tokenNum": token,
       "email": email
     }, options).toPromise();
@@ -133,7 +135,7 @@ export class PersonService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8060/AutomatiServer/user/resetPassword', {
+    return this.http.post(environment.apiUrl + 'user/resetPassword', {
       "email": email,
       "password": password
     }, options).toPromise();
