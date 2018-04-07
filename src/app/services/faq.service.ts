@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { Car } from '../model/car.model';
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 
 @Injectable()

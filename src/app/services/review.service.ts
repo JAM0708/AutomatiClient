@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { Review } from "../model/review.model";
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 
 @Injectable() 

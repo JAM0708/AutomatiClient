@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { CreditCard } from '../model/creditcard.model';
 import { Transaction } from '../model/transaction.model';
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 
 @Injectable()

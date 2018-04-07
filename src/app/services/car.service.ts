@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { Car } from '../model/car.model';
 import { Person } from '../model/person.model';
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 @Injectable()
 export class CarService {

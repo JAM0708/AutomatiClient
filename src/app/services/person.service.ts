@@ -8,7 +8,7 @@ import { Http, Response, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { CreditCard } from '../model/creditcard.model';
 import { Shipping } from '../model/shipping.model';
 import { Person } from '../model/person.model';
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 
 
