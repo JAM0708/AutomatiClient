@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Http, Response, RequestOptions, Headers, Jsonp } from "@angular/http";
 import { Car } from '../model/car.model';
 import { Person } from '../model/person.model';
+import {environment} from "../../environments/environment.prod";
 
 @Injectable()
 export class CarService {
@@ -15,7 +16,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return  this.http.post('http://localhost:8060/AutomatiServer/car/save', {
+    return  this.http.post(environment.apiUrl + 'car/save', {
       "year": car.year,
       "mileage": car.mileage,
       "title": car.title,
@@ -37,7 +38,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return  this.http.post('http://localhost:8060/AutomatiServer/car/update', {
+    return  this.http.post(environment.apiUrl + 'car/update', {
       "id": car.id,
       "year": car.year,
       "mileage": car.mileage,
@@ -60,15 +61,15 @@ export class CarService {
     let options = new RequestOptions({ headers: headers });
     */
 
-    return this.http.get('http://localhost:8060/AutomatiServer/cars').toPromise();
+    return this.http.get(environment.apiUrl + 'cars').toPromise();
   }
 
   getModels() {
-    return this.http.get('http://localhost:8060/AutomatiServer/models').toPromise();
+    return this.http.get(environment.apiUrl + 'models').toPromise();
   }
 
   getModel(name: string) {
-    return this.http.get('http://localhost:8060/AutomatiServer/car/model?name='+ name).toPromise();
+    return this.http.get(environment.apiUrl + 'car/model?name='+ name).toPromise();
   }
 
   getCarsByModel(model: string) {
@@ -78,11 +79,11 @@ export class CarService {
     let options = new RequestOptions({ headers: headers });
     console.log("model name: " + model);
 
-    return this.http.get('http://localhost:8060/AutomatiServer/cars/model?model=' + model).toPromise();
+    return this.http.get(environment.apiUrl + 'cars/model?model=' + model).toPromise();
   }
 
   getCar(id: number) {
-    return this.http.get('http://localhost:8060/AutomatiServer/car?id='+ id).toPromise();
+    return this.http.get(environment.apiUrl + 'car?id='+ id).toPromise();
   }
 
   getColors() {
@@ -90,7 +91,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/colors').toPromise();
+    return this.http.get(environment.apiUrl + 'colors').toPromise();
   }
 
   getColor(name: string) {
@@ -98,7 +99,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/color?name=' + name).toPromise();
+    return this.http.get(environment.apiUrl + 'color?name=' + name).toPromise();
   }
 
   getTransmissions() {
@@ -106,7 +107,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/transmissions').toPromise();
+    return this.http.get(environment.apiUrl + 'transmissions').toPromise();
   }
 
   getTransmission(id: number) {
@@ -114,7 +115,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/transmission?id=' + id).toPromise();
+    return this.http.get(environment.apiUrl + 'transmission?id=' + id).toPromise();
   }
 
   getEngine(id: number) {
@@ -122,7 +123,7 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/engine?id=' + id).toPromise();
+    return this.http.get(environment.apiUrl + 'engine?id=' + id).toPromise();
   }
 
   getEngines() {
@@ -130,10 +131,10 @@ export class CarService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get('http://localhost:8060/AutomatiServer/engines').toPromise();
+    return this.http.get(environment.apiUrl + 'engines').toPromise();
   }
 
   getCarsByPerson(email: string) {
-    return this.http.get('http://localhost:8060/AutomatiServer/carsByPerson?email='+ email).toPromise();
+    return this.http.get(environment.apiUrl + 'carsByPerson?email='+ email).toPromise();
   }
 }
