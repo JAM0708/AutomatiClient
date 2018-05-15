@@ -4,15 +4,15 @@
           <h2 class = "login__header-text">Login to your Automati Account</h2>          
       </div>
             
-      <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "login__form" >
+      <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "login__form" ngNativeValidate>
         <div class = "login__element">
             <label class = "login__label">Email: </label>
-            <input name = "email" type = "text" class = "login__input" ngModel/>
+            <input name = "email" type = "text" class = "login__input" ngModel required/>
         </div>
       
         <div class = "login__element">
             <label class = "login__label">Password: </label>
-            <input name = "password" type = "password" class = "login__input" ngModel/>
+            <input name = "password" type = "password" class = "login__input" ngModel required/>
         </div>
         
         <div class = "login__element-center">

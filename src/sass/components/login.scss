@@ -19,7 +19,7 @@
         text-align: center;
         height: 5rem;
         //margin-top: 1rem;
-        color: $color-grey-dark-3;
+        // color: $color-grey-dark-3;
     }
 
     &__form {
@@ -32,6 +32,7 @@
         &:first-child {
             margin-top: 1rem;
         }
+        border-radius: 1rem;
     }
 
     &__form-box {
@@ -106,5 +107,17 @@
             box-shadow: 0 1rem 2rem rgba($color-black,.2);
         }
     }
+
+    // for tablets and mobile phones
+    @media (max-width: 840px){
+        &__form-box {
+            width: 100%;
+        }
+
+        &__header-text {
+            font-size: 1rem;
+        }
+    }
+
 
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../model/person.model';
 import { PersonService } from '../services/person.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UtilsService } from '../services/utils.service';
 
 
 @Component({
@@ -14,10 +15,11 @@ export class ProfileComponent implements OnInit {
   //public email: string; 
   public person: Person;
 
-  constructor(private route: ActivatedRoute, private personService: PersonService, private router: Router, private tokenService:TokenService) { 
+  constructor(private utilsService: UtilsService, private route: ActivatedRoute, private personService: PersonService, private router: Router, private tokenService:TokenService) { 
   }
 
   getUser(email: string) {
+    this.utilsService.setHomeState();
     this.personService.getPerson(email).then(res => {
       this.person = res.json();
     }); 

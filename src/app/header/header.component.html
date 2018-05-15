@@ -4,15 +4,15 @@
   <ul>
 <div *ngIf = "home; else notHome">
     <div class="header__elements">
-    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/home" >Home</a></li> |
-    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/profile" >Profile</a></li> |
-    <li class="header__items" routerLinkActive="active"><button class="header__button" (click) = "logOut()" >Logout</button></li> |
+    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/home" >Home</a></li>
+    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/profile" >Profile</a></li>
+    <li class="header__items" routerLinkActive="active"><button class="header__button" (click) = "logOut()" >Logout</button></li>
     <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink ="/faq" >FAQ</a></li>
     </div>
 </div>
 <ng-template #notHome>
     <div class="header__elements">
-    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/login" >Login</a></li> |
+    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/login" >Login</a></li>
     <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink ="/register" >Register</a></li>
         </div>
 </ng-template>
