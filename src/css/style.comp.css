@@ -25,7 +25,10 @@ html {
     margin: 0 auto;
     width: 50rem; }
   .register__header-text {
-    font-size: 2rem; }
+    font-size: 2rem;
+    background-color: #55c57a;
+    margin-top: 1rem;
+    color: #fff; }
   .register__header-box {
     text-align: center;
     height: 5rem; }
@@ -88,13 +91,18 @@ html {
     .register__button:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 840px) {
+    .register__form-box {
+      width: 100%; }
+    .register__header-text {
+      font-size: 1rem; } }
 
 .header {
   display: block;
   top: 0;
   width: 100%;
   height: 4rem;
-  background-color: #001f3f; }
+  background-color: #55c57a; }
   .header__nav {
     text-align: right;
     padding: 20px; }
@@ -103,7 +111,7 @@ html {
     margin: 1rem;
     color: white; }
   .header__elements {
-    background-color: #001f3f;
+    background-color: #55c57a;
     text-align: right;
     display: inline;
     position: absolute;
@@ -139,6 +147,25 @@ html {
     .header__items:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 600px) {
+    .header {
+      width: 100%;
+      height: 10rem;
+      float: none;
+      margin: 0; }
+      .header h1 {
+        text-align: center;
+        float: none;
+        margin: 0; }
+      .header__elements {
+        width: 100%;
+        padding: none;
+        text-align: center;
+        padding: 0; }
+      .header__items {
+        display: block;
+        margin-bottom: .75rem;
+        margin-top: 1rem; } }
 
 .login {
   position: absolute;
@@ -155,13 +182,13 @@ html {
     font-size: 2rem; }
   .login__header-box {
     text-align: center;
-    height: 5rem;
-    color: #333; }
+    height: 5rem; }
   .login__form {
     height: 30rem;
     background-color: #2998ff;
     border: 1rem solid #28b485;
-    margin: auto; }
+    margin: auto;
+    border-radius: 1rem; }
     .login__form:first-child {
       margin-top: 1rem; }
   .login__form-box {
@@ -211,6 +238,11 @@ html {
     .login__button:hover {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 840px) {
+    .login__form-box {
+      width: 100%; }
+    .login__header-text {
+      font-size: 1rem; } }
 
 .lp .container {
   width: 100%;

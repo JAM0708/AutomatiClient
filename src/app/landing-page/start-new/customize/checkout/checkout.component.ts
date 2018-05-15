@@ -121,17 +121,20 @@ export class CheckoutComponent implements OnInit {
     if(this.creditCard.id == undefined) {
       this.paymentService.addCard(this.creditCard);
     }
+    // for now, change later
+      //const transaction = new Transaction(this.amount.nativeElement.value, "new car payment", this.person, this.creditCard.number);
+      //this.paymentService.addTransaction(transaction);
+
+  
     
-    const transaction = new Transaction(this.amount.nativeElement.value, "new car payment", this.person, this.creditCard);
     //update car
     const newCar = new Car(this.price, 2018, this.color, new Condition("NEW"), null, null,
      new Model(this.modelName), this.person, this.transmission, "CLEAN", 0, "4T1ZEQWSD", this.engine);
 
-    this.paymentService.addTransaction(transaction);
 
-    this.person.balance = this.person.balance + newCar.price - transaction.amount;
+    this.person.balance = this.person.balance + newCar.price - this.amount.nativeElement.value;
 
-    this.personService.updatePerson(this.person);
+    this.personService.updateBalance(this.person);
     
     this.carService.addCar(newCar).then(res => {
        this.router.navigate(['/profile']);                    

@@ -13,6 +13,9 @@
 
     &__header-text {
         font-size: 2rem;
+        background-color: $color-primary;
+        margin-top: 1rem;
+        color: $color-white;
     }
 
     &__header-box {
@@ -108,6 +111,17 @@
         &:hover{
             transform: translateY(-3px);
             box-shadow: 0 1rem 2rem rgba($color-black,.2);
+        }
+    }
+
+    // for tablets and mobile phones
+    @media (max-width: 840px){
+        &__form-box {
+            width: 100%;
+        }
+
+        &__header-text {
+            font-size: 1rem;
         }
     }
 

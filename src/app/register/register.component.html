@@ -3,30 +3,30 @@
     <div class="register__header-box">
     <h2 class="register__header-text">Register for a Automati Account</h2>
     </div>
-<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class="register__form">
+<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class="register__form" ngNativeValidate>
     <div class="register__element">
     <label class="register__label">First Name: </label>
-    <input name = "firstName" type = "text" class = "register__input" ngModel/>
+    <input name = "firstName" type = "text" class = "register__input" ngModel required/>
     </div>
     <div class="register__element"> 
     <label class="register__label">Last Name: </label>
-    <input name = "lastName" type = "text" class = "register__input" ngModel/>
+    <input name = "lastName" type = "text" class = "register__input" ngModel required/>
     </div>
     <div class="register__element">
     <label class="register__label">Email: </label>
-    <input name = "email" type = "text" class = "register__input" ngModel/>
+    <input name = "email" type = "text" class = "register__input" ngModel required/>
     </div>
     <div class="register__element">
     <label class="register__label">Address: </label>
-    <input name = "street" type = "text" class = "register__input" ngModel/>
+    <input name = "street" type = "text" class = "register__input" ngModel required/>
     </div>
     <div class="register__element">
     <label class="register__label">City: </label>
-    <input name = "city" type = "text" class = "register__input" ngModel/>
+    <input name = "city" type = "text" class = "register__input" ngModel required/>
     </div>
     <div class="register__element">
     <label class="register__label">State: </label>
-    <select name="state" (ngModelChange)="stateSelect($event)" ngModel class="register__select">
+    <select name="state" (ngModelChange)="stateSelect($event)" ngModel class="register__select" required>
       <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
     </select>
     </div>
@@ -45,7 +45,7 @@
   </ng-template>
   <div class="register__element">
     <label class="register__label">Password: </label>
-    <input name = "password" type = "password" class = "register__input" ngModel/>
+    <input name = "password" type = "password" class = "register__input" ngModel required/>
   </div>
   <div class="register__element">
   <button type = "submit" class="register__button register__button--green">Register</button>

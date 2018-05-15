@@ -8,6 +8,7 @@ import { PersonService } from '../../services/person.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Review } from '../../model/review.model';
 import { NgForm } from '@angular/forms';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-add-review',
@@ -25,9 +26,10 @@ export class AddReviewComponent implements OnInit {
 
   constructor(private personService: PersonService, 
     private tokenService: TokenService, private carService: CarService,
-     private reviewService: ReviewService, private router: Router, private route: ActivatedRoute) { }
+     private reviewService: ReviewService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   ngOnInit() {
+    this.utilsService.setHomeState();
     this.route.params
     .subscribe(
     (params: Params) => {

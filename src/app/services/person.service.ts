@@ -15,6 +15,7 @@ import {environment} from "../../environments/environment.prod";
 @Injectable()
 export class PersonService {
 
+  
   constructor(private router: Router, private http: Http, private jsonp: Jsonp) {}
 
   addPerson(person: Person) {
@@ -114,10 +115,8 @@ export class PersonService {
   forgotPassword(email: string) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-
-    return this.http.post(environment.apiUrl + 'user/forgotPassword', {
-      "email": email
-    }, options).toPromise();
+    
+    return this.http.get(environment.apiUrl + 'user/forgotPassword?email=' +  email, options).toPromise();
   }
 
   findToken(email: string, token: number) {
@@ -138,6 +137,16 @@ export class PersonService {
     return this.http.post(environment.apiUrl + 'user/resetPassword', {
       "email": email,
       "password": password
+    }, options).toPromise();
+  }
+
+  updateBalance(person: Person) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(environment.apiUrl + 'user/updateBalance', {
+      "email": person.email,
+      "balance": person.balance
     }, options).toPromise();
   }
 }

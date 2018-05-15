@@ -11,6 +11,7 @@ import { Role } from '../../model/role.model';
 import { TokenService } from '../../services/token.service';
 import { PersonService } from '../../services/person.service';
 import { Person } from '../../model/person.model';
+import { UtilsService } from '../../services/utils.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class EditProfileComponent implements OnInit {
   public email: string;
   states: State[];
   zipcodes: ZipCode[];
-  constructor(private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService) { }
+  constructor(private utilsService: UtilsService, private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService) { }
 
   
   getUser(email: string) {
@@ -46,6 +47,7 @@ export class EditProfileComponent implements OnInit {
   }
     
   ngOnInit() {
+    this.utilsService.setHomeState();
     this.getUser(this.tokenService.getSubject());
     this.personService.getStates().then(res => {
       this.states = res.json();
