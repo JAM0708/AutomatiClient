@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
     if(res.json().isJWT == true) {
       this.tokenService.setJwtInfo(res.json().jwt);
       this.cookieService.set('homeState', 'true');
+      this.cookieService.set('email', email);
       this.router.navigate(['../home'], {relativeTo: this.route});
     } else {
       let dialogRef = this.dialog.open(ConfirmDialogComponent, {

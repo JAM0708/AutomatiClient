@@ -1,0 +1,27 @@
+.user_cars {
+    .pre-detail {
+        text-align: center;
+    }
+    
+    .info_text {
+        text-align: center;
+        // change color
+    }
+
+    .info_table {
+        border-collapse: collapse;
+        margin: auto;
+        margin-top: 1cm;
+
+        td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 15px;
+        }
+    }
+
+    .car-img {
+        width: 400px;
+        margin: auto;
+    }
+}

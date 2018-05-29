@@ -31,7 +31,7 @@ export class CustomizeComponent implements OnInit {
   
 
   ngOnInit() {
-    this.utilsService.setHomeState();
+   // this.utilsService.setHomeState();
     this.route.params
       .subscribe(
       (params: Params) => {

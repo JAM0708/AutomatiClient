@@ -7,7 +7,7 @@
     <table>
         <tr *ngFor = "let car of cars">
             <td>
-                <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" />
+                <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" class = "list__img"/>
             </td>
             <td>
                 <h2>{{car?.year}} Automati {{car?.model.name | lowercase}}</h2>

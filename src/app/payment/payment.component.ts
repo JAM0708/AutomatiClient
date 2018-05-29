@@ -1,23 +1,21 @@
 import { Component, OnInit, ViewChild, Output } from '@angular/core';
-import { Car } from '../../../../../model/car.model';
-import { CarService } from '../../../../../services/car.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { State } from '../../../../../model/state.model';
-import { ZipCode } from '../../../../../model/zipcode.model';
-import { CreditCard } from '../../../../../model/creditcard.model';
-import { TokenService } from '../../../../../services/token.service';
-import { PaymentService } from '../../../../../services/payment.service';
 import { MdDialog } from '@angular/material';
-import { ConfirmDialogComponent } from '../../../../../confirm-dialog/confirm-dialog.component';
 import { EventEmitter } from '@angular/core';
-import { Person } from '../../../../../model/person.model';
-import { PersonService } from '../../../../../services/person.service';
+import { Car } from '../model/car.model';
+import { CreditCard } from '../model/creditcard.model';
+import { Person } from '../model/person.model';
+import { TokenService } from '../services/token.service';
+import { PaymentService } from '../services/payment.service';
+import { PersonService } from '../services/person.service';
+import { CarService } from '../services/car.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['../../../../../../css/style.css']
+  styleUrls: ['../../css/style.css']
 })
 export class PaymentComponent implements OnInit {
 
@@ -33,7 +31,7 @@ export class PaymentComponent implements OnInit {
   @ViewChild('f2') form2: NgForm;
   show: boolean;
 
-  constructor(public dialog: MdDialog, private tokenService:TokenService,private paymentService: PaymentService, private personService: PersonService, private carService: CarService, private router: Router, private route: ActivatedRoute) { 
+  constructor(private cookieService: CookieService, public dialog: MdDialog, private tokenService:TokenService,private paymentService: PaymentService, private personService: PersonService, private carService: CarService, private router: Router, private route: ActivatedRoute) { 
   
   }
   showOrHide() {
@@ -52,21 +50,16 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  getCreditCard(number: string) {
-    this.paymentService.getCreditCard(number).then(res => {
+  getCreditCard(id: number) {
+    this.paymentService.getCreditCard(id).then(res => {
       this.card = res.json();
     });
   }
 
   ngOnInit() {
-
-      this.getPerson(this.tokenService.getSubject());
-      console.log(this.person);
-
-      this.getCreditCards(this.tokenService.getSubject());
+      this.getCreditCards(this.cookieService.get('email'));
+      this.getPerson(this.cookieService.get('email'));
     }
-
-
 
     onSubmit(form: NgForm) {
       
@@ -87,7 +80,6 @@ export class PaymentComponent implements OnInit {
         this.getCreditCard(value.card);
         
         this.selectCard.emit(this.card);
-        
 
       }
 }

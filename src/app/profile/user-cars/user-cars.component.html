@@ -1,9 +1,55 @@
-<ul *ngFor = "let car of cars">
-  <li>Year: {{car?.year}}</li>
-  <li>Model: {{car?.model.name}}</li>
-  <li>Transmission Type: {{car?.transmission.name}}</li>
-  <li>Condition: {{car?.condition.type}}</li>
-  <li>Title: {{car?.title}}</li>
-  <li>Mileage: {{car?.mileage}} </li>
-  <li>Color: {{car?.color.name}}</li>
-</ul>
+<div class="user_cars">
+    <ul *ngFor = "let car of cars">
+        
+      <div class="pre-detail">
+        <h2>{{car?.condition.type}} {{car?.year}} Automati {{car?.model.name}} </h2>
+      </div>
+
+      <div class="car-img">
+          <img src = "{{car?.model.imgSrc}}" alt = "{{car?.model.imgAlt}}" class = "car-img" />
+      </div>
+
+      <div class="info_text">
+          <h2>Info</h2>
+      </div>
+    
+      <table class = "info_table">
+          <tr>
+              <td>
+                  Mileage: {{car?.mileage}}
+              </td>
+              <td>
+                  Transmission: {{car?.transmission.name}}
+              </td>
+          </tr>
+  
+          <tr>
+              <td>
+                  Title: {{car?.title}}
+              </td>
+              <td>
+                  Color: {{car?.color.name}}
+              </td>
+          </tr>
+  
+          <tr>
+              <td>
+                  Vin: {{car?.vin}}
+              </td>
+              <td>
+                  MPG: EPA
+              </td>
+          </tr>
+  
+          <tr>
+              <td>
+                  Engine: {{car?.engine.litres}} L {{car?.engine.cylinders}} cylinders
+              </td>
+              <td>
+                Price: ${{car?.price}} USD
+              </td>
+          </tr>
+      </table>
+       <br>
+    </ul>
+</div>

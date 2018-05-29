@@ -1,10 +1,14 @@
 <div class = "models" id = "models--main">
   <div class = "models__header-box">
-    <h1 class = "models__header-text" style = "text-align: center">Choose BY MODEL</h1>
+      <div *ngIf = "isLoggedIn; else notLogged">
+            <h1 class = "models__header-text">Choose BY MODEL</h1>
+      </div>
+      <ng-template #notLogged>
+            <h1 class = "models__header-text">Please Login To Continue</h1>
+      </ng-template>
   </div>
-<br>
-<br>
-    <table style = "margin: auto">
+
+    <table>
           <tr *ngFor = "let model of models">
                   <td>
                       <img src = "{{model.imgSrc}}" alt = "{{model.imgAlt}}" class = "models__img"/>  
@@ -21,6 +25,7 @@
                   </td>
             </tr>
 </table>
+</div>
     
 
 

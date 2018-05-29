@@ -1,24 +1,24 @@
-
 <div class="container">
-  <div class="left">
-    <img src = "https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_beard_male_person_user-512.png">
-    
-    <div class="details">
-        <h2>User's Info</h2>
-        <p>Email: {{person?.email}}</p>
-        <p>Name: {{person?.firstName}} {{person?.lastName}}</p>
-        <p>Address: {{person?.street}} {{person?.city}} {{person?.state?.name}}</p>
-        <p>Balance: ${{person?.balance}}</p>
-    
-        <button (click) = "editProfile()">Edit Profile</button>
-        <button (click) = "goToReviews()">Add Reviews</button>
-        <button (click) = "payBalance()">Pay Balance</button>
+    <div class="left">
+        <img src = "https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_beard_male_person_user-512.png">    
+        <div class="details">
+            <h2>User's Info</h2>
+            <p>Email: {{person?.email}}</p>
+            <p>Name: {{person?.firstName}} {{person?.lastName}}</p>
+            <p>Address: {{person?.street | uppercase}} {{person?.city | uppercase}} {{person?.state?.name | uppercase}}</p>
+            <p>Balance: ${{person?.balance}}</p>
+        
+            <button (click) = "editProfile()">Edit Profile</button>
+            <button (click) = "goToReviews()">Add Reviews</button>
+            <button (click) = "payBalance()">Pay Balance</button>
+        </div>
+        
+    </div>
+
+    <div class="right">
+        <h2>List of Cars</h2>
+        <app-user-cars></app-user-cars>
+        
     </div>
     
-  </div>
-
-  <div class="cars">
-    <h2>List of Cars</h2>
-    <app-user-cars></app-user-cars>
-  </div>
 </div>

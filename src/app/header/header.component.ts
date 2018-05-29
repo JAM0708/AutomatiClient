@@ -18,30 +18,40 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
-    
     this.subscription = this.utilsService.homeChanged.subscribe(
       (homeState: boolean) => {
-        this.home = homeState;
+        console.log(this.cookieService.get('homeState'));
+        if(this.cookieService.get('homeState') == 'true') {
+          this.home = true;
+        }
+        else {
+          this.home = false;
+        }
       }
-    )
-    /*
-   console.log(this.cookieService.get('homeState'));
-   if(this.cookieService.get('homeState')) {
-     this.home = true;
-     
-   }
-   */
-   
+    );
+    console.log(this.cookieService.get('homeState'));
+    if(this.cookieService.get('homeState') == 'true') {
+      this.home = true;
+    }
+    else {
+      this.home = false;
+    }
   }
 
   logOut(){
     if(this.cookieService.get('isLoggedIn')) {
       this.cookieService.set('isLoggedIn', 'false');
     }
-    if(this.cookieService.get('homeState')) {
+    if(this.cookieService.get('homeState') == 'true') {
+      this.cookieService.set('homeState', 'false');
       this.home = false;
     }
-    this.router.navigate(["/login"], {relativeTo: this.route});
+    window.location.reload();
+    this.router.navigate(["/home"], {relativeTo: this.route});
+  }
+
+  goHome() {
+    this.router.navigate(["/home"], {relativeTo: this.route});
   }
 
 }

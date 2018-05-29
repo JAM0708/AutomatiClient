@@ -4,6 +4,7 @@ import { Person } from '../model/person.model';
 import { PersonService } from '../services/person.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UtilsService } from '../services/utils.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   //public email: string; 
   public person: Person;
 
-  constructor(private utilsService: UtilsService, private route: ActivatedRoute, private personService: PersonService, private router: Router, private tokenService:TokenService) { 
+  constructor(private cookieService: CookieService, private utilsService: UtilsService, private route: ActivatedRoute, private personService: PersonService, private router: Router, private tokenService:TokenService) { 
   }
 
   getUser(email: string) {
@@ -37,7 +38,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(["/addReview", {email: this.person.email}], {relativeTo: this.route});
   }
   ngOnInit() {
-    this.getUser(this.tokenService.getSubject());
+    this.getUser(this.cookieService.get('email'));
   }
 
 }
