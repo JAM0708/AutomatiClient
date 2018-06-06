@@ -1,60 +1,58 @@
+<div class="customize row">
+  <div class="container">
+    <h1 class="customize__header">Customize Your Automati {{modelName}}</h1>
+    <div class="center">
+      <h3>Select Color, Engine, And Transmission</h3>
+      <img src="{{model?.imgSrc}}" alt="{{model?.imgAlt}}" />
 
-<h1 style = "text-align: center">Customize Your Automati {{modelName}}</h1>
-<div class = "container">
-  <div class = "left">
-    <h3 style = "text-align: center">Select Color, Engine, And Transmission</h3>
-    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "cForm" ngNativeValidate>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="cForm" ngNativeValidate>
 
-      <div class = "row">
-        <div class = "col-25">
-          <label>Color: </label>
+        <div class="row">
+          <div class="col-25">
+            <label>Color: </label>
+          </div>
+          <div class="col-75">
+            <select name="color" (ngModelChange)="colorSelected($event)" ngModel required>
+              <option *ngFor="let color of colors" [ngValue]="color">
+                {{color?.name}} Price: ${{color?.colorPrice}}
+              </option>
+            </select>
+          </div>
         </div>
-        <div class = "col-75">
-          <select name = "color" (ngModelChange) = "colorSelected($event)" ngModel required>
-            <option *ngFor = "let color of colors" [ngValue] = "color">
-              {{color?.name}} Price: ${{color?.colorPrice}}
-            </option>
-          </select>
-        </div>
-      </div>
-     
-      <div class = "row">
-        <div class = "col-25">
-          <label>Transmission: </label>
-        </div>
-        <div class = "col-75">
-          <select name = "transmission" (ngModelChange) = "transmissionSelected($event)" ngModel required>
-            <option *ngFor = "let transmission of transmissions" [ngValue] = "transmission">
-              {{transmission?.name}} Price: ${{transmission?.transmissionPrice}}
-            </option>
-          </select>
-        </div>
-      </div>
 
-      <div class = "row">
-        <div class = "col-25">
-          <label>Engine: </label>
+        <div class="row">
+          <div class="col-25">
+            <label>Transmission: </label>
+          </div>
+          <div class="col-75">
+            <select name="transmission" (ngModelChange)="transmissionSelected($event)" ngModel required>
+              <option *ngFor="let transmission of transmissions" [ngValue]="transmission">
+                {{transmission?.name}} Price: ${{transmission?.transmissionPrice}}
+              </option>
+            </select>
+          </div>
         </div>
-        <div class = "col-75">
-          <select name = "engine" (ngModelChange) = "engineSelected($event)" ngModel required>
-            <option *ngFor = "let engine of engines" [ngValue] = "engine">
-             {{engine?.litres}}L {{engine?.cylinders}}cylinder engine  Price: ${{engine?.stockEnginePrice}}
-            </option>
-          </select>
-        </div>
-      </div>  
-      
-      <div class = "row">
-        <input type = "submit" value = "Submit">
-      </div>
-  
-    </form>
-   Total Price: ${{0 + model?.modelStockPrice + color?.colorPrice + transmission?.transmissionPrice + engine?.stockEnginePrice}}
-  </div>
 
-  <div class = "right">
-    <img src = "{{model?.imgSrc}}" alt = "{{model?.imgAlt}}" />
+        <div class="row">
+          <div class="col-25">
+            <label>Engine: </label>
+          </div>
+          <div class="col-75">
+            <select name="engine" (ngModelChange)="engineSelected($event)" ngModel required>
+              <option *ngFor="let engine of engines" [ngValue]="engine">
+                {{engine?.litres}}L {{engine?.cylinders}}cylinder engine Price: ${{engine?.stockEnginePrice}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <input type="submit" value="Submit">
+        </div>
+
+      </form>
+      Total Price: ${{0 + model?.modelStockPrice + color?.colorPrice + transmission?.transmissionPrice + engine?.stockEnginePrice}}
+    </div>
+
   </div>
 </div>
-  
-

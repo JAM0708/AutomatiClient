@@ -9,7 +9,7 @@ import { TokenService } from '../../../services/token.service';
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.css']
+  styleUrls: ['../../../../css/style.css']
 })
 export class PasswordResetComponent implements OnInit {
 

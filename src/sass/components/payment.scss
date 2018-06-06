@@ -5,7 +5,7 @@
 
     &__header-box {
         text-align: center;
-        color: $color-white;
+       // color: $color-white;
     }
 
     .new-card {
@@ -71,6 +71,17 @@
         font-size: 1rem;
     }
 
+    &__radio-button {
+        float: right;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+
     .button_confirm {
         padding: .5rem 3rem;
         background-color: $color-tertiary-dark;
@@ -85,6 +96,16 @@
         border-radius: 1rem;
         margin-top: .5rem;
         margin-bottom: 1.5rem;
+    }
+
+    @media(max-width: 750px) {
+        &__header-text {
+            font-size: 1.3rem;
+        }
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
     }
 
 }

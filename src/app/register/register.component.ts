@@ -20,6 +20,13 @@ export class RegisterComponent implements OnInit {
   @ViewChild('f') slForm: NgForm;
   states: State[];
   zipcodes: ZipCode[];
+
+  // set custom validation patterns
+  pwdPattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$";
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+
+  
+
   // inject the user service
   constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute, public dialog: MdDialog) { }
 

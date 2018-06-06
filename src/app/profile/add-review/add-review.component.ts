@@ -13,7 +13,7 @@ import { UtilsService } from '../../services/utils.service';
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
-  styleUrls: ['./add-review.component.css']
+  styleUrls: ['../../../css/style.css']
 })
 export class AddReviewComponent implements OnInit {
 

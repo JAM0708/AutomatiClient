@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.css']
+  styleUrls: ['../../../css/style.css']
 })
 export class ForgotPasswordComponent implements OnInit {
 

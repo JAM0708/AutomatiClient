@@ -12,7 +12,7 @@ import { UtilsService } from '../../../services/utils.service';
 @Component({
   selector: 'app-customize',
   templateUrl: './customize.component.html',
-  styleUrls: ['./customize.component.css']
+  styleUrls: ['../../../../css/style.css']
 })
 export class CustomizeComponent implements OnInit {
   @ViewChild('f') cForm: NgForm;

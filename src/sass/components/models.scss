@@ -1,5 +1,8 @@
 .models {
 
+    background: $color-grey-light;
+    height: 95vh;
+   
     &__header-text {
         font-size: 2rem;
     }
@@ -7,7 +10,7 @@
     &__header-box {
         text-align: center;
         height: 5rem;
-        margin-top: 1rem;
+       // margin-top: 1rem;
         //color: $color-tertiary-dark;
     }
 
@@ -33,17 +36,15 @@
     // for tablets and mobile phones
     @media (max-width: 1160px){
         width: 100%;
-        margin-top: 5rem;
+        //margin-top: .5rem;
+        height: 100%;
         
         &__img{
-            width: 400px;
+            width: 325px;
             //height: 400px;
         }
 
-        /* Force table to not be like tables anymore */
-        table, thead, tbody, th, td, tr { 
-            display: block; 
-        }
+        
         table {
             tr {
                 border-bottom: 1px solid #ddd;
@@ -54,17 +55,12 @@
                 text-align: center;
             }
         }
+         /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
         &__but {
             margin: 0;
-        }
-    }
-
-    @media(min-width: 801px) and (max-width: 1160px){
-        
-        width: 100%;
-        
-        &__img {
-            width: 400px;
         }
     }
    

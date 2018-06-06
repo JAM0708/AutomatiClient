@@ -1,5 +1,8 @@
 .list {
 
+    background: $color-grey-light;
+    height: 95vh;
+
     &__header-text {
         font-size: 2rem;
     }
@@ -7,8 +10,8 @@
     &__header-box {
         text-align: center;
         height: 5rem;
-        margin-top: 1rem;
-        color: $color-secondary-dark;
+        //margin-top: 1rem;
+        color: $color-primary-dark;
     }
 
     table {
@@ -32,7 +35,14 @@
     // for tablets and mobile phones
     @media (max-width: 800px){
         width: 100%;
-        margin-top: 5rem;
+        //margin-top: .5rem;
+        text-align: center;
+        height: 100%;
+
+        &__header-text {
+            margin-top: .5rem;
+        }
+    
         
         &__img{
             width: 400px;
@@ -53,7 +63,7 @@
                 text-align: center;
             }
         }
-        &__but {
+        button {
             margin: 0;
         }
     }

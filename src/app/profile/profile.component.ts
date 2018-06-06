@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['../../css/style.css']
 })
 export class ProfileComponent implements OnInit {
   //public email: string; 

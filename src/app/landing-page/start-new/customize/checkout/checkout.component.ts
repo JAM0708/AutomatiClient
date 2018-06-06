@@ -21,8 +21,8 @@ import { CookieService } from 'ngx-cookie-service';
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['../../../../../css/style.css'],
-  //styleUrls: ['./checkout.component.css']
 })
+
 export class CheckoutComponent implements OnInit {
 
   modelName: string;
