@@ -5,7 +5,7 @@
 
     &__header-box {
         text-align: center;
-        color: $color-white;
+        //color: $color-white;
     }
 
     table {
@@ -29,6 +29,9 @@
         font-size: 1rem;
     }
 
+    &__radio-button {
+        float: right;
+    }
     .button_confirm {
         padding: .5rem 3rem;
         background-color: $color-tertiary-dark;
@@ -90,7 +93,18 @@
         content: "";
         display: table;
         clear: both;
-        margin-bottom:1cm;
+       // margin-bottom:1cm;
+    }
+    
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
     }
 
+    @media(max-width: 750px) {
+        &__header-text {
+            font-size: 1.3rem;
+        }
+    }
 }

@@ -29,8 +29,12 @@ export class PaymentService {
     return this.http.get(environment.apiUrl + 'creditCard?email=' + email).toPromise();
   }
 
-  getCreditCard(number: string) {
-    return this.http.get(environment.apiUrl + 'card?id=' + number).toPromise();
+  getCreditCard(id: number) {
+    return this.http.get(environment.apiUrl + 'card?id=' + id).toPromise();
+  }
+
+  getCreditCardByNumber(number: number) {
+    return this.http.get(environment.apiUrl + 'creditCard?cardNumber' + number).toPromise();
   }
 
   addTransaction(transaction: Transaction) {
@@ -41,7 +45,7 @@ export class PaymentService {
       "amount": transaction.amount,
       "description": transaction.description,
       "person": {"email": transaction.person.email},
-      "card": {"id": transaction.creditCard.id}
+      "creditCardNumber": transaction.creditCardNumber
       }, options).toPromise();
   }
 

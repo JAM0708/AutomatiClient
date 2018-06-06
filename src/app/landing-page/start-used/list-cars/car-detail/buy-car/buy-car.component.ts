@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MdDialog } from '@angular/material';
 import { TokenService } from '../../../../../services/token.service';
@@ -10,6 +10,8 @@ import { PaymentService } from '../../../../../services/payment.service';
 import { PersonService } from '../../../../../services/person.service';
 import { Person } from '../../../../../model/person.model';
 import { UtilsService } from '../../../../../services/utils.service';
+import { Transaction } from '../../../../../model/transaction.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-buy-car',
@@ -22,14 +24,19 @@ export class BuyCarComponent implements OnInit {
   person: Person;
   shipping: Shipping;
   creditCard: CreditCard;
+  now: Date;
+
+  @ViewChild('amount') amount: ElementRef;
+
   constructor(private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService, private carService: CarService,
-  private paymentService: PaymentService, private utilsService: UtilsService) { }
+  private paymentService: PaymentService, private utilsService: UtilsService, private cookieService: CookieService) { }
   
   getUser(email: string) {
     this.personService.getPerson(email).then(res => {
       this.person = res.json();
     });
   }
+  
   ngOnInit() {
     this.utilsService.setHomeState();
     this.route.params
@@ -42,7 +49,7 @@ export class BuyCarComponent implements OnInit {
         });
       }
     );
-    this.getUser(this.tokenService.getSubject());    
+    this.getUser(this.cookieService.get('email'));    
   }
 
   cardSelected($event) {
@@ -65,13 +72,22 @@ export class BuyCarComponent implements OnInit {
     if(this.creditCard.id == undefined) {
       this.paymentService.addCard(this.creditCard);
     }
+  
+    const transaction = new Transaction(this.amount.nativeElement.value, "CAR PAYMENT", this.person, this.creditCard.number);
+    
+    this.paymentService.addTransaction(transaction);
+
     
     //update car
     const updateCar = new Car(this.car.price, this.car.year, this.car.color, this.car.condition,
        this.car.epa, this.car.lease, this.car.model, this.person, this.car.transmission, this.car.title, 
        this.car.mileage, this.car.vin, this.car.engine, this.car.id); 
 
-    
+    //update balance
+    this.person.balance = this.person.balance + updateCar.price - this.amount.nativeElement.value;
+    console.log(this.person.balance);
+    this.personService.updateBalance(this.person);
+
     this.carService.updateCar(updateCar).then(res => {
       // if(res.json().passed) {
        this.router.navigate(['/profile']);                    

@@ -1,0 +1,70 @@
+<div class="payment">
+  <div class="payment__header-box">
+    <h2 class="payment__header-text">Saved Cards</h2>
+  </div>
+
+  <form (ngSubmit)="onSubmit2(f2)" #f2="ngForm">
+    <table>
+      <tr *ngFor="let creditCard of creditCards">
+        <td>
+          <p>
+            <input type="radio" name="card" value="{{creditCard?.id}}" class="payment__radio-button clearfix"  ngModel/> 
+          </p>
+          <p>
+              Number: {{creditCard?.number}}
+          </p>
+          <p>
+            Expiration Date: {{creditCard?.expDate}}
+          </p>
+
+          <p>
+            CSC: {{creditCard?.csc}}
+          </p>
+        </td>
+      </tr>
+    </table>
+    <button class="button_confirm" type="submit">Confirm</button>
+  </form>
+
+  <button class="button_add" (click)="showOrHide()">Add Or Hide New Card</button>
+
+  <div *ngIf="show" class="new_card">
+
+    <h3>Add New Card</h3>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" ngNativeValidate>
+
+      <div class="row">
+        <div class="col-25">
+          <label class="input_label">Number: </label>
+        </div>
+
+        <div class="col-75">
+          <input class="input_text" name="number" type="text" ngModel required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label class="input_label">Expiration Date: </label>
+        </div>
+
+        <div class="col-75">
+          <input name="expDate" type="text" class="input_text" placeholder="MM-YYYY" ngModel required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label class="input_label">CSC: </label>
+        </div>
+        <div class="col-75">
+          <input name="csc" type="text" class="input_text" ngModel required/>
+        </div>
+      </div>
+
+      <button class="button_confirm" type="submit">Add Card</button>
+
+    </form>
+  </div>
+
+</div>

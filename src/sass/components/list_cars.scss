@@ -1,5 +1,8 @@
 .list {
 
+    background: $color-grey-light;
+    height: 95vh;
+
     &__header-text {
         font-size: 2rem;
     }
@@ -7,8 +10,8 @@
     &__header-box {
         text-align: center;
         height: 5rem;
-        margin-top: 1rem;
-        color: $color-secondary-dark;
+        //margin-top: 1rem;
+        color: $color-primary-dark;
     }
 
     table {
@@ -27,5 +30,49 @@
         border-radius: 1rem;
         vertical-align: middle;
         margin-left: 1cm;
+    }
+    
+    // for tablets and mobile phones
+    @media (max-width: 800px){
+        width: 100%;
+        //margin-top: .5rem;
+        text-align: center;
+        height: 100%;
+
+        &__header-text {
+            margin-top: .5rem;
+        }
+    
+        
+        &__img{
+            width: 400px;
+            //height: 400px;
+        }
+
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+        table {
+            tr {
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 1rem;
+            }
+            td {
+                border-bottom: none;
+                text-align: center;
+            }
+        }
+        button {
+            margin: 0;
+        }
+    }
+
+    @media(min-width: 801px) and (max-width: 1160px){
+        width: 100%;
+
+        &__img {
+            width: 400px;
+        }
     }
 }

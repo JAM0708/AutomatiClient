@@ -10,20 +10,14 @@
     padding: 20px;
     }
 
-    h1 {
-        float: left;
-        margin: 1rem;
-        color: white;
-
-    }
-
     &__elements {
         background-color: $color-primary;
         text-align: right;
         display: inline;
         position: absolute;
         right: 0;
-        padding: 1rem;
+        //padding: 1rem;
+        margin: 1rem;
     }
 
     &__link {
@@ -76,24 +70,44 @@
         }
     }
 
+    &__text {
+        float: left;
+        margin: .5rem;
+        color: white;
+
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
     // for tablets and mobile phones
-    @media (max-width: 600px){
+    @media (max-width: 750px){
         width: 100%;
-        height: 10rem;
+        height: 15rem;
         float: none;
         margin: 0;
 
-        h1 {
+        &__text {
             text-align: center;
             float:none;
             margin: 0;
         }
+        
         &__elements {
             width: 100%;
-            padding: none;
+           // padding: none;
             text-align: center;
           //  position: absolute;
             padding: 0;
+            margin: 0;
         }
 
         &__items {
@@ -102,5 +116,6 @@
             margin-top: 1rem;
         }
     }
+
 
 }

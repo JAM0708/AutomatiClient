@@ -1,23 +1,23 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { State } from '../../../../../model/state.model';
-import { ZipCode } from '../../../../../model/zipcode.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MdDialog } from '@angular/material';
-import { TokenService } from '../../../../../services/token.service';
 import { NgForm } from '@angular/forms';
-import { Role } from '../../../../../model/role.model';
-import { ConstVariables } from '../../../../../app.const';
-import { CarService } from '../../../../../services/car.service';
-import { Car } from '../../../../../model/car.model';
-import { Shipping } from '../../../../../model/shipping.model';
-import { Person } from '../../../../../model/person.model';
-import { PersonService } from '../../../../../services/person.service';
+import { Shipping } from '../model/shipping.model';
+import { Car } from '../model/car.model';
+import { Person } from '../model/person.model';
+import { State } from '../model/state.model';
+import { ZipCode } from '../model/zipcode.model';
+import { PersonService } from '../services/person.service';
+import { TokenService } from '../services/token.service';
+import { CarService } from '../services/car.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
-  styleUrls: ['../../../../../../css/style.css']
+  styleUrls: ['../../css/style.css']
 })
 export class ShippingComponent implements OnInit {
 
@@ -38,7 +38,7 @@ export class ShippingComponent implements OnInit {
 
   constructor(private personService: PersonService, private route: ActivatedRoute, 
     private router: Router, public dialog: MdDialog, private tokenService:TokenService, 
-    private carService: CarService) { }
+    private carService: CarService,private cookieService: CookieService) { }
   
   showOrHide() {
     this.show = !this.show;
@@ -62,12 +62,12 @@ export class ShippingComponent implements OnInit {
   }
     
   ngOnInit() {
-    this.getUser(this.tokenService.getSubject());
+    this.getUser(this.cookieService.get('email'));
     this.personService.getStates().then(res => {
       this.states = res.json();
     })
     
-    this.personService.getShippings(this.tokenService.getSubject()).then(res => {
+    this.personService.getShippings(this.cookieService.get('email')).then(res => {
       this.shippings = res.json();
     })
   }

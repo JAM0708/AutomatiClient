@@ -44,8 +44,8 @@
     </div>
   </ng-template>
   <div class="register__element">
-    <label class="register__label">Password: </label>
-    <input name = "password" type = "password" class = "register__input" ngModel required/>
+    <label class="register__label">Password: Minimum 8 characters & at least one letter & one number</label>
+    <input name = "password" type = "password" class = "register__input" ngModel pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required/>
   </div>
   <div class="register__element">
   <button type = "submit" class="register__button register__button--green">Register</button>

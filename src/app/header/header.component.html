@@ -1,5 +1,5 @@
-<div class="header">
-    <h1>Automati</h1>
+<div class="header clearfix">
+    <h1 class = "header__text" (click) = "goHome()">Automati</h1>
 <nav id = "header__nav">
   <ul>
 <div *ngIf = "home; else notHome">
@@ -12,9 +12,10 @@
 </div>
 <ng-template #notHome>
     <div class="header__elements">
-    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/login" >Login</a></li>
-    <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink ="/register" >Register</a></li>
-        </div>
+        <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/home" >Home</a></li>
+        <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink = "/login" >Login</a></li>
+        <li class="header__items" routerLinkActive="active"><a class="header__link" routerLink ="/register" >Register</a></li>
+    </div>
 </ng-template>
 </ul>
 </nav>

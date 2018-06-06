@@ -7,13 +7,13 @@ export class Transaction {
     public transactionDate: string;
     public description: string;
     public person: Person;
-    public creditCard: CreditCard;
+    public creditCardNumber: string;
 
-    constructor(amount?: number, description?: string, person?: Person, creditCard?: CreditCard, id?: number, transactionDate?: string) {
+    constructor(amount?: number, description?: string, person?: Person, creditCardNumber?: string, id?: number, transactionDate?: string) {
         this.amount = amount;
         this.description = description;
         this.person = person;
-        this.creditCard = creditCard;
+        this.creditCardNumber = creditCardNumber;
         this.id = id;
         this.transactionDate = transactionDate;
 

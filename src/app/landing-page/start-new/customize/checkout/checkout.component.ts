@@ -15,13 +15,14 @@ import { Condition } from '../../../../model/condition.model';
 import { Model } from '../../../../model/model.model';
 import { UtilsService } from '../../../../services/utils.service';
 import { Transaction } from '../../../../model/transaction.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['../../../../../css/style.css'],
-  //styleUrls: ['./checkout.component.css']
 })
+
 export class CheckoutComponent implements OnInit {
 
   modelName: string;
@@ -42,13 +43,13 @@ export class CheckoutComponent implements OnInit {
   @ViewChild('amount') amount: ElementRef;
 
   constructor(private personService: PersonService, private tokenService: TokenService,
-     private carService: CarService, 
+     private carService: CarService, private cookieService: CookieService,
      private router: Router, private route: ActivatedRoute, private paymentService: PaymentService, private utilsService: UtilsService) { }
 
   
 
   ngOnInit() {
-    this.utilsService.setHomeState();
+    //this.utilsService.setHomeState();
     this.route.params
       .subscribe(
       (params: Params) => {
@@ -63,7 +64,7 @@ export class CheckoutComponent implements OnInit {
       this.getModel(this.modelName);
       this.getEngine();
       this.getColor();
-      this.getUser(this.tokenService.getSubject());      
+      this.getUser(this.cookieService.get('email'));      
   }
 
   getUser(email: string) {
@@ -109,9 +110,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   confirmOrder() { 
-
     console.log(this.shipping.id);
-    console.log(this.person);
     if(this.shipping.id == undefined) {
       this.personService.saveShipping(this.shipping);
     }
@@ -121,26 +120,21 @@ export class CheckoutComponent implements OnInit {
     if(this.creditCard.id == undefined) {
       this.paymentService.addCard(this.creditCard);
     }
-    // for now, change later
-      //const transaction = new Transaction(this.amount.nativeElement.value, "new car payment", this.person, this.creditCard.number);
-      //this.paymentService.addTransaction(transaction);
 
-  
-    
-    //update car
+    // update car
     const newCar = new Car(this.price, 2018, this.color, new Condition("NEW"), null, null,
-     new Model(this.modelName), this.person, this.transmission, "CLEAN", 0, "4T1ZEQWSD", this.engine);
+     new Model(this.modelName), this.person, this.transmission, "CLEAN", 0, null, this.engine);
+     this.carService.addCar(newCar);
 
 
+     //update balance
     this.person.balance = this.person.balance + newCar.price - this.amount.nativeElement.value;
-
+    console.log(this.person.balance);
     this.personService.updateBalance(this.person);
-    
-    this.carService.addCar(newCar).then(res => {
-       this.router.navigate(['/profile']);                    
-     console.log(res);
-     });  
 
-
+    const transaction = new Transaction(this.amount.nativeElement.value, "CAR PAYMENT", this.person, this.creditCard.number);
+    this.paymentService.addTransaction(transaction).then( res => {
+      this.router.navigate(['/profile']);             
+    });
   }
 }

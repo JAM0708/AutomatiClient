@@ -18,8 +18,6 @@ import { ListCarsComponent } from './landing-page/start-used/list-cars/list-cars
 import { CarDetailComponent } from './landing-page/start-used/list-cars/car-detail/car-detail.component';
 import { CarReviewsComponent } from './landing-page/start-used/list-cars/car-detail/car-reviews/car-reviews.component';
 import { BuyCarComponent } from './landing-page/start-used/list-cars/car-detail/buy-car/buy-car.component';
-import { PaymentComponent } from './landing-page/start-used/list-cars/car-detail/payment/payment.component';
-import { ShippingComponent } from './landing-page/start-used/list-cars/car-detail/shipping/shipping.component';
 import { StartNewComponent } from './landing-page/start-new/start-new.component';
 
 import { HeaderComponent } from './header/header.component';
@@ -42,6 +40,8 @@ import { AddReviewComponent } from './profile/add-review/add-review.component';
 import {CookieService} from 'ngx-cookie-service';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { PasswordResetComponent } from './login/forgot-password/password-reset/password-reset.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,7 @@ import { PasswordResetComponent } from './login/forgot-password/password-reset/p
     CustomizeComponent,
     CheckoutComponent,
     AddReviewComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
   entryComponents: [
     ConfirmDialogComponent

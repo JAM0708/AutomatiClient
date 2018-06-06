@@ -18,7 +18,6 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     this.utilsService.setHomeState();
-    //this.cookieService.set('homeState', 'true');
   }
 
  
