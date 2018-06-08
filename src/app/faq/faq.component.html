@@ -1,9 +1,14 @@
-<h2>Frequently Asked Questions: </h2>
+<div class="faq">
+  <h2>Frequently Asked Questions: </h2>
 
-<ul *ngFor = "let faq of faqs">
-  <li>Question: {{faq?.question}}
-    <ul>
-      <li>Answer: {{faq?.answer}}</li>
-    </ul>
-  </li>
-</ul>
+  <ul>
+    <li *ngFor = "let faq of faqs">
+      Question: {{faq?.question}}
+      
+      <p>
+        Answer: {{faq?.answer}}
+      </p>
+    </li>
+  </ul>
+</div>
+

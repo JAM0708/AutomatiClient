@@ -2,46 +2,49 @@
     <div class="prev-review">
         <h1>User's Reviews</h1>
 
-        
         <ul>
-            <li *ngFor = "let review of reviews">
-                  <h2>Title: {{review?.title}}</h2>
-                  <h4>{{review?.car.year}} Automati {{review?.model.name}}</h4>
-                  <span class = "stars-container stars stars-{{review?.rating}}">★★★★★</span>
-                  <p>{{review?.description}}</p>
-                  <p>{{review?.person.firstName}} wrote on {{review?.time}}</p>
+            <li *ngFor="let review of reviews">
+                <h2>Title: {{review?.title}}</h2>
+                <h4>{{review?.car.year}} Automati {{review?.model.name}}</h4>
+                <span class="stars-container stars stars-{{review?.rating}}">★★★★★</span>
+                <p>{{review?.description}}</p>
+                <p>{{review?.person.firstName}} wrote on {{review?.time}}</p>
             </li>
-            
+
             <br>
             <br>
-            
+
         </ul>
- </div>
- 
-    <div class="new-review" style = "width: 40%;float:left">
-        <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "cForm" ngNativeValidate>
+    </div>
+
+    <div class="add-review__car clearfix">
+        <img src="{{carr?.model.imgSrc}}" alt="{{carr?.model.imgAlt}}" class="add-review__car-img">
+    </div>
+
+    <div class="new-review clearfix">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="cForm" ngNativeValidate>
 
             <div class="row">
                 <div class="col-25">
                     <label>
-                        Select Car: 
+                        Select Car:
                     </label>
                 </div>
                 <div class="col-75">
-                    <select name="car" (ngModelChange) = "carSelected($event)" ngModel required>
-                        <option *ngFor = "let car of cars" [ngValue] = "car">
+                    <select name="car" (ngModelChange)="carSelected($event)" ngModel required>
+                        <option *ngFor="let car of cars" [ngValue]="car">
                             {{car?.year}} Automati {{car?.model.name}}
                         </option>
                     </select>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-25">
                     <label>Rating: </label>
                 </div>
                 <div class="col-75">
-                    <input type="number" name="rating" placeholder = "rating" ngModel required>
+                    <input type="number" name="rating" placeholder="rating" ngModel required>
                 </div>
             </div>
 
@@ -50,19 +53,19 @@
                     <label>Title: </label>
                 </div>
                 <div class="col-75">
-                    <input type = "text" name="title" placeholder="title" ngModel required>
+                    <input type="text" name="title" placeholder="title" ngModel required>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-25">
                     <label>Description</label>
                 </div>
                 <div class="col-75">
-                        <div class="description">
-                                <textarea name="description"  cols="30" rows="10" placeholder="Write Review..." ngModel required></textarea>
-                        </div>
-                </div>  
+                    <div class="description">
+                        <textarea name="description" cols="30" rows="10" placeholder="Write Review..." ngModel required></textarea>
+                    </div>
+                </div>
             </div>
 
             <div class="row">
@@ -71,7 +74,5 @@
         </form>
     </div>
 
-    <div class="car-img" style = "float:right">
-        <img src="{{carr?.model.imgSrc}}" alt="{{carr?.model.imgAlt}}">
-    </div>
+
 </div>

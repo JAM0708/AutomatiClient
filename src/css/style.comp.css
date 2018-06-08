@@ -455,7 +455,19 @@ html {
       .payment__header-text {
         font-size: 1.3rem; }
       .payment table, .payment thead, .payment tbody, .payment th, .payment td, .payment tr {
-        display: block; } }
+        display: block; }
+      .payment .button_confirm {
+        padding: .5rem 1rem;
+        background-color: #5643fa;
+        border-radius: 1rem;
+        margin-top: .5rem;
+        float: right; }
+      .payment .button_add {
+        padding: .5rem 1rem;
+        background-color: #28b485;
+        border-radius: 1rem;
+        margin-top: .5rem;
+        margin-bottom: 1.5rem; } }
 
 .shipping {
   /* Clear floats after the columns */ }
@@ -712,9 +724,25 @@ html {
     text-align: left;
     padding: 15px; }
 
+.user_cars li {
+  display: inline-block;
+  margin-left: 5rem; }
+
 .user_cars .car-img {
   width: 400px;
   margin: auto; }
+
+@media (max-width: 750px) {
+  .user_cars {
+    /* Force table to not be like tables anymore */ }
+    .user_cars .car-img {
+      width: 300px; }
+    .user_cars li {
+      display: inline-block;
+      margin-left: 0;
+      margin-bottom: 1.5rem; }
+    .user_cars table, .user_cars thead, .user_cars tbody, .user_cars th, .user_cars td, .user_cars tr {
+      display: block; } }
 
 .password-reset {
   text-align: center;
@@ -802,6 +830,8 @@ html {
     margin-bottom: 1cm; }
 
 .profile {
+  background: #ededed;
+  height: 95vh;
   /*
     .details {
         
@@ -812,30 +842,93 @@ html {
         width: 70%;
     }
     */ }
-  .profile .container {
+  .profile__img {
     width: 100%; }
-  .profile .left {
-    float: left;
-    width: 33%; }
-  .profile .right {
+  .profile .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: arial;
+    display: inline-block; }
+  .profile .email {
+    color: grey;
+    font-size: 18px; }
+  .profile .address {
+    color: grey;
+    font-size: 14px; }
+  .profile__but-profile {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
     float: right;
-    width: 50%;
-    text-align: center; }
+    font-size: 18px; }
+  .profile__but-reviews {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #999;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    float: right; }
+  .profile__but-balance {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #333;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    float: right; }
+  .profile .cars {
+    float: right;
+    text-align: center;
+    margin-left: 3rem;
+    vertical-align: top; }
+  .profile .clearfix::after {
+    content: "";
+    clear: both;
+    display: table; }
   @media (max-width: 1200px) {
-    .profile .left {
-      float: none;
-      margin: auto;
-      width: 50%; }
-    .profile img {
-      width: 400px; }
-    .profile .right {
-      float: none;
-      margin: auto;
-      width: 50%; } }
+    .profile {
+      height: 100%; }
+      .profile .card {
+        float: none;
+        margin: auto;
+        width: 100%; }
+      .profile .cars {
+        margin-top: 5rem; }
+      .profile img {
+        width: 100%; }
+      .profile .cars {
+        float: none;
+        margin: auto; } }
 
 .add-review {
+  background: #ededed;
+  height: 95vh;
   /* Clear floats after the columns */ }
+  .add-review h1 {
+    text-align: center; }
   .add-review input[type=text], .add-review select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; }
+  .add-review input[type=number], .add-review select {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -861,11 +954,33 @@ html {
     float: left;
     width: 75%;
     margin-top: 6px; }
+  .add-review .new-review {
+    width: 40%;
+    float: left; }
+  .add-review__car {
+    float: right; }
+  .add-review .clearfix:after {
+    content: "";
+    display: table;
+    clear: both; }
   .add-review .row:after {
     content: "";
     display: table;
-    clear: both;
-    margin-bottom: 1cm; }
+    clear: both; }
+  @media (max-width: 830px) {
+    .add-review {
+      width: 100%;
+      height: 100%; }
+      .add-review__car-img {
+        width: 325px; }
+      .add-review h1 {
+        margin-top: .5rem; }
+      .add-review .new-review {
+        float: none;
+        width: 100%; }
+      .add-review__car {
+        float: none;
+        text-align: center; } }
 
 .customize {
   background-color: #ededed;
@@ -925,3 +1040,40 @@ html {
     .customize__header {
       margin-top: .5rem;
       font-size: 1.8rem; } }
+
+.faq {
+  background: #ededed;
+  height: 95vh; }
+
+.pay {
+  background: #ededed;
+  height: 95vh;
+  margin: 0; }
+  .pay .cards {
+    margin: 10rem; }
+  .pay__header {
+    text-align: center;
+    margin: auto; }
+  .pay__confirm {
+    margin: 10rem;
+    display: block; }
+  .pay__amount {
+    width: 100%;
+    display: block; }
+  .pay__confirm-button {
+    padding: .5rem 3rem;
+    background-color: #5643fa;
+    border-radius: 1rem;
+    margin-top: .5rem; }
+  @media (max-width: 750px) {
+    .pay {
+      height: 100%; }
+      .pay__header {
+        font-size: 1.7rem;
+        margin-top: .5rem; }
+      .pay__confirm {
+        margin: 0;
+        width: 100%; }
+      .pay .cards {
+        margin: 0;
+        width: 100%; } }

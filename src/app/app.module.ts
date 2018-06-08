@@ -42,6 +42,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { PasswordResetComponent } from './login/forgot-password/password-reset/password-reset.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { PayComponent } from './payment/pay/pay.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ShippingComponent } from './shipping/shipping.component';
     CheckoutComponent,
     AddReviewComponent,
     ForgotPasswordComponent,
+    PayComponent,
   ],
   entryComponents: [
     ConfirmDialogComponent

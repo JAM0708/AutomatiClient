@@ -6,7 +6,7 @@ import { UtilsService } from '../services/utils.service';
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css']
+  styleUrls: ['../../css/style.css']
 })
 export class FaqComponent implements OnInit {
   faqs: Faq[];

@@ -12,12 +12,13 @@ import { TokenService } from '../../services/token.service';
 import { PersonService } from '../../services/person.service';
 import { Person } from '../../model/person.model';
 import { UtilsService } from '../../services/utils.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  styleUrls: ['../../../css/style.css']
 })
 export class EditProfileComponent implements OnInit {
   @ViewChild('f') slForm: NgForm;
@@ -26,7 +27,7 @@ export class EditProfileComponent implements OnInit {
   public email: string;
   states: State[];
   zipcodes: ZipCode[];
-  constructor(private utilsService: UtilsService, private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService) { }
+  constructor(private cookieService: CookieService, private utilsService: UtilsService, private personService: PersonService, private route: ActivatedRoute, private router: Router, public dialog: MdDialog, private tokenService:TokenService) { }
 
   
   getUser(email: string) {
@@ -48,7 +49,7 @@ export class EditProfileComponent implements OnInit {
     
   ngOnInit() {
     this.utilsService.setHomeState();
-    this.getUser(this.tokenService.getSubject());
+    this.getUser(this.cookieService.get('email'));
     this.personService.getStates().then(res => {
       this.states = res.json();
     })

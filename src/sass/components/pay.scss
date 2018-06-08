@@ -1,0 +1,52 @@
+.pay {
+    background: $color-grey-light;
+    height: 95vh;
+    margin: 0;
+
+        
+    .cards {
+        margin: 10rem;   
+    }
+
+    &__header {
+        text-align:center;
+        margin: auto;
+    }
+
+    &__confirm {
+        margin: 10rem;
+        display: block;
+    }
+    &__amount {
+        width: 100%;
+        display: block;
+    }
+
+    &__confirm-button {
+        padding: .5rem 3rem;
+        background-color: $color-tertiary-dark;
+        border-radius: 1rem;
+        margin-top: .5rem;
+    }
+
+    @media(max-width: 750px) {
+        height: 100%;
+        &__header {
+            font-size: 1.7rem;
+            margin-top: .5rem;
+        }
+        &__confirm {
+            margin: 0;
+            width: 100%;
+        }
+    
+        .cards {
+            margin: 0;
+            width: 100%;
+        }
+    
+        &__confirm-button {
+           // width: 100%;
+        }
+    }
+}

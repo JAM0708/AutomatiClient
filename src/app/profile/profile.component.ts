@@ -26,17 +26,10 @@ export class ProfileComponent implements OnInit {
     }); 
   }
 
-  payBalance() {
-    
+  goTo(path: string) {
+    this.router.navigate([path], {relativeTo: this.route});
   }
 
-  editProfile() {
-    this.router.navigate(["/editProfile", {email: this.person.email}], {relativeTo: this.route});
-  }
-  
-  goToReviews() {
-    this.router.navigate(["/addReview", {email: this.person.email}], {relativeTo: this.route});
-  }
   ngOnInit() {
     this.getUser(this.cookieService.get('email'));
   }

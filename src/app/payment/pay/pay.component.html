@@ -1,0 +1,29 @@
+<div class="pay">
+
+  <h1 class="pay__header">
+    Pay your remaining balance
+  </h1>
+
+  <div class="cards">
+    <app-payment (selectCard) = "cardSelected($event)"></app-payment>
+  </div>
+
+  <div class="pay__confirm">
+    <h1>
+      Confirm Order
+    </h1>
+
+    <h3>
+      Payment Info
+    </h3>
+
+    <ul>
+      <li>Number: {{creditCard?.number}}</li>
+      <li>Exp Date: {{creditCard?.expDate}}</li>
+      <li>CSC: {{creditCard?.csc}}</li>
+    </ul>
+
+    <input class="pay__amount" type="text" #amount placeholder="Enter Amount" required>
+    <button class="pay__confirm-button" (click) = "confirmOrder()">Confirm Order</button>
+  </div>
+</div>
