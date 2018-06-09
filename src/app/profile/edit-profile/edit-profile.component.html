@@ -1,52 +1,74 @@
-<h2>Edit Your Account</h2>
+<div class="register">
 
-<form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "w3-container">
-  
-    <p>
-      <label>First Name: </label>
-      <input name = "firstName" type = "text" class = "w3-input" ngModel = "{{person?.firstName}}"/>
-    </p>
-  
-    <p>
-      <label>Last Name: </label>
-      <input name = "lastName" type = "text" class = "w3-input" ngModel = "{{person?.lastName}}"/>
-    </p>
-  
-     <p>
-      <label>Email: </label>
-      <input name = "email" type = "text" class = "w3-input" ngModel = "{{person?.email}}"/>
-    </p>
-  
-    <p>
-      <label>Address: </label>
-      <input name = "street" type = "text" class = "w3-input" ngModel = "{{person?.street}}"/>
-    </p>
-  
-    <p>
-      <label>City: </label>
-      <input name = "city" type = "text" class = "w3-input" ngModel = "{{person?.city}}" />
-    </p>
-  
-    <p>
-      <label>State: </label>
-      <select name="state" (ngModelChange)="stateSelect($event)" ngModel>
-        <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
-      </select>
-    </p>
-    <div *ngIf="zipcodes !== undefined; else ChoseState">
-    <p>
-      <label>Zip Code: </label>
-      <select name="zipcode" ngModel>
-        <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
-      </select>
-    </p>
+  <div class="register__form-box">
+    <div class="register__header-box">
+      <div class="register__header-text">
+        <h2>Edit Your Account</h2>
+      </div>
     </div>
-    <ng-template #ChoseState>Please chose a state</ng-template>
-    <p>
-      <label>Password: </label>
-      <input name = "password" type = "password" class = "w3-input" ngModel = "{{person?.password}}"/>
-    </p>
+
+    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "register__form" ngNativeValidate>
   
-    <button type = "submit">Update</button>
-  
-  </form>
+      <div class="register__element">
+        <label class = "register__label">First Name: </label>
+        <input name = "firstName" type = "text" class = "register__input" ngModel = "{{person?.firstName}}" required/>
+      </div>
+      
+      <div class="register__element">
+        <label class = "register__label">Last Name: </label>
+        <input name = "lastName" type = "text" class = "register__input" ngModel = "{{person?.lastName}}" required/>
+      </div>
+      
+    
+      <div class="register__element">
+        <label class = "register__label">Email: </label>
+        <input name = "email" type = "text" class = "register__input" ngModel = "{{person?.email}}" required/>
+      </div>
+    
+      <div class="register__element">
+        <label class = "register__label">Address: </label>
+        <input name = "street" type = "text" class = "register__input" ngModel = "{{person?.street}}" required/>
+      </div>
+
+      <div class="register__element">
+        <label class = "register__label" >City: </label>
+        <input name = "city" type = "text" class = "register__input" ngModel = "{{person?.city}}" required />
+      </div>
+        
+      <div class="register__element">
+        <label class = "register__label">State: </label>
+        <select name="state" class = "register__select" (ngModelChange)="stateSelect($event)" ngModel required>
+          <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+        </select>
+      </div>
+    
+      <div *ngIf="zipcodes !== undefined; else ChoseState" class="register__element">
+        <label class="register__label">Zip Code: </label>
+        <select name="zipcode" class="register__select" ngModel required>
+          <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
+        </select>
+      </div>
+      <ng-template #ChoseState > 
+        <div class="register__element">
+          <label class="register__label">
+        Please chose a state
+          </label>
+        </div>
+      </ng-template>
+      
+      <div class="register__element">
+        <label class = "register__label">Password: </label>
+        <input name = "password" type = "password" class = "register__input" ngModel = "{{person?.password}}"/>
+      </div>
+       
+      <div class="register__element">
+        <button class = "register__button register__button--green" type = "submit">Update</button>
+      </div>
+    
+    </form>
+
+  </div>
+
+
+</div>
+

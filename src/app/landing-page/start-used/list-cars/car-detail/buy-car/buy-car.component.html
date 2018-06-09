@@ -9,7 +9,6 @@
         <td>
             <h1>Payment</h1>
             <app-payment (selectCard) = "cardSelected($event)"></app-payment>
-            <input class="" type="text" #amount placeholder="enter amount">
         </td>
       </tr>
 
@@ -54,6 +53,7 @@
     
 
         <br>
+        <input class="" type="text" #amount placeholder="enter amount" required>
         <button class = "button_confirm" (click)="confirmOrder()">Confirm Order!</button>
         </td>
       </tr>

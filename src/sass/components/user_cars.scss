@@ -20,8 +20,31 @@
         }
     }
 
+    li {
+        display: inline-block;
+        margin-left: 5rem;
+    }
     .car-img {
         width: 400px;
         margin: auto;
+    }
+
+    @media(max-width: 750px) {
+        .car-img {
+            width: 300px;
+        }
+
+        li {
+            display: inline-block;
+            margin-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+         /* Force table to not be like tables anymore */
+         table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+
+
     }
 }

@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Review } from '../../model/review.model';
 import { NgForm } from '@angular/forms';
 import { UtilsService } from '../../services/utils.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-review',
@@ -24,18 +25,13 @@ export class AddReviewComponent implements OnInit {
   reviews: Review[];
   carr: Car;
 
-  constructor(private personService: PersonService, 
+  constructor(private cookieService: CookieService, private personService: PersonService, 
     private tokenService: TokenService, private carService: CarService,
      private reviewService: ReviewService, private router: Router, private route: ActivatedRoute, private utilsService: UtilsService) { }
 
   ngOnInit() {
     this.utilsService.setHomeState();
-    this.route.params
-    .subscribe(
-    (params: Params) => {
-      this.email = params['email'];
-    }
-    );
+    this.email = this.cookieService.get('email');
     this.carService.getCarsByPerson(this.email).then(res => {
       this.cars = res.json();
     });

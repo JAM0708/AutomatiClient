@@ -19,6 +19,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { PasswordResetComponent } from './login/forgot-password/password-reset/password-reset.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { PayComponent } from './payment/pay/pay.component';
 
 
 const appRoutes: Routes = [
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
       {path: 'addReview', component: AddReviewComponent},
       {path: 'forgotPassword', component: ForgotPasswordComponent},
       {path: 'passwordReset', component: PasswordResetComponent},
+      {path: 'payBalance', component: PayComponent}
     ];
 
 

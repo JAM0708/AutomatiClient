@@ -1,10 +1,70 @@
 .profile {
-    .container {
+    background: $color-grey-light;
+    height: 95vh;
+
+    &__img {
         width: 100%;
     }
-    .left {
-        float: left;
-        width: 33%;
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        //max-width: 500px;
+        //margin: auto;
+        text-align:center;
+       // width: 50rem;
+        font-family: arial;
+        display: inline-block;
+    }
+
+    .email {
+        color: grey;
+        font-size: 18px;
+    }
+    
+    .address {
+        color: grey;
+        font-size: 14px;
+    }
+
+    &__but-profile {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align:center;
+        cursor: pointer;
+        width: 100%;
+        float: right;
+        font-size: 18px;
+    }
+
+    &__but-reviews {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: $color-grey-dark-2;
+        text-align:center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        float: right;
+    }
+
+    &__but-balance {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: $color-grey-dark-3;
+        text-align:center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        float: right;
     }
     
     /*
@@ -17,26 +77,42 @@
         width: 70%;
     }
     */
-    .right {
+    .cars {
         float: right;
-        width: 50%;
         text-align: center;
+        margin-left: 3rem;
+        vertical-align: top;
     }
     
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+
+
     @media(max-width: 1200px) {
-        .left {
+        height: 100%;
+        .card {
             float: none;
             margin: auto;
-            width: 50%;
+            width: 100%;
+            
     
         }
-        img {
-            width: 400px;
+
+        .cars {
+            margin-top: 5rem;
         }
-        .right {
+        img {
+            width:100%;
+        }
+        .cars {
             float: none;
             margin: auto;
-            width: 50%;
+            //width: 50%;
         }
+
     }
 }
