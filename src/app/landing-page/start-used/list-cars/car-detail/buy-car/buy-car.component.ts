@@ -69,6 +69,7 @@ export class BuyCarComponent implements OnInit {
 
     // update or add payment
     console.log(this.creditCard.id);
+    
     if(this.creditCard.id == undefined) {
       this.paymentService.addCard(this.creditCard);
     }
@@ -90,6 +91,8 @@ export class BuyCarComponent implements OnInit {
 
     this.carService.updateCar(updateCar).then(res => {
       // if(res.json().passed) {
+        window.location.reload();
+
        this.router.navigate(['/profile']);                    
        //} 
        /*
