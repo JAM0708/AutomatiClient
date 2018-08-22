@@ -48,7 +48,7 @@
         overflow: hidden;
         &.left {
           left: 0;
-          background: url('https://images.pexels.com/photos/70912/pexels-photo-70912.jpeg?w=1920&h=1080&auto=compress&cs=tinysrgb') center center no-repeat;
+          background: url('../images/newcars.jpg') center center no-repeat;
           background-size: cover;
           &:before {
             position: absolute;
@@ -60,7 +60,7 @@
         }
         &.right {
           right: 0;
-          background: url('https://images.pexels.com/photos/305223/pexels-photo-305223.jpeg?w=1920&h=1080&auto=compress&cs=tinysrgb') center center no-repeat;
+          background: url('../images/usedcars.jpg') center center no-repeat;
           background-size: cover;
           &:before {
             position: absolute;

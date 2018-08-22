@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     private router: Router, private route: ActivatedRoute, 
     private tokenService: TokenService, 
     public dialog: MdDialog, 
-    private cookieService: CookieService) { }
+    private cookieService: CookieService,
+    private elementRef: ElementRef) { }
 
   ngOnInit() {
   }
@@ -42,12 +43,15 @@ export class LoginComponent implements OnInit {
       this.cookieService.set('email', email);
       this.router.navigate(['../home'], {relativeTo: this.route});
     } else {
-      let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        width: '40%',
-        height: '20%',
-        position: { top: '10%', left: '25%', right: '25%', bottom: '50%' },
-          data: { name: email,  action: "login unsuccessfully" }
-        });
+      // let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      //   width: '40%',
+      //   height: '20%',
+      //   position: { top: '10%', left: '25%', right: '25%', bottom: '50%' },
+      //     data: { name: email,  action: "login unsuccessfully" }
+      //   });
+        let errorDiv = this.elementRef.nativeElement.querySelector('.error');
+
+        errorDiv.innerHTML = `<h4 style = "color:red">Invalid Credentials</h4>`;
     }
    });     
   }

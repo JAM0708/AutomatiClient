@@ -7,7 +7,7 @@
       <form (ngSubmit) = "onSubmit(f)" #f = "ngForm" class = "login__form" ngNativeValidate>
         <div class = "login__element">
             <label class = "login__label">Email: </label>
-            <input name = "email" type = "text" class = "login__input" ngModel required/>
+            <input name = "email" type = "email" class = "login__input" ngModel required/>
         </div>
       
         <div class = "login__element">
@@ -18,6 +18,10 @@
         <div class = "login__element-center">
             <button class = "login__button login__button--green" type = "submit">Login</button>     
             <button class = "login__button login__button--green" (click) = "passwordReset()">Reset Password</button>
+        </div>
+
+        <div class="error">
+            
         </div>
 
       </form>

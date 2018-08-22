@@ -16,7 +16,7 @@ html {
 .register {
   position: absolute;
   width: 100%;
-  background-image: url("http://www.spyderonlines.com/images/highway_cars_city_traffic_buildings_black_white_25566.jpg");
+  background-image: url("../images/register.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -178,7 +178,7 @@ html {
 .login {
   position: absolute;
   width: 100%;
-  background-image: url("http://blog.hdwallsource.com/wp-content/uploads/2015/05/toy-car-wallpaper-39199-40102-hd-wallpapers.jpg");
+  background-image: url("../images/login.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -296,7 +296,7 @@ html {
     border-color: rgba(92, 92, 92, 0.3); }
   .lp .split.left {
     left: 0;
-    background: url("https://images.pexels.com/photos/70912/pexels-photo-70912.jpeg?w=1920&h=1080&auto=compress&cs=tinysrgb") center center no-repeat;
+    background: url("../images/newcars.jpg") center center no-repeat;
     background-size: cover; }
     .lp .split.left:before {
       position: absolute;
@@ -306,7 +306,7 @@ html {
       background: rgba(223, 39, 39, 0.7); }
   .lp .split.right {
     right: 0;
-    background: url("https://images.pexels.com/photos/305223/pexels-photo-305223.jpeg?w=1920&h=1080&auto=compress&cs=tinysrgb") center center no-repeat;
+    background: url("../images/usedcars.jpg") center center no-repeat;
     background-size: cover; }
     .lp .split.right:before {
       position: absolute;
