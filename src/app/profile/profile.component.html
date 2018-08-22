@@ -1,6 +1,6 @@
 <div class="profile">
     <div class="container">
-        <div class="card clearfix">
+        <div class="card">
             <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_beard_male_person_user-512.png"
                 class="profile__img">
             <h1>Name: {{person?.firstName}} {{person?.lastName}}</h1>
@@ -8,12 +8,12 @@
             <p class="address">Address: {{person?.street | uppercase}} {{person?.city | uppercase}} {{person?.state?.name | uppercase}}</p>
             <p>Balance: ${{person?.balance}}</p>
 
-            <button class = "profile__but-profile clearfix" (click)="goTo('/editProfile')">Edit Profile</button>
-            <button class = "profile__but-reviews clearfix" (click)="goTo('/addReview')">Add Reviews</button>
-            <button class = "profile__but-balance clearfix" (click)="goTo('/payBalance')">Pay Balance</button>
+            <button class = "profile__but-profile" (click)="goTo('/editProfile')">Edit Profile</button>
+            <button class = "profile__but-reviews" (click)="goTo('/addReview')">Add Reviews</button>
+            <button class = "profile__but-balance" (click)="goTo('/payBalance')">Pay Balance</button>
         </div>
 
-        <div class="cars clearfix">
+        <div class="cars">
             <h2>List of Cars</h2>
             <app-user-cars></app-user-cars>
 

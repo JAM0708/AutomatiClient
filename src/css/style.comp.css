@@ -831,7 +831,7 @@ html {
 
 .profile {
   background: #ededed;
-  height: 95vh;
+  box-sizing: border-box;
   /*
     .details {
         
@@ -846,9 +846,10 @@ html {
     width: 100%; }
   .profile .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
     text-align: center;
-    font-family: arial;
-    display: inline-block; }
+    font-family: arial; }
   .profile .email {
     color: grey;
     font-size: 18px; }
@@ -865,7 +866,6 @@ html {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    float: right;
     font-size: 18px; }
   .profile__but-reviews {
     border: none;
@@ -877,8 +877,7 @@ html {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
-    float: right; }
+    font-size: 18px; }
   .profile__but-balance {
     border: none;
     outline: 0;
@@ -889,13 +888,9 @@ html {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
-    float: right; }
+    font-size: 18px; }
   .profile .cars {
-    float: right;
-    text-align: center;
-    margin-left: 3rem;
-    vertical-align: top; }
+    text-align: center; }
   .profile .clearfix::after {
     content: "";
     clear: both;

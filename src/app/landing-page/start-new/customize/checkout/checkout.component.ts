@@ -134,6 +134,7 @@ export class CheckoutComponent implements OnInit {
 
     const transaction = new Transaction(this.amount.nativeElement.value, "CAR PAYMENT", this.person, this.creditCard.number);
     this.paymentService.addTransaction(transaction).then( res => {
+      window.location.reload();
       this.router.navigate(['/profile']);             
     });
   }

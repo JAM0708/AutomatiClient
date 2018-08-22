@@ -24,6 +24,13 @@
     <label class="register__label">City: </label>
     <input name = "city" type = "text" class = "register__input" ngModel required/>
     </div>
+    <ng-template #ChoseState > 
+      <div class="register__element">
+        <label class="register__label">
+      Please chose a state
+        </label>
+      </div>
+    </ng-template>
     <div class="register__element">
     <label class="register__label">State: </label>
     <select name="state" (ngModelChange)="stateSelect($event)" ngModel class="register__select" required>
@@ -32,17 +39,9 @@
     </div>
   <div *ngIf="zipcodes !== undefined; else ChoseState" class="register__element">
     <label class="register__label">Zip Code: </label>
-    <select name="zipcode" ngModel class="register__select">
-      <option *ngFor="let zipcode of zipcodes" [ngValue]="zipcode">{{ zipcode.code }}</option>
-    </select>
+    <input name="zipcode" ngModel class="register__input" required>
   </div>
-  <ng-template #ChoseState > 
-    <div class="register__element">
-      <label class="register__label">
-    Please chose a state
-      </label>
-    </div>
-  </ng-template>
+  
   <div class="register__element">
     <label class="register__label">Password: Minimum 8 characters & at least one letter & one number</label>
     <input name = "password" type = "password" class = "register__input" ngModel pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required/>

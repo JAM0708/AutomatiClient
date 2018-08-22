@@ -1,18 +1,19 @@
 .profile {
     background: $color-grey-light;
-    height: 95vh;
+    //height: 95vh;
 
+    box-sizing: border-box;
     &__img {
         width: 100%;
     }
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        //max-width: 500px;
-        //margin: auto;
+        max-width: 600px;
+        margin: auto;
         text-align:center;
        // width: 50rem;
         font-family: arial;
-        display: inline-block;
+        //display: inline-block;
     }
 
     .email {
@@ -35,7 +36,7 @@
         text-align:center;
         cursor: pointer;
         width: 100%;
-        float: right;
+        //float: right;
         font-size: 18px;
     }
 
@@ -50,7 +51,7 @@
         cursor: pointer;
         width: 100%;
         font-size: 18px;
-        float: right;
+        //float: right;
     }
 
     &__but-balance {
@@ -64,7 +65,7 @@
         cursor: pointer;
         width: 100%;
         font-size: 18px;
-        float: right;
+      //  float: right;
     }
     
     /*
@@ -78,10 +79,10 @@
     }
     */
     .cars {
-        float: right;
+        //float: right;
         text-align: center;
-        margin-left: 3rem;
-        vertical-align: top;
+       // margin-left: 3rem;
+        //vertical-align: top;
     }
     
     .clearfix::after {
